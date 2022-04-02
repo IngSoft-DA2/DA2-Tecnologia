@@ -23,11 +23,14 @@ namespace Vet.Api.BusinessLogic
         [HttpGet]
         public IActionResult GetAllDogs()
         {
-            return Ok(this._dogLogic.GetAll().Select(dog => new DogBasicInfoModel
+            var dogsSaved = this._dogLogic.GetAll();
+            var dogsConverted = dogsSaved.Select(dog => new DogBasicInfoModel
             {
                 Id = dog.Id,
                 Name = dog.Name
-            }));
+            });
+            
+            return Ok(dogsConverted);
         }
 
         [HttpGet("{dogId}", Name = "GetDogById")]

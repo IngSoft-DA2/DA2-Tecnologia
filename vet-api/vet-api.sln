@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.BusinessLogic", "Vet.Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.Domain", "Vet.Domain\Vet.Domain.csproj", "{669269E3-257C-445C-8CBD-F4B0464F18DF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.WebApiTest", "Vet.WebApiTest\Vet.WebApiTest.csproj", "{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{669269E3-257C-445C-8CBD-F4B0464F18DF}.Release|x64.Build.0 = Release|Any CPU
 		{669269E3-257C-445C-8CBD-F4B0464F18DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{669269E3-257C-445C-8CBD-F4B0464F18DF}.Release|x86.Build.0 = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|x64.Build.0 = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Debug|x86.Build.0 = Debug|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x64.ActiveCfg = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x64.Build.0 = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x86.ActiveCfg = Release|Any CPU
+		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
