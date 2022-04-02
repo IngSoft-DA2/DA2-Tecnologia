@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Vet.BusinessLogic/1.0.0": {
+        "dependencies": {
+          "Vet.BusinessLogicInterface": "1.0.0",
+          "Vet.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Vet.BusinessLogic.dll": {}
+        }
+      },
+      "Vet.BusinessLogicInterface/1.0.0": {
+        "dependencies": {
+          "Vet.Domain": "1.0.0"
+        },
+        "runtime": {
+          "Vet.BusinessLogicInterface.dll": {}
+        }
+      },
+      "Vet.Domain/1.0.0": {
+        "runtime": {
+          "Vet.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Vet.BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Vet.BusinessLogicInterface/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Vet.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -68,3 +68,4 @@ C:\Users\Daniel Acevedo\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.WebApi\obj\D
 C:\Users\Daniel Acevedo\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.WebApi\obj\Debug\net5.0\ref\Vet.WebApi.dll
 C:\Users\Daniel Acevedo\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.WebApi\obj\Debug\net5.0\Vet.WebApi.pdb
 C:\Users\Daniel Acevedo\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.WebApi\obj\Debug\net5.0\Vet.WebApi.genruntimeconfig.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.WebApi\obj\Debug\net5.0\Vet.WebApi.pdb

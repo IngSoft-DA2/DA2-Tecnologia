@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {}
+    "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {
+    "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj",
         "projectName": "Vet.Domain",
-        "projectPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj",
-        "packagesPath": "C:\\Users\\Daniel Acevedo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\obj\\",
+        "projectPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj",
+        "packagesPath": "C:\\Users\\SURFACE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Daniel Acevedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\SURFACE\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -37,8 +34,7 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
           "imports": [
             "net461",
             "net462",
@@ -54,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.417\\RuntimeIdentifierGraph.json"
         }
       }
     }

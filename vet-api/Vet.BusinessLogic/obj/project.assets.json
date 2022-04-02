@@ -1,10 +1,10 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    ".NETCoreApp,Version=v3.1": {
       "Vet.BusinessLogicInterface/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
+        "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Vet.Domain": "1.0.0"
         },
@@ -17,7 +17,7 @@
       },
       "Vet.Domain/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
+        "framework": ".NETCoreApp,Version=v3.1",
         "compile": {
           "bin/placeholder/Vet.Domain.dll": {}
         },
@@ -40,43 +40,40 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    ".NETCoreApp,Version=v3.1": [
       "Vet.BusinessLogicInterface >= 1.0.0",
       "Vet.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel Acevedo\\.nuget\\packages\\": {}
+    "C:\\Users\\SURFACE\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\Vet.BusinessLogic.csproj",
+      "projectUniqueName": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\Vet.BusinessLogic.csproj",
       "projectName": "Vet.BusinessLogic",
-      "projectPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\Vet.BusinessLogic.csproj",
-      "packagesPath": "C:\\Users\\Daniel Acevedo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\obj\\",
+      "projectPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\Vet.BusinessLogic.csproj",
+      "packagesPath": "C:\\Users\\SURFACE\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogic\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Daniel Acevedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\SURFACE\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogicInterface\\Vet.BusinessLogicInterface.csproj": {
-              "projectPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogicInterface\\Vet.BusinessLogicInterface.csproj"
+            "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogicInterface\\Vet.BusinessLogicInterface.csproj": {
+              "projectPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.BusinessLogicInterface\\Vet.BusinessLogicInterface.csproj"
             },
-            "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {
-              "projectPath": "C:\\Users\\Daniel Acevedo\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj"
+            "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj": {
+              "projectPath": "C:\\Users\\SURFACE\\Documents\\GitHub\\DA2-Tecnologia\\vet-api\\Vet.Domain\\Vet.Domain.csproj"
             }
           }
         }
@@ -88,8 +85,7 @@
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "netcoreapp3.1": {
         "imports": [
           "net461",
           "net462",
@@ -105,7 +101,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.417\\RuntimeIdentifierGraph.json"
       }
     }
   }

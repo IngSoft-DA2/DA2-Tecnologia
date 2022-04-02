@@ -1,0 +1,12 @@
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\bin\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.deps.json
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\bin\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.dll
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\bin\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.pdb
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\bin\Debug\netcoreapp3.1\Vet.Domain.dll
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\bin\Debug\netcoreapp3.1\Vet.Domain.pdb
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.csprojAssemblyReference.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.AssemblyInfoInputs.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.AssemblyInfo.cs
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.csproj.CoreCompileInputs.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.csproj.CopyComplete
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.dll
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.BusinessLogicInterface\obj\Debug\netcoreapp3.1\Vet.BusinessLogicInterface.pdb

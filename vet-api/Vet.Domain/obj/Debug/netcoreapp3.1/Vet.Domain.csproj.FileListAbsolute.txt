@@ -1,0 +1,9 @@
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\bin\Debug\netcoreapp3.1\Vet.Domain.deps.json
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\bin\Debug\netcoreapp3.1\Vet.Domain.dll
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\bin\Debug\netcoreapp3.1\Vet.Domain.pdb
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.csprojAssemblyReference.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.AssemblyInfoInputs.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.AssemblyInfo.cs
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.csproj.CoreCompileInputs.cache
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.dll
+C:\Users\SURFACE\Documents\GitHub\DA2-Tecnologia\vet-api\Vet.Domain\obj\Debug\netcoreapp3.1\Vet.Domain.pdb
