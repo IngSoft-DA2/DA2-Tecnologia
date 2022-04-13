@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.Domain", "Vet.Domain\Ve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.WebApiTest", "Vet.WebApiTest\Vet.WebApiTest.csproj", "{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vet.BusinessLogicTest", "Vet.BusinessLogicTest\Vet.BusinessLogicTest.csproj", "{9E40B60C-33DF-4807-B8CA-F51583A5A649}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x64.Build.0 = Release|Any CPU
 		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x86.ActiveCfg = Release|Any CPU
 		{F0BFF9F1-02C1-4E43-8F7E-5D8505F72320}.Release|x86.Build.0 = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|x64.Build.0 = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|x64.ActiveCfg = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|x64.Build.0 = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E40B60C-33DF-4807-B8CA-F51583A5A649}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
