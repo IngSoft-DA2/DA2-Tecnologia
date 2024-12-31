@@ -80,6 +80,7 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 ## Noticias
 
 - [Puerto por defecto cambiado en docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
+- [Comparacion de strings case insensitive](https://github.com/npgsql/efcore.pg/issues/1498)
 
 ## Docentes
 
