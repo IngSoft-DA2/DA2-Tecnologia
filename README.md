@@ -81,7 +81,7 @@ Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** d
 
 - [Puerto por defecto cambiado en docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
 - [Comparacion de strings case insensitive](https://github.com/npgsql/efcore.pg/issues/1498)
-
+- [Creacion de links simbolicos](https://github.com/nwheels-io/NuLink)
 ## Docentes
 
 - :space_invader: Daniel Acevedo (daniel18acevedo@gmail.com)
