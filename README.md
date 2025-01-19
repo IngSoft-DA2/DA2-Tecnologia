@@ -8,7 +8,7 @@
 
 - [Descargar Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-setup.md)
 
-- [Creacion o instalacion instalacion de una aplicacion Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project)
+- [Creacion o instalacion de una aplicacion Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular-create-project)
 
 - [Arquitectura de Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/angular/angular-architecture.md)
 
