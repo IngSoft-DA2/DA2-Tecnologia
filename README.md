@@ -125,8 +125,3 @@ Se requiere que configuren reglas en las branches principales para evitar confli
 - Para terminar apretar `Create`
 
 - Repetir los mismos pasos pero con `develop`
-
-  # Link de la clase
-  [M6-ID - Al final](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=8c10290e-53f2-4a9f-95ad-b1e000bb2e18)
-  
-  [N5-AN](https://vimeopro.com/universidadortfi/fi-6343-diseno-de-aplicaciones-2-70276-d2-n5a-an/video/1001858328)
