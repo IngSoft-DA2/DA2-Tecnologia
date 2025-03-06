@@ -13,7 +13,7 @@ Un pull request (PR) en GitHub es un mecanismo para los desarrolladores de propo
 
 Cuando uno crea un PR, puede decir en ese momento si esta listo para ser revisado por el resto del equipo o si es un trabajo en proceso (WIP). Los draft PRs no pueden ser mergeados, y los dueños no tienen permitido solicitar la revision de los mismos. Cuando uno considera que el trabajo en la source branch esta terminado y listo para ser revisado, se puede marcar el draft PR como ready for review. Hacer un PR ready for review solicitara revision a cualquier colaborador del repositorio. Asi como se puede convertir un PR de draft a ready for review, se puede realizar la accion inversa.
 
-## Creacion de un PR
+## Creación de un PR
 
 La web de github detecta cuales ramas estan mas avanzadas que la default branch, y en el inicio sugieren crear un PR desde aquellas ramas.
 
