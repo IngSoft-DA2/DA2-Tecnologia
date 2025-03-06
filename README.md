@@ -1,6 +1,6 @@
 [Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
-# Creacion de un PullRequest - PR
+# Creación de un PullRequest - PR
 
 Un pull request (PR) en GitHub es un mecanismo para los desarrolladores de proponer cambios al codigo fuente. Le permite a los desarrolladores notificarle a los miembros del equipo que se completo una feature o el arreglo de un bug y el codigo asociado a esos cambios esta listo para ser revisado y potencialmente para mergear en la rama del ambiente correspondiente. En el PR se encuentra mucha informacion sobre los cambios a introducir como poder ver las diferencias de los archivos manipulados (agregaciones, modificaciones y eliminaciones).
 
