@@ -19,6 +19,3 @@
 - [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/dtos.md)
 
 - [REST](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest.md)
-
-## Links de clase
-[M6-ID](https://ortuy.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2f0adf08-9396-488a-9f45-b1ee00b6d673)
