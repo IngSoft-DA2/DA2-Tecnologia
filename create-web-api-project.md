@@ -33,7 +33,7 @@ Comandos:
 - Una vez parados en la carpeta `src` con la terminal, crearemos un proyecto `Web API` ejecutando lo siguiente
 
 ```
-  dotnet new webapi -au none --no-openapi -controllers -n Vidly.WebApi
+  dotnet new webapi -au none --no-openapi -controllers -n <<Nombre del negocio>>.WebApi
 ```
 
 Comandos y parametros:
@@ -41,7 +41,7 @@ Comandos y parametros:
 - `new`: crea un nuevo proyecto
 - `webapi`: tipo de proyecto a crear
 - `-n`: nombre del proyecto
-- `Vidly.WebApi`: `Vidly` es el contexto del negocio, `WebApi` es un nombre que me ayuda identificar como sera expuesta mi aplicacion
+- `<<Nombre del negocio>>.WebApi`: `<<Nombre del negocio>>` es el contexto del negocio, `WebApi` es un nombre que me ayuda identificar como sera expuesta mi aplicacion
 - `au`: sirve para configurar el tipo de autenticacion que queremos que se requiera, el valor `none` es para indicar que no queremos que se configure.
 - `no-openapi`: para indicar que no se quiere integrar `Swagger` en la web api.
 - `controllers`: para indicar que se usen controllers y no una `minimal-api`
