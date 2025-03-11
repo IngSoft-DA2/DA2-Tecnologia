@@ -4,7 +4,7 @@
 - Una vez situados en dicho directorio con la terminal se debera de ejecutar el siguiente comando:
 
 ```
-dotnet new sln -n Vidly
+dotnet new sln -n <<Nombre del negocio, archivo de la solucion>>
 ```
 Comandos y parametros:
 - `dotnet`: terminal CLI para realizar acciones de .NET
