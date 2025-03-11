@@ -1,9 +1,10 @@
 # Repositorio de clase
 
-## Planillas
+<!-- ## Planillas
 
-- [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
+ - [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
 - [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBnKiIcVKgD-VTEBUVJ_pZVw?e=O0ItFW)
+-->
 
 ## Introducción
 
