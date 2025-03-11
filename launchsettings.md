@@ -82,7 +82,7 @@ Si solo se requiere un solo perfil y el servidor `Kestrel` el archivo quedaria:
 ```JSON
 {
   "profiles": {
-    "Vidly.WebApi": {
+    "<<Nombre del negocio>>.WebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
