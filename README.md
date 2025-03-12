@@ -1,8 +1,5 @@
 # Repositorio de clase
 
-
-https://portal.azure.com/?Microsoft_Azure_Education_correlationId=175771eb-1548-444e-9394-db6546f1cb2e#view/Microsoft_Azure_Education/EducationMenuBlade/~/software
-
 <!-- ## Planillas
 
  - [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
