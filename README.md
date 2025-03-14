@@ -45,8 +45,8 @@ Aca van a encontrar tanto materiales de interes para profundizar, como códigos 
 Podran encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
 ### Stack tecnologico
-
-- [.NET Core 8.0](https://dotnet.microsoft.com/download)
+- [Key para Visual Studio Enterprise 2022](https://azureforeducation.microsoft.com/devtools)
+- [.NET 8.0](https://dotnet.microsoft.com/download)
 - [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
 - [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
 - [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
