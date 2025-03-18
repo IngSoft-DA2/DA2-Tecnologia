@@ -14,9 +14,11 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 
 - **[pull_request_template.md](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/pull_request_template.md)**: Es una guia sobre la informacion a incluir en los pull request que se creen. La misma se debera de modificar en las partes necesarias para agregar informacion sobre el PR del trabajo realizado.
 
-- **[.github/workflows/build-test-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test-analysis.yml)**: Es una configuracion para ejecutar tareas al momento de realizar ciertas acciones en github como la creacion de un PR y cuando se mergea codigo a una rama. Esta configurado para que haga build, corra las pruebas junto con un chequeo de cobertura del codigo y analiza el codigo en funcion a los parametros del archivo **.editorconfig**.
+- **[.github/workflows/build-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml)**: Es la configuracion que permitira que compile la solucion y corra las pruebas a la hora de mergear una rama no protegida a una protegida (develop y main), tambien se ejecutara cuando se cree un PR a una rama protegida o cuando este PR creado se vea modificado al crear nuevos commits en la rama.
 
-  - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar dentro de la carpeta `workflows` y esta dentro de la carpeta `.github`.
+- **[.github/worflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml)**: Es la configuracion que analiza el codigo estatico para corroborar el cumplimiento de los estandares establecidos y reglas de clean code en el archivo **.editorconfig**.
+
+  - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar en el directorio `.github/workflows` en la raiz del repositorio.
 
 - **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes)**: Este archivo de configuracion permite asignarle atributos a otros archivos y directorios en el proyecto, para poder indicarle a Git como debe tratarlos.
 
