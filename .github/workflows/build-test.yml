@@ -8,7 +8,7 @@ on:
 jobs:
   run:
     name: Run
-    uses: IngSoft-DA2/workflows/.github/workflows/reusable-build-test-analysis.yml@main
+    uses: IngSoft-DA2/workflows/.github/workflows/reusable-build-test.yml@main
     permissions: write-all
     with:
       solution-name: '<<el nombre del archivo de tu solucion, por ejemplo: Test.sln>>'
