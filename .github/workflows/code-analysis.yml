@@ -1,34 +1,14 @@
-name: Code analysis
+name: Code Analysis
 
 on:
   pull_request:
   push:
     branches: [main, develop]
 
-env:
-  DOTNET_VERSION: 8.0.X
-
 jobs:
-  analysis:
-    name: Analysis
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
-
-    - name: Run code analysis report
-      run: dotnet format --verify-no-changes --verbosity diagnostic --report ./analysis
-
-    - name: Upload code analysis report
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: Code Analysis Report
-        path: ./analysis/format-report.json
-        retention-days: 3
+  run:
+    name: Run
+    uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@main
+    permissions: write-all
+    with:
+      solution-name: 'Test.sln'
