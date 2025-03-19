@@ -11,7 +11,3 @@
 **Requerimiento**: [descripcion del requerimiento]
 
 **Trabajado con**: [mention your pairing partner]
-
-**Antes de solicitar per review, revisaste el codigo?**
-
-[Si/No]
