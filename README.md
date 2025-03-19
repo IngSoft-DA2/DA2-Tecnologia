@@ -16,7 +16,7 @@ A continuacion se pueden encontrar aquellos archivos que son requeridos en la so
 
 - **[.github/workflows/build-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml)**: Es la configuracion que permitira que compile la solucion y corra las pruebas a la hora de mergear una rama no protegida a una protegida (develop y main), tambien se ejecutara cuando se cree un PR a una rama protegida o cuando este PR creado se vea modificado al crear nuevos commits en la rama.
 
-- **[.github/worflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml)**: Es la configuracion que analiza el codigo estatico para corroborar el cumplimiento de los estandares establecidos y reglas de clean code en el archivo **.editorconfig**.
+- **[.github/workflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es la configuracion que analiza el codigo estatico para corroborar el cumplimiento de los estandares establecidos y reglas de clean code en el archivo **.editorconfig**.
 
   - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar en el directorio `.github/workflows` en la raiz del repositorio.
 
