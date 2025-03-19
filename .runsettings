@@ -9,7 +9,7 @@
     <DataCollectors>
       <DataCollector friendlyName="XPlat Code Coverage">
         <Configuration>
-          <ExcludeByFile>**/*Migrations/*.cs,Program.cs,*DbContext.cs</ExcludeByFile>
+          <ExcludeByFile>**/*Migrations/*.cs,**/Program.cs,**/*DbContext.cs,**/*Context.cs</ExcludeByFile>
           <ExcludeByAttribute>GeneratedCodeAttribute</ExcludeByAttribute>
         </Configuration>
       </DataCollector>
