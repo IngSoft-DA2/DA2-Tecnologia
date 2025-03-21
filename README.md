@@ -21,5 +21,5 @@
 ## Referencias interesantes a la documentación de Microsoft
 - [Thread en GitHub sobre agregar en una actualización](https://github.com/dotnet/efcore/issues/18044)
 - [Poder agregar una entidad secundaria en la actualización de una entidad primaria con PK Guid](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-3.x/breaking-changes#detectchanges-honors-store-generated-key-values)
-- [Justificación de las migraciones] (https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [Justificación de las migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 
