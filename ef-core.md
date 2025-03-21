@@ -1,3 +1,5 @@
+[Volver - EF Core](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core)
+
 # Entity Framework Core (EF Core)
 
 Entity Framework core (EF Core) es un framework de object-relational mapping (ORM) open-source desarrollado por Microsoft. Es una versión más ligera, extensible y multiplataforma de Entity Framework, diseñada para trabajar en proyectos de .NET. EF Core le permite a los desarrolladores trabajar con base de datos relacionales usando objetos fuertemente tipados en .NET. EF Core es una abstracción a la complejidad de interactuar directamente con una base de datos.
