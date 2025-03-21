@@ -25,7 +25,7 @@ Acá van a encontrar tanto materiales de interes para profundizar, cómo código
 
 ### Ayuda
 
-- [Practicas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
+- [Prácticas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 
 ### Primera parte: .NET WebApi
