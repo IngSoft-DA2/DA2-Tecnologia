@@ -1,4 +1,4 @@
-[Volver - EFCore](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core)
+[Volver - EFCore](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core#indice)
 # Test de conexión a la base de datos
 
 La idea de este aplicacion de consola es poder probar que el connection string funcione correctamente. Esta aplicación de consola lo que hace es conectarse al servidor sql, crear una base de datos con el nombre `Test` si no existe y agregar un elemento.
