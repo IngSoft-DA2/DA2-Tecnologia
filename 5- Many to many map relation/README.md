@@ -1,4 +1,4 @@
-[Atras - EFCore](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core)
+[Volver - EFCore](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core#indice)
 # Configuracion N a N
 
 Para realizar esta configuracion es necesario utilizar un tipo de coleccion para una property en ambas clases y que estos se referencien entre ellos. Para ello tendremos en la clase `User` lo siguiente:
