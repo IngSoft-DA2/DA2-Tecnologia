@@ -1,4 +1,4 @@
-[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
 # Creación de un PullRequest - PR
 
