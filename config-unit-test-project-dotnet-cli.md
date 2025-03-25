@@ -94,4 +94,3 @@ Comandos
 [Chequear FluentAssertions]
 </p>
 </p>
-![alt text](image.png)
