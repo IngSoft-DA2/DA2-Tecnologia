@@ -83,7 +83,7 @@ Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe c
 ```
 6. Una vez agregado todos los archivos, el `.cs` de prueba y modificado el readme, realizar el commit inicial
 7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
-8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/pr-creation)
+8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#configuraci%C3%B3n-de-branches)
 9. Al finalizar toda la configuración como resultado deberíamos de tener 
   9.1. Un único commit en `main` y `develop` creado a partir de éste
   9.2 Dos actions ejecutadas y en estado failure
