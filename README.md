@@ -68,6 +68,28 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/IngSoft-DA2/Test` por la url del repositorio.
 
+# Subida de archivos
+1. Clonarse el repo
+2. Deberíamos de estar situados en la rama main
+3. Agregar todos los archivos para la configuración a la carpeta raiz del repositorio
+4. Agregar un archivo con extensión `.cs` (por ejemplo `Test.cs`), esto hará que se ejecuten las actions al commitearse
+5. Modificar el readme con las insigneas pudiendo diferenciar cuales son de `main` y cuales son de `develop` por ejemplo quedando parecido a lo siguiente
+```
+## Main
+<< insigneas de main >>
+
+## Develop
+<< insigneas de develop>>
+```
+6. Una vez agregado todos los archivos, el `.cs` de prueba y modificado el readme, realizar el commit inicial
+7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
+8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/pr-creation)
+9. Al finalizar toda la configuración como resultado deberíamos de tener 
+  9.1. Un único commit en `main` y `develop` creado a partir de éste
+  9.2 Dos actions ejecutadas y en estado failure
+  9.3 Las insigneas indicando el estado failure de ambas ramas 
+11. Luego de que se termino de configurar y se creo la rama develop, en el primer PR podemos eliminar esta clase `Test.cs` de prueba creada
+
 # Configuración de branches
 
 Se requiere que configuren reglas en las branches principales para evitar conflictos al momento de mergear.
