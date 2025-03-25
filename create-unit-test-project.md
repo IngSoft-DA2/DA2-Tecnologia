@@ -164,7 +164,7 @@ cd ..
 dotnet sln add src/Vidly.BusinessLogic
 ```
 
-- Para verificar que fue agregado éxitosamente se debe ejecutar el siguiente comando:
+- Para verificar que fue agregado exitosamente se debe ejecutar el siguiente comando:
 
 ```C#
 dotnet sln list
