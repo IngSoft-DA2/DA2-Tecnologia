@@ -64,7 +64,7 @@ ls
 [Chequear creación de proyecto]
 </p>
 
-- Ahora dicho proyecto `MSTest` lo debemos de agregar a la solucioó. Para esto debemos situarnos con la terminal en el directorio donde está la solución `.sln`, para esto ejecutaremos:
+- Ahora dicho proyecto `MSTest` lo debemos de agregar a la solución. Para esto debemos situarnos con la terminal en el directorio donde está la solución `.sln`, para esto ejecutaremos:
 
 ```
 cd ..
