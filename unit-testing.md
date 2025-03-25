@@ -6,7 +6,7 @@ Las pruebas son un aspecto fundamental en el desarrollo de software de calidad. 
 
 Existen varios tipos de pruebas, cada una con un propósito diferente para validar aspectos específicos del sistema.
 
-# Pruebas de integracion
+# Pruebas de integración
 
 Estas pruebas se concentran en probar la interacción entre diferentes módulos/capas del sistema. Verifica que módulos individuales funcionen correctamente en grupo. Este tipo de pruebas pueden ser realizadas en diferentes niveles del sistema.
 
