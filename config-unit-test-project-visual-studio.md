@@ -1,4 +1,4 @@
-# Configuracion de proyecto de prueba unitaria Visual Studio
+# Configuración de proyecto de prueba unitaria Visual Studio
 
 ## Moq
 
@@ -21,7 +21,7 @@
 [Moq]
 </p>
 
-- Instalar ultima version. La fuente del paquete debe ser `nuget.org`
+- Instalar última versión. La fuente del paquete debe ser `nuget.org`
 
 <p align="center">
 <img src='./images/image-19.png'>
@@ -29,17 +29,17 @@
 </p>
 
 <p align="center">
-[Instalar version]
+[Instalar versión]
 </p>
 
-- Chequear instalacion. El paquete debe estar listado en los `Packages` del proyecto de prueba.
+- Chequear instalación. El paquete debe estar listado en los `Packages` del proyecto de prueba.
 <p align="center">
 <img src='./images/image-20.png'>
 
 </p>
 
 <p align="center">
-[Chequear instalacion]
+[Chequear instalación]
 </p>
 
 ## FluentAssertions
@@ -50,7 +50,7 @@
 </p>
 
 <p align="center">
-[Manage NuGet Packages opcion]
+[Manage NuGet Packages opción]
 </p>
 
 - Buscar FluentAssertions
@@ -63,17 +63,17 @@
 [FluentAssertions]
 </p>
 
-- Instalar ultima version. La fuente del paquete debe ser `nuget.org`
+- Instalar última versión. La fuente del paquete debe ser `nuget.org`
 <p align="center">
 <img src='./images/image-22.png'>
 
 </p>
 
 <p align="center">
-[Instalar version]
+[Instalar versión]
 </p>
 
-- Chequear instalacion. El paquete debe estar listado en los `Packages` del proyecto de prueba.
+- Chequear instalación. El paquete debe estar listado en los `Packages` del proyecto de prueba.
 
 <p align="center">
 <img src='./images/image-23.png'>
@@ -81,5 +81,5 @@
 </p>
 
 <p align="center">
-[Chequear instalacion]
+[Chequear instalación]
 </p>

@@ -1,8 +1,8 @@
-# Creacion de proyecto MSTest
+# Creación de proyecto MSTest
 
-A la solucion creada en el paso [Creacion de una Solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) le vamos agregar un proyecto de prueba `MSTest` que pruebe un proyecto `ClassLib`.
+A la solución creada en el paso [Creación de una Solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) le vamos agregar un proyecto de prueba `MSTest` que pruebe un proyecto `ClassLib`.
 
-- Abrir una terminal en el directorio de la solucion. Para saber si estamos bien situados ejecutar `ls` y se deberia de ver el archivo `.sln`
+- Abrir una terminal en el directorio de la solución. Para saber si estamos bien situados ejecutar `ls` y se debería de ver el archivo `.sln`
 
 ```
 ls
@@ -35,7 +35,7 @@ Comandos:
 dotnet new mstest -n Vidly.BusinessLogic.Test
 ```
 
-Comandos y parametros:
+Comandos y parámetros:
 
 - `new`: crea un nuevo proyecto
 - `mstest`: tipo de proyecto a crear
@@ -47,10 +47,10 @@ Comandos y parametros:
 </p>
 
 <p align="center">
-[Creacion proyecto MSTest]
+[Creación proyecto MSTest]
 </p>
 
-- Chequear que se creo el proyecto. En el directorio ejecutar `ls`.
+- Chequear que se creó el proyecto. En el directorio ejecutar `ls`.
 
 ```C#
 ls
@@ -61,10 +61,10 @@ ls
 </p>
 
 <p align="center">
-[Chequear creacion de proyecto]
+[Chequear creación de proyecto]
 </p>
 
-- Ahora dicho proyecto `MSTest` lo debemos de agregar a la solucion. Para esto debemos situarnos con la terminal en el directorio donde esta la solucion `.sln`, para esto ejecutaremos:
+- Ahora dicho proyecto `MSTest` lo debemos de agregar a la solución. Para esto debemos situarnos con la terminal en el directorio donde está la solución `.sln`, para esto ejecutaremos:
 
 ```
 cd ..
@@ -72,29 +72,29 @@ cd ..
 
 Comandos:
 
-- `cd ..`: nos posiciona la terminal en un directorio para atras
+- `cd ..`: nos posiciona la terminal en un directorio para atrás
 
-Una vez que estemos bien situados, para agregar el proyecto a la solucion `.sln` debemos ejecutar:
+Una vez que estemos bien situados, para agregar el proyecto a la solución `.sln` debemos ejecutar:
 
 ```C#
 dotnet sln add tests/Vidly.BusinessLogic.Test
 ```
 
-Comandos y parametros
+Comandos y parámetros
 
-- `sln`: operar con solucion
-- `add`: agregar proyecto a la solucion
-- `test/Vidly.BusinessLogic.Test`: nombre del proyecto a agregar a la solucion
+- `sln`: operar con solución
+- `add`: agregar proyecto a la solución
+- `test/Vidly.BusinessLogic.Test`: nombre del proyecto a agregar a la solución
 
 <p align="center">
 <img src='./images/image-4.png'>
 </p>
 
 <p align="center">
-[Agregar proyecto a solucion]
+[Agregar proyecto a solución]
 </p>
 
-- Chequear que se agrego el proyecto a la solucion
+- Chequear que se agrego el proyecto a la solución
 
 ```C#
 dotnet sln list
@@ -102,15 +102,15 @@ dotnet sln list
 
 Comandos:
 
-- `sln`: operar con solucion
-- `list`: listar proyectos en solucion
+- `sln`: operar con solución
+- `list`: listar proyectos en solución
 
 <p align="center">
 <img src='./images/image-5.png'>
 </p>
 
 <p align="center">
-[Chequear que se agrego a la solucion]
+[Chequear que se agrego a la solución]
 </p>
 
 - Debemos agregar el proyecto `ClassLib` que se quiere probar a la solucion. Para esto debemos situarnos en la carpeta `src` ejecutando el siguiente comando:
@@ -119,7 +119,7 @@ Comandos:
 cd src
 ```
 
-- En este directorio crearemos nuestro proyecto `ClassLib` que agrupe nuestra logica de negocio, para ello ejecutaremos lo siguiente:
+- En este directorio crearemos nuestro proyecto `ClassLib` que agrupe nuestra lógica de negocio, para ello ejecutaremos lo siguiente:
 
 ```
 dotnet new classlib -n Vidly.BusinessLogic
@@ -130,10 +130,10 @@ dotnet new classlib -n Vidly.BusinessLogic
 </p>
 
 <p align="center">
-[Creacion proyecto ClassLib]
+[Creación proyecto ClassLib]
 </p>
 
-- Para chequear que se creo el proyecto, ejecutaremos lo siguiente:
+- Para chequear que se creó el proyecto, ejecutaremos lo siguiente:
 
 ```
 ls
@@ -144,7 +144,7 @@ ls
 </p>
 
 <p align="center">
-[Verificacion]
+[Verificación]
 </p>
 
 Y el archivo `Vidly.BusinessLogic.csproj` debe verse de la siguiente manera:
@@ -154,10 +154,10 @@ Y el archivo `Vidly.BusinessLogic.csproj` debe verse de la siguiente manera:
 </p>
 
 <p align="center">
-[Archivo configuracion del proyecto BusinessLogic]
+[Archivo configuración del proyecto BusinessLogic]
 </p>
 
-- Ahora se debe agregar referencia del proyecto `ClassLib` a la solucion ejecutando los siguientes comandos de forma individual:
+- Ahora se debe agregar referencia del proyecto `ClassLib` a la solución ejecutando los siguientes comandos de forma individual:
 
 ```C#
 cd ..
@@ -175,10 +175,10 @@ dotnet sln list
 </p>
 
 <p align="center">
-[Verificacion proyecto agregado a solucion]
+[Verificación proyecto agregado a solución]
 </p>
 
-- Una vez teniendo los proyectos en la solucion `.sln` debemos agregar la referencia del proyecto `ClassLib` al proyecto `MSTest`. Para ello debemos ejecutar el siguiente comando desde el proyecto `MSTest`:
+- Una vez teniendo los proyectos en la solución `.sln` debemos agregar la referencia del proyecto `ClassLib` al proyecto `MSTest`. Para ello debemos ejecutar el siguiente comando desde el proyecto `MSTest`:
 
 ```C#
 cd tests
@@ -189,8 +189,8 @@ dotnet add reference ../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj
 Comandos:
 
 - `add`: operacion para agregar
-- `reference`: referencia a proyecto en solucion
-- `../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj`: archivo de configuracion del proyecto a probar
+- `reference`: referencia a proyecto en solución
+- `../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj`: archivo de configuración del proyecto a probar
 
   <p align="center">
   <img src='./images/image-11.png'>
