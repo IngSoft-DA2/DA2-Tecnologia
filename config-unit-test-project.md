@@ -2,6 +2,8 @@
 
 # Configuración de proyecto de prueba unitaria
 
+## Moq
+
 El framework a utilizar para simular el comportamiento de las dependencias es `Moq`. Este debera de ser agregado a los proyectos de prueba unitaria para adquerir todas las funcionalidades del framework y crear los casos de prueba correspondientes.
 
 `Moq` define diferentes comportamientos que determinan como un objeto `mock` se debería de comportar cuando sus métodos son invocados. Estos comportamientos le permiten a los desarrolladores especificar respuestas o acciones que el objeto mock debería de realizar durante la prueba. Estos comportamientos son:
@@ -9,6 +11,8 @@ El framework a utilizar para simular el comportamiento de las dependencias es `M
 - Strict: haciendo que se lance una excepcion en caso de que la llamada actual no cumpla con la esperada
 
 - Loose: se retornara un valor por defecto del tipo a retornar en caso de no cumplir con lo esperado
+
+## FluentAssertions
 
 También se deberá de instalar el paquete `FluentAssertions` el cual es una librería que provee una sintaxis mas expresiva para escribir `assertions` en las pruebas, haciendo mas legible y fácil de entender.
 
@@ -38,6 +42,8 @@ Expected someObject to be <expectedObject>, but found <actualObject>.
 ```C#
 someObject.Should().Satisfy<MyClass>(obj => obj.CustomProperty == expectedValue);
 ```
+
+## Pasos de configuración
 
 - [Visual studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/unit-testing/config-unit-test-project-visual-studio.md)
 
