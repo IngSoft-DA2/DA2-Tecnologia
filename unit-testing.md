@@ -1,4 +1,4 @@
-[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia#primera-parte-net-webapi)
 
 # Pruebas
 
@@ -85,5 +85,5 @@ Algunas ventajas de usar los diferentes test doubles son:
 - Flexibilidad
 
   ## Lecturas recomendadas
-  - [Buenas practicas para pruebas unitarias - Documentacion Microsoft](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+  - [Buenas practicas para pruebas unitarias - Documentación Microsoft](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
   - [Buenas practicas para pruebas unitarias - Medium](https://medium.com/@kaanfurkanc/unit-testing-best-practices-3a8b0ddd88b5)
