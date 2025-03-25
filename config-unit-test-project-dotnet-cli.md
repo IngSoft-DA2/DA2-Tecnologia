@@ -1,6 +1,6 @@
-# Creacion de proyecto de prueba unitaria por comandos
+# Creación de proyecto de prueba unitaria por comandos
 
-- Abrir terminal en el directorio de la solucion. Para saber si estamos bien situados ejecutar `ls` y se deberia de ver el archivo `.sln`
+- Abrir terminal en el directorio de la solución. Para saber si estamos bien situados ejecutar `ls` y se debería de ver el archivo `.sln`
 
 ```C#
 ls
@@ -23,7 +23,7 @@ Comandos:
 cd Vidly.BusinessLogic.Test
 ```
 
-Comandos y parametros:
+Comandos y parámetros:
 
 - `cd`: entrar a un directorio
 
@@ -43,7 +43,7 @@ dotnet add package Moq
 
 Comandos
 
-- `add`: operacion de agregar
+- `add`: operación de agregar
 - `package`: paquete de `nuget.org`
 - `Moq`: nombre de paquete
 
@@ -73,7 +73,7 @@ dotnet add package FluentAssertinos
 
 Comandos
 
-- `add`: operacion de agregar
+- `add`: operación de agregar
 - `package`: paquete de `nuget.org`
 - `FluentAssertions`: nombre de paquete
 
