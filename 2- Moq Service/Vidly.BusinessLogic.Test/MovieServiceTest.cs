@@ -9,13 +9,13 @@ namespace Vidly.BusinessLogic.Test
     public sealed class MovieServiceTest
     {
         private Mock<IMovieRepository> _movieRepositoryMock;
-        private MovieService _service;
+        private MovieService _movieService;
 
         [TestInitialize]
         public void Initialize()
         {
             _movieRepositoryMock = new Mock<IMovieRepository>(MockBehavior.Strict);
-            _service = new MovieService(_movieRepositoryMock.Object);
+            _movieService = new MovieService(_movieRepositoryMock.Object);
         }
 
         #region Create
@@ -29,10 +29,10 @@ namespace Vidly.BusinessLogic.Test
                 DateTimeOffset.UtcNow.AddMonths(-1));
 
             _movieRepositoryMock
-                .Setup(i => i.Exists(i => i.Title == args.Title))
+                .Setup(mock => mock.Exists(movie => movie.Title == args.Title))
                 .Returns(true);
 
-            var act = () => _service.Add(args);
+            var act = () => _movieService.Add(args);
 
             act.Should().Throw<Exception>().WithMessage("Movie duplicated");
             _movieRepositoryMock.VerifyAll();
@@ -40,6 +40,33 @@ namespace Vidly.BusinessLogic.Test
         #endregion
 
         #region Success
+
+        [TestMethod]
+        public void Create_WhenCorrectInfo_ShouldCreateMovie()
+        {
+            var args = new CreateMovieArgs(
+                "some name",
+                "some description",
+                DateTimeOffset.UtcNow);
+
+
+            _movieRepositoryMock
+                .Setup(mock => mock.Exists(movie => movie.Title == args.Title))
+                .Returns(false);
+
+            _movieRepositoryMock.
+                Setup(mock => mock.Create(It.Is<Movie>( m =>
+                m.Title == args.Title
+                && m.Description == args.Description
+                && m.PublishedOn == args.PublishedOn)));
+
+            var response = _movieService.Add(args);
+
+            _movieRepositoryMock.VerifyAll();
+            response.Should().NotBeNull();
+            response.Id.Should().NotBeNull();
+            response.Id.Should().NotBeEmpty();
+        }
         #endregion
         #endregion
     }
