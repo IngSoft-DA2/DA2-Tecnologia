@@ -92,7 +92,7 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
   [Badge de clean code para main]
 </p>
 
-Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/IngSoft-DA2/Test` por la url del repositorio.
+Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/IngSoft-DA2/Test` por la url del repositorio. Se deberán de ordenar por branch teniendo bajo el dominio de `## Main` las insigneas de esta rama y repetir con `## Develop`.
 
 # Configuración de branches
 
