@@ -35,6 +35,8 @@ namespace Vidly.BusinessLogic.Test
             var act = () => _movieService.Add(args);
 
             act.Should().Throw<Exception>().WithMessage("Movie duplicated");
+
+            // Esta por gusto abajo, porque si estuviese arriba nunca se llamaria _movieService.Add(args)
             _movieRepositoryMock.VerifyAll();
         }
         #endregion
@@ -51,18 +53,20 @@ namespace Vidly.BusinessLogic.Test
 
 
             _movieRepositoryMock
-                .Setup(mock => mock.Exists(movie => movie.Title == args.Title))
+                .Setup(mock => mock.Exists(It.IsAny<Expression<Func<Movie, bool>>>()))
                 .Returns(false);
 
             _movieRepositoryMock.
                 Setup(mock => mock.Create(It.Is<Movie>( m =>
-                m.Title == args.Title
-                && m.Description == args.Description
-                && m.PublishedOn == args.PublishedOn)));
+                m.Title == args.Title &&
+                m.Description == args.Description &&
+                m.PublishedOn == args.PublishedOn)));
 
             var response = _movieService.Add(args);
 
+            // Esta por gusto primero, porque no se tiene la variable act como en la prueba anterior
             _movieRepositoryMock.VerifyAll();
+            
             response.Should().NotBeNull();
             response.Id.Should().NotBeNull();
             response.Id.Should().NotBeEmpty();
