@@ -1,5 +1,6 @@
 ﻿using FluentAssertions;
 using Moq;
+using System.Linq.Expressions;
 using Vidly.BusinessLogic.Movies;
 using Vidly.BusinessLogic.Movies.Entities;
 
