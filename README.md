@@ -4,26 +4,35 @@
 1. Clonarse el repo
 2. Deberíamos de estar situados en la rama main
 3. Agregar todos los archivos descriptos en la sección [Archivos de configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#archivos-de-configuraci%C3%B3n) en la carpeta raiz del repositorio
+
+> [!IMPORTANT]
+> Respetar las carpetas, los nombres y extensiones de los archivos
+
 4. Agregar un archivo con extensión `.cs` (por ejemplo `Test.cs`), esto hará que se ejecuten las actions al commitearse
-5. Modificar el readme con las insigneas pudiendo diferenciar cuales son de `main` y cuales son de `develop` por ejemplo quedando parecido a lo siguiente
+5. Modificar el `Readme.md` con las insigneas pudiendo diferenciar cuales son de `main` y cuales son de `develop` por ejemplo quedando parecido a lo siguiente
 ```
 ## Main
-<< insigneas de main >>
+
+<<insignea de build y test de main>>
+
+<<insignea de clean code de main>>
 
 ## Develop
-<< insigneas de develop>>
+
+<<insignea de build y test de develop>>
+
+<<insignea de clean code de develop
 ```
+> [!IMPORTANT]
+> Respetar los espacios para que las insigneas se ubiquen una abajo de la otra
+
 6. Una vez agregado todos los archivos, el `.cs` de prueba y modificado el readme, realizar el commit inicial
 7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
 8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#configuraci%C3%B3n-de-branches)
 9. Al finalizar toda la configuración como resultado deberíamos de tener
-
-9.1. Un único commit en `main` y `develop` creado a partir de éste
-
-9.2. Dos actions ejecutadas y en estado failure
-
-9.3. Las insigneas indicando el estado failure de ambas ramas 
-
+   - Un único commit en `main` y `develop` creado a partir de éste
+   - Dos actions ejecutadas y en estado failure
+   - Las insigneas indicando el estado failure de ambas ramas 
 10. Luego de que se termino de configurar y se creo la rama develop, en el primer PR podemos eliminar esta clase `Test.cs` de prueba creada
 
 # Archivos de configuración
