@@ -1,11 +1,5 @@
 # Repositorio de clase
 
-<!-- ## Planillas
-
- - [Cuentas GitHub](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/EeK8x-73p5RAmlSL_rvYRwIBJwVE9gECldhuJvqX8nSGKw?e=8q1Rct)
-- [Grupo obligatorios](https://fi365-my.sharepoint.com/:x:/g/personal/da185082_fi365_ort_edu_uy/ERVYsgSzrElNvxnwj0L3ZbkBnKiIcVKgD-VTEBUVJ_pZVw?e=O0ItFW)
--->
-
 ## Introducción
 
 Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
@@ -60,19 +54,6 @@ Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** 
 - [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
 - [Github desktop](https://desktop.github.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-
-## Links de extension para VSC
-
-### C# - .NET
-
-- [C# for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Extensión que facilita el desarrollo en C# con Visual Studio Code.
-- [NuGet Gallery](https://marketplace.visualstudio.com/items?itemName=patcx.vscode-nuget-gallery) Extension para tener la galeria de librerias en VSC
-- [Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare) Extension que sirve para mostrar y codificar de a pares
-- [C# Estensions](https://marketplace.visualstudio.com/items?itemName=jchannon.csharpextensions) Extension para crear archivos mas facil
-
-### Angular
-
-- [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) Extensión que facilita el desarrollo con TypeScript en Visual Studio Code.
 
 ## Aclaración
 
