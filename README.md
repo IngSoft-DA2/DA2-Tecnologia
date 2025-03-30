@@ -12,6 +12,7 @@ Acá van a encontrar tanto materiales de interes para profundizar, cómo código
 Es importante ver y seguir cada una de estas guías para tener un ambiente local listo y andando.
 
 - [Herramienta de desarrollo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/ide.md)
+- Herramienta de control de versiones
 - Base de datos
 - Postman
 - Node
@@ -51,8 +52,6 @@ Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** 
 - [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
 - [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
 - [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
-- [Visual Studio](https://visualstudio.microsoft.com/es/vs/)
-- [Visual Studio Code](https://code.visualstudio.com/)
 - [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
 - [Postman](https://www.postman.com/)
 - [Angular](https://angular.io/)
