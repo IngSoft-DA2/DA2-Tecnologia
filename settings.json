@@ -1,0 +1,31 @@
+{
+  "editor.renderControlCharacters": true,
+  "explorer.confirmDelete": true,
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": false
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "diffEditor.codeLens": true,
+  "editor.accessibilitySupport": "off",
+  "files.eol": "\r\n",
+  "editor.tabSize": 4,
+  "workbench.editor.empty.hint": "hidden",
+  "files.autoSave": "afterDelay",
+  "github.copilot.editor.enableAutoCompletions": false,
+  "editor.defaultFormatter": "ms-dotnettools.csharp",
+  "accessibility.signals.format": {
+    "sound": "always"
+  },
+  "omnisharp.organizeImportsOnFormat": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.autoClosingBrackets": "always",
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.guides.highlightActiveBracketPair": true,
+  "editor.matchBrackets": "always"
+}
