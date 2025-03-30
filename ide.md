@@ -34,7 +34,20 @@ Algunas de las herramientas adicionales que ofrece Visual Studio son:
 > **Aclaración:**  
 > El patrón para identificar si una herramienta es un **IDE** o no es que, si tiene todas estas herramientas integradas desde el momento de la instalación, entonces **es un IDE**.
 
-## Instalación
+## Instalación IDE
 
 - [Visual Studio Enterprise para Windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-windows.md)
 - [Visual Studio Code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
+
+## Instalación .NET
+
+Para trabajar con .NET 8, es necesario descargarse el **.NET 8.0 SDK**. El SDK (Software Development Kit) es un conjunto de herramientas para compilar aplicaciones y características. Este kit de herramientas incluye todo lo necesario para crear aplicaciones .NET con esta versión.
+
+Para instalarlo, sigue los siguientes pasos:
+
+1. Dirígete a [**.NET 8.0 SDK**](https://dotnet.microsoft.com/download) para descargar el SDK correspondiente a la arquitectura de tu máquina.
+2. Una vez descargado, ejecútalo para continuar con la instalación.
+3. Una vez instalado, si abres:
+   - **Visual Studio Enterprise** en Windows, podrás seleccionar esta versión para crear proyectos.
+   - **Visual Studio Code**, abre una nueva terminal y ejecuta `dotnet --version`, y te debería indicar la versión recién instalada.
+4. **En caso de que no se vea la versión correcta**, reinicia la máquina para que se termine de preparar el entorno y vuelve a ejecutar el paso 3.
