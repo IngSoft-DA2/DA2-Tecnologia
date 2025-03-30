@@ -1,4 +1,4 @@
-[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main)
+[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main#preparaci%C3%B3n-del-ambiente-local)
 
 # IDE
 IDE viene de Integrated Development Environment, el cual es el acronimo utilizado para denominar aquellos softwares que proveen un ambiente con las herramientas necesarias para crear software ya integradas. 
@@ -26,5 +26,5 @@ Esas otras herramientas son:
 El patron para identificar si una herramienta es un IDE o no, es que si tiene todo ya integrado en la herramienta desde el momento de la instalacion, entonces es un IDE.
 
 ## Instalacion
-- [Visual Studio Enterprise para windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main)
-- [Visual Studio code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main)
+- [Visual Studio Enterprise para windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/ide-windows.md)
+- [Visual Studio code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/ide-mac.md)
