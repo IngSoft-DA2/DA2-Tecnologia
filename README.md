@@ -7,22 +7,31 @@ Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología
 Acá van a encontrar tanto materiales de interes para profundizar, cómo códigos de ejemplo que serán de utilidad para la realización del obligatorio.
 
 ## Temas
-## Teórico
+
+### Preparación del ambiente local
+Es importante ver y seguir cada una de estas guías para tener un ambiente local listo y andando.
+
+- [Herramienta de desarrollo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/ide.md)
+- Base de datos
+- Postman
+- Node
+  
+### Teórico
 - [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
   
-## Tecnología
-### Configuración
+### Tecnología
+#### Configuración
 
 - [Creación del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
 - [Configuración de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [Creación PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
 
-### Ayuda
+#### Ayuda
 
 - [Prácticas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 
-### Primera parte: .NET WebApi
+#### Primera parte: .NET WebApi
 
 - [Web API](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
 - [Pruebas unitarias y de integración](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
@@ -32,7 +41,7 @@ Acá van a encontrar tanto materiales de interes para profundizar, cómo código
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
 - [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
 
-### Segunda parte: SPAs y Angular
+#### Segunda parte: SPAs y Angular
 
 - [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
 
