@@ -26,5 +26,5 @@ Esas otras herramientas son:
 El patron para identificar si una herramienta es un IDE o no, es que si tiene todo ya integrado en la herramienta desde el momento de la instalacion, entonces es un IDE.
 
 ## Instalacion
-- [Visual Studio Enterprise para windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/ide-windows.md)
-- [Visual Studio code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/ide-mac.md)
+- [Visual Studio Enterprise para windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-windows.md)
+- [Visual Studio code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
