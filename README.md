@@ -48,8 +48,6 @@ Es importante ver y seguir cada una de estas guías para tener un ambiente local
 Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
 ### Stack tecnologico
-- [Key para Visual Studio Enterprise 2022](https://azureforeducation.microsoft.com/devtools)
-- [.NET 8.0](https://dotnet.microsoft.com/download)
 - [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
 - [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
 - [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
