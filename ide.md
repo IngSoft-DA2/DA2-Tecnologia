@@ -1,30 +1,40 @@
 [Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main#preparaci%C3%B3n-del-ambiente-local)
 
 # IDE
-IDE viene de Integrated Development Environment, el cual es el acronimo utilizado para denominar aquellos softwares que proveen un ambiente con las herramientas necesarias para crear software ya integradas. 
 
-En este ambiente se pueden encontrar compiladores, editores de texto, debugger, y herramientas de compilacion autoamtica todo incluido en una unica interfaz.
+**IDE** proviene de **Integrated Development Environment** (Entorno de Desarrollo Integrado), que es el acrónimo utilizado para denominar aquellos softwares que proporcionan un ambiente con las herramientas necesarias para crear software, todas ya integradas.
 
-Los IDEs fueron diseñados para que el proceso de desarrollo fuera lo mas sencillo posible centralizando todo un ambiente de trabajo y utilizar una unica herramienta de trabajo facilitandole la labor a los desarrolladores de escribir, compilar, debuguear codigo y probar lo mas facil posible.
+En este entorno se pueden encontrar:
 
-Es por eso que el IDE recomendado por Microsoft es Visual Studio. Cuando esta herramienta es instalada, configura todo lo necesario para un proyecto por nosotros. Tambien provee otras herramientas integradas que, por ejemplo con Visual Studio Code (VSC) por si solo no las tendriamos. 
+- Compiladores
+- Editores de texto
+- Depuradores (debuggers)
+- Herramientas de compilación automática
 
-Esas otras herramientas son:
+Todo esto está incluido en una única interfaz.
 
-- Debugger avanzado con time travel via intelitrace
-- Herramientas de monitoreo de performance para detectar cuellos de botella
-- Un load testing y SQL tools integrados
-- Comprehensive testing suite y analizador de codigo estatico
-- Integracion superior version control systems como GIT, TFS y otros
-- Herramientas de arquitectura y modelados listas para usar
-- Tiene enhanced refactoring herramientas superiores a VSC
-- Soporta muchos lenguajes y frameworks right out of the box
-- Herramientas Xamarin para un desarrollo smooth mobile
-- Emuladores mobile
-- Y mucho mas
-  
-El patron para identificar si una herramienta es un IDE o no, es que si tiene todo ya integrado en la herramienta desde el momento de la instalacion, entonces es un IDE.
+Los **IDEs** fueron diseñados para hacer que el proceso de desarrollo sea lo más sencillo posible, centralizando todo el entorno de trabajo y permitiendo el uso de una única herramienta para facilitar a los desarrolladores la tarea de escribir, compilar, depurar y probar el código.
 
-## Instalacion
-- [Visual Studio Enterprise para windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-windows.md)
-- [Visual Studio code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
+Es por esta razón que el IDE recomendado por Microsoft es **Visual Studio**. Cuando esta herramienta se instala, configura todo lo necesario para un proyecto automáticamente. Además, proporciona otras herramientas integradas que, por ejemplo, **Visual Studio Code (VSC)** no incluiría por sí solo.
+
+Algunas de las herramientas adicionales que ofrece Visual Studio son:
+
+- **Debugger avanzado** con *time travel* mediante IntelliTrace.
+- **Herramientas de monitoreo de rendimiento** para detectar cuellos de botella.
+- **Herramientas de pruebas de carga** y herramientas SQL integradas.
+- **Suite de pruebas integral** y analizador de código estático.
+- **Integración superior con sistemas de control de versiones** como GIT, TFS y otros.
+- **Herramientas de arquitectura y modelado** listas para usar.
+- **Herramientas de refactorización mejoradas** superiores a VSC.
+- **Soporte para muchos lenguajes y frameworks** desde el primer momento.
+- **Herramientas Xamarin** para un desarrollo móvil fluido.
+- **Emuladores móviles**.
+- ¡Y mucho más!
+
+> **Aclaración:**  
+> El patrón para identificar si una herramienta es un **IDE** o no es que, si tiene todas estas herramientas integradas desde el momento de la instalación, entonces **es un IDE**.
+
+## Instalación
+
+- [Visual Studio Enterprise para Windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-windows.md)
+- [Visual Studio Code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
