@@ -59,11 +59,6 @@ A continuación van a encontrar los archivos que son requeridos en la solución 
 
 - **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings)**: Este archivo de configuración permite configurar algunos elementos al generar la cobertura de código usando `dotnet cli`. Lo que configura particularmente es que se ignoren las `migraciones` generadas y cualquier clase con algun atributo `GeneratedCodeAttribute`. De esta manera estamos dejando por fuera clases autogeneradas de la cobertura.
 
-## Configuración para VSC unicamente
-- **[.vscode/settings.json](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.vscode/settings.json)**: Este archivo sirve para configurar VSCode para trabajar en proyectos .NET. Configura varios elementos, desde la terminación de los archivos nuevos usando CRLF hasta el tamaño del tab que deberia ser 4 espacios. Debe ser agregado junto con la carpeta.
-
-- **[.NET.code-profile](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.NET.code-profile)**: Es un perfil diseñado para trabajar en proyectos .NET, este debera de ser descargado e importado en VSCode para ser usado en proyectos .NET. El mismo trae configuraciones de extensiones utiles para tratar VSCode lo mas parecido al IDE VS.
-
 # Badges
 
 Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el código.
