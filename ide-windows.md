@@ -60,3 +60,6 @@ Esta es una guía de pasos a seguir para descargar **Visual Studio Enterprise** 
 
 > **Importante:** 
 > Una vez completados estos pasos, **Visual Studio Enterprise** debería estar instalado y desbloqueado correctamente. Con esto, podrás crear proyectos usando **C#** y contar con un conjunto completo de herramientas de desarrollo y monitoreo sin necesidad de configuraciones adicionales.
+
+### Material de interes
+1. [Guía de instalación por Microsoft](https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022)
