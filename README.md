@@ -52,7 +52,7 @@ Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** 
 - [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
 - [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
 - [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
-- [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
+<!-- - [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
 - [Postman](https://www.postman.com/)
 - [Angular](https://angular.io/)
 - [NVM](https://4geeks.com/how-to/nvm-install-windows)
@@ -60,7 +60,7 @@ Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** 
 - [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
 - [Github desktop](https://desktop.github.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-
+-->
 ## Aclaración
 
 ⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
