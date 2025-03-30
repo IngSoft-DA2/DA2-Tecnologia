@@ -21,6 +21,7 @@ Es importante ver y seguir cada una de estas guías para tener un ambiente local
 - [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
   
 ### Tecnología
+
 #### Configuración
 
 - [Creación del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
@@ -48,10 +49,6 @@ Es importante ver y seguir cada una de estas guías para tener un ambiente local
 
 Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
 
-### Stack tecnologico
-- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
-- [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
 <!-- - [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
 - [Postman](https://www.postman.com/)
 - [Angular](https://angular.io/)
@@ -65,12 +62,15 @@ Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** 
 
 ⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
 
-## Noticias
+## Links de interes
 
 - [Puerto por defecto cambiado en docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
 - [Comparación de strings case insensitive](https://github.com/npgsql/efcore.pg/issues/1498)
 - [Creación de links simbólicos - como npm link](https://github.com/nwheels-io/NuLink)
 - [Const vs Readonly](https://josipmisko.com/posts/c-sharp-const-vs-readonly)
+- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
+- [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
+- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
 
 ## Docentes
 - :space_invader: Daniel Acevedo
