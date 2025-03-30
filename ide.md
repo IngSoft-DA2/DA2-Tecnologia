@@ -37,7 +37,7 @@ Algunas de las herramientas adicionales que ofrece Visual Studio son:
 ## Instalación IDE
 
 - [Visual Studio Enterprise para Windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-windows.md)
-- [Visual Studio Code para Mac](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
+- [Visual Studio Code para Mac o Windows](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/ide-mac.md)
 
 ## Instalación .NET
 
