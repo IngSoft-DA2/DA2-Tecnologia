@@ -1,6 +1,6 @@
 # Ejecucion de la web api
 
 <p align="center">
-Proximamente
+Próximamente
 </p>
 

@@ -1,7 +1,7 @@
-# Creacion de proyecto Web API
-A la solucion creada en el paso [Creacion de una solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) utilizada en la [Creacion de proyecto MSTest](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/create-unit-test-project.md), le vamos agregar un proyecto `Web API` que sera nuestro punto de entrada para consumir nuestra aplicacion.
+# Creación de proyecto Web API
+A la solución creada en el paso [Creación de una solución](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) utilizada en la [Creación de proyecto MSTest](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/create-unit-test-project.md), le vamos a agregar un proyecto `Web API` que será nuestro punto de entrada para consumir nuestra aplicación.
 
-- Abrir una terminal en el directorio de la solucion. Para saber si estamos bien situados ejecutar `ls` y se deberia de ver el archivo `.sln`
+- Abrir una terminal en el directorio de la solución. Para saber si estamos bien situados ejecutar `ls` y se debería de ver el archivo `.sln`
 
 ```
 ls
@@ -19,7 +19,7 @@ Comandos:
 [Terminal en directorio]
 </p>
 
-- Para crear el proyecto `Web API` nos situaremos en la carpeta `src` con la terminal ejectuando:
+- Para crear el proyecto `Web API` nos situaremos en la carpeta `src` con la terminal ejecutando:
 
 ```
 cd src
@@ -36,13 +36,13 @@ Comandos:
   dotnet new webapi -au none --no-openapi -controllers -n <<Nombre del negocio>>.WebApi
 ```
 
-Comandos y parametros:
+Comandos y parámetros:
 
 - `new`: crea un nuevo proyecto
 - `webapi`: tipo de proyecto a crear
 - `-n`: nombre del proyecto
-- `<<Nombre del negocio>>.WebApi`: `<<Nombre del negocio>>` es el contexto del negocio, `WebApi` es un nombre que me ayuda identificar como sera expuesta mi aplicacion
-- `au`: sirve para configurar el tipo de autenticacion que queremos que se requiera, el valor `none` es para indicar que no queremos que se configure.
+- `<<Nombre del negocio>>.WebApi`: `<<Nombre del negocio>>` es el contexto del negocio, `WebApi` es un nombre que me ayuda a identificar como será expuesta mi aplicación
+- `au`: sirve para configurar el tipo de autenticación que queremos que se requiera, el valor `none` es para indicar que no queremos que se configure.
 - `no-openapi`: para indicar que no se quiere integrar `Swagger` en la web api.
 - `controllers`: para indicar que se usen controllers y no una `minimal-api`
 
@@ -54,7 +54,7 @@ Comandos y parametros:
 [Creacion proyecto Web API]
 </p>
 
-- Chequear que se creo el proyecto. En el directorio ejecutar `ls`.
+- Chequear que se creó el proyecto. En el directorio ejecutar `ls`.
 
 ```C#
 ls
@@ -67,7 +67,7 @@ ls
 [Chequear creacion de proyecto]
 </p>
 
-- Ahora dicho proyecto `Web API` lo debemos de agregar a la solucion. Para esto debemos situarnos con la terminal en el directorio donde esta la solucion `.sln`, para esto ejecutaremos:
+- Ahora dicho proyecto `Web API` lo debemos de agregar a la solucion. Para esto debemos situarnos con la terminal en el directorio donde esta la solución`.sln`, para esto ejecutaremos:
 
 ```
 cd ..
@@ -75,9 +75,9 @@ cd ..
 
 Comandos:
 
-- `cd ..`: nos posiciona la terminal en un directorio para atras
+- `cd ..`: nos posiciona la terminal en un directorio para atrás
 
-Una vez que estemos bien situados, para agregar el proyecto a la solucion `.sln` debemos ejecutar:
+Una vez que estemos bien situados, para agregar el proyecto a la solución`.sln` debemos ejecutar:
 
 ```C#
 dotnet sln add src/Vidly.WebApi
@@ -97,7 +97,7 @@ Comandos y parametros
 [Agregar proyecto a solucion]
 </p>
 
-- Chequear que se agrego el proyecto a la solucion
+- Chequear que se agregó el proyecto a la solucion
 
 ```C#
 dotnet sln list
@@ -113,10 +113,10 @@ Comandos:
 </p>
 
 <p align="center">
-[Chequear que se agrego a la solucion]
+[Chequear que se agregó a la solucion]
 </p>
 
-- Como este proyecto sera el que exponga nuestra aplicacion por la `web`, este tiene que referenciar a dicho proyecto
+- Como este proyecto sera el que exponga nuestra aplicación por la `web`, este tiene que referenciar a dicho proyecto
 ```
 cd src
 cd Vidly.WebApi
@@ -127,5 +127,5 @@ dotnet add reference ../Vidly.BusinessLogic/Vidly.BusinessLogic.csproj
 </p>
 
 <p align="center">
-[Chequear que se agrego la referencia de BusinessLogic en WebApi]
+[Chequear que se agregó la referencia de BusinessLogic en WebApi]
 </p>
