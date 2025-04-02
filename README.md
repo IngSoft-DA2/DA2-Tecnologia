@@ -1,7 +1,7 @@
 [Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
 # Subida de archivos
-1. Clonarse el repo
+1. Clonar su repositorio de obligatorio
 2. Deberíamos de estar situados en la rama main
 3. Agregar todos los archivos descriptos en la sección [Archivos de configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#archivos-de-configuraci%C3%B3n) en la carpeta raiz del repositorio
 
@@ -30,9 +30,9 @@
 7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
 8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#configuraci%C3%B3n-de-branches)
 9. Al finalizar toda la configuración como resultado deberíamos de tener
-   - Un único commit en `main` y `develop` creado a partir de éste
+   - Un único commit en `origin-main` y `origin-develop` debera estar creado a partir de éste
    - Dos actions ejecutadas y en estado failure
-   - Las insigneas indicando el estado failure de ambas ramas 
+   - Las insigneas en la rama `origin-main` deben estar en failure y las de `orgin-develop` no deben tener un status ni de success ni de failure porque aun no se commitio nada a esta rama. 
 10. Luego de que se termino de configurar y se creo la rama develop, en el primer PR podemos eliminar esta clase `Test.cs` de prueba creada
 
 # Archivos de configuración
