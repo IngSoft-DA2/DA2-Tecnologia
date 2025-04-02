@@ -13,18 +13,18 @@
 ```
 ## Main
 
-<<insignea de build y test de main>>
+![Build - Test - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
 
-<<insignea de clean code de main>>
+![Code Analysis - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 
 ## Develop
 
-<<insignea de build y test de develop>>
+![Build - Test - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
 
-<<insignea de clean code de develop
+![Code Analysis - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
 ```
 > [!IMPORTANT]
-> Respetar los espacios para que las insigneas se ubiquen una abajo de la otra
+> Respetar los espacios para que las insigneas se ubiquen una abajo de la otra y actualizarlas con la url de su repositorio.
 
 6. Una vez agregado todos los archivos, el `.cs` de prueba y modificado el readme, realizar el commit inicial
 7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
