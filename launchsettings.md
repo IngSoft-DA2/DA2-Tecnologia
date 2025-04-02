@@ -1,10 +1,10 @@
 # LaunchSettings.json
 
-Es un archivo de configuracion usado para configurar varios aspectos sobre como nuestra aplicacion deberia ser ejecutada y debugeada durante el desarrollo. Este archivo se puede encontrar en la carpeta `Properties` y es usado principalmente por Visual Studio y .NET CLI.
+Es un archivo de configuración usado para configurar varios aspectos sobre cómo nuestra aplicación debería de ser ejecutada y debugeada durante el desarrollo. Este archivo se puede encontrar en la carpeta `Properties` y es usado principalmente por Visual Studio y .NET CLI.
 
-Las configuraciones que este archivo contiene, seran usadas cuando corramos nuestra web api desde Visual Studio o por comandos usando .NET CLI. El punto mas importante es que este archivo solo es usado de forma local en el desarrollo. Este archivo no es requerido cuando nosotros despleguemos la aplicacion en un servidor de produccion.
+Las configuraciones que este archivo contiene, serán usadas cuando corramos nuestra web api desde Visual Studio o por comandos usando .NET CLI. El punto más importante es que este archivo solo es usado de forma local en el desarrollo. Este archivo no es requerido cuando nosotros despleguemos la aplicación en un servidor de producción.
 
-Cualquier configuracion que se ponga en este archivo que se quiera utilizar en cualquier otro ambiente que no sea local, debera de ser movida para el archivo `appsettings.json`.
+Cualquier configuración que se ponga en este archivo que se quiera utilizar en cualquier otro ambiente que no sea local, deberá de ser movida para el archivo `appsettings.json`.
 
 En este archivo encontraremos lo siguiente:
 
@@ -41,43 +41,45 @@ En este archivo encontraremos lo siguiente:
 
 ## Profiles
 
-El archivo contiene diferentes perfiles para ejecutar la aplicacion. Cada perfil puede especificar diferentes configuraciones como la URL a usar, variables de ambiente, etc. Estos perfiles pueden ayudar a setear diferentes ambientes para el desarrollo, como un ambiente de prueba para probar la aplicacion con diferentes configuraciones sin cambiar el codigo.
+El archivo contiene diferentes perfiles para ejecutar la aplicación. Cada perfil puede especificar diferentes configuraciones como la URL a usar, variables de ambiente, etc. Estos perfiles pueden ayudar a setear diferentes ambientes para el desarrollo, como un ambiente de prueba para probar la aplicación con diferentes configuraciones sin cambiar el código.
 
-En este `launchsettings.json` podemos encontrar dos secciones, `IIS Express` y `https`. El perfil `https` es la configuracion necesaria a usar para un `servidor web Kestrel`, y el perfil `IIS Express` es para un servidor `IIS`.
+En este `launchsettings.json` podemos encontrar dos secciones, `IIS Express` y `https`. El perfil `https` es la configuración necesaria a usar para un `servidor web Kestrel`, y el perfil `IIS Express` es para un servidor `IIS`.
 
-Podemos configurar diferentes perfiles con diferentes configuraciones basandonos en nuetras necesidades de desarrollo. Cuando nosotros ejecutamos nuestra aplicacion .NET Core en Visual Studio o usando .NET CLI, podemos seleccionar uno de los perfiles disponibles para especificar como nuestra aplicacion deberia de ser ejecutada y debugueada.
+Podemos configurar diferentes perfiles con diferentes configuraciones basándonos en nuetras necesidades de desarrollo. Cuando nosotros ejecutamos nuestra aplicación .NET Core en Visual Studio o usando .NET CLI, podemos seleccionar uno de los perfiles disponibles para especificar como nuestra aplicación debería de ser ejecutada y debugueada.
 
 Hablemos del contenido de cada perfil:
 
-- **CommandName**: El valor puede ser cualquiera de los siguientes: **IISExpress**, **IIS**, **Project**. Este valor determina el web server que se va a utilizar para hostear la aplicacion y manejar las requests http.
+- **CommandName**: El valor puede ser cualquiera de los siguientes: **IISExpress**, **IIS**, **Project**. Este valor determina el web server que se va a utilizar para hostear la aplicación y manejar las requests http.
 
-- **LaunchBrowser**: Es un booleano que determina si el navegador por defecto se deberia de abrir cuando la aplicacion inicia. Esto significa que si el valor es `true` el navegador por defecto abrira una nueva ventana con la url raiz.
+- **LaunchBrowser**: Es un booleano que determina si el navegador por defecto se debería de abrir cuando la aplicación inicia. Esto significa que si el valor es `true` el navegador por defecto abrirá una nueva ventana con la url raíz.
 
-- **DotnetRunMessages**: Su funcion principal es habilitar o deshabilitar el despliegue de ciertos mensajes cuando la aplicacion es ejecutada usando .NET CLI. El valor de esta variable es booleano.
+- **LaunchUrl**: En caso de que ```LaunchBrowser``` se encuentre activado, se abrirá en el recurso de la API que se indique en el ```LaunchUrl```.
 
-- **ApplicationUrl**: Especifica la url base que uno puede usar para acceder a la aplicacion. Si HTTPS fue habilitado al momento de crear el proyecto, se obtendran dos urls, una usando el protocolo HTTP y otra usando el protocolo HTTPS. Entonces esta variable especifica en que URLs la aplicacion va a estar escuchando requests HTTP cuando este en ejecucion. Esto es util para probar la aplicacion en diferentes puertos o host names durante desarrollo.
+- **DotnetRunMessages**: Su funcion principal es habilitar o deshabilitar el despliegue de ciertos mensajes cuando la aplicación es ejecutada usando .NET CLI. El valor de esta variable es booleano.
 
-- **sslPort**: Esta variable especifica el puerto HTTPS para acceder en el caso de usar un servidor IIS Express. El valor 0 significa que uno no puede acceder a la aplicacion usando el protocolo HTTPS.
+- **ApplicationUrl**: Especifica la url base que uno puede usar para acceder a la aplicación. Si HTTPS fue habilitado al momento de crear el proyecto, se obtendrán dos urls, una usando el protocolo HTTP y otra usando el protocolo HTTPS. Entonces esta variable especifica en que URLs la aplicación va a estar escuchando requests HTTP cuando este en ejecución. Esto es útil para probar la aplicación en diferentes puertos o host names durante desarrollo.
 
-- **WindowsAuthentication**: Aca se especificara si la autenticacion por windows esta habilitada para la aplicacion o no. Es un valor booleano.
+- **sslPort**: Esta variable especifica el puerto HTTPS para acceder en el caso de usar un servidor IIS Express. El valor 0 significa que uno no puede acceder a la aplicación usando el protocolo HTTPS.
 
-- **AnonymousAuthentication**: Podremos especificar si la autenticacion anonima esta habilitada para la aplicacion. Es un valor booleano.
+- **WindowsAuthentication**: Aca se especificará si la autenticación por windows está habilitada para la aplicación o no. Es un valor booleano.
 
-La seccion `iisSettings` es la configuracion a usar por un servidor `IISExpress`.
+- **AnonymousAuthentication**: Podremos especificar si la autenticación anónima está habilitada para la aplicación. Es un valor booleano.
+
+La sección `iisSettings` es la configuración a usar por un servidor `IISExpress`.
 
 ## Cuando usar este archivo
 
-Este archivo es usado principalmente en un ambiente de desarrollo para configurar como la aplicacion deberia de ser ejecutada y setear variables de ambiente iniciales. Aca se pueden encontrar algunos escenarios y objetivos para usar este archivo:
+Este archivo es usado principalmente en un ambiente de desarrollo para configurar como la aplicación debería de ser ejecutada y setear variables de ambiente iniciales. Acá se pueden encontrar algunos escenarios y objetivos para usar este archivo:
 
-- **Definicion de variables de ambiente**: Es comun usar diferentes configuraciones segun el ambiente en el cual se este corriendo la aplicacion, desarrollo, staging, produccion, qa, etc. Este archivo permite la definicion de ciertas variables de ambiente como `ASPNETCORE_ENVIRONMENT`, la cual puede ser tomar los valores `Development`, `Staging` o `Production`. Esto ayuda a la hora de probar como la aplicacion se comporta bajo diferentes configuraciones sin la necesidad de cambiar codigo.
+- **Definición de variables de ambiente**: Es común usar diferentes configuraciones según el ambiente en el cual se este corriendo la aplicación, desarrollo, staging, producción, qa, etc. Este archivo permite la definición de ciertas variables de ambiente como `ASPNETCORE_ENVIRONMENT`, la cual puede ser tomar los valores `Development`, `Staging` o `Production`. Esto ayuda a la hora de probar como la aplicación se comporta bajo diferentes configuraciones sin la necesidad de cambiar código.
 
-- **Configurar varios perfiles**: Permite la configuracion de varios perfiles de ejecucion para diferentes escenarios. La flexibilidad permite cambiar los contextos y probar la aplicacion en diferentes ambientes rapidamente.
+- **Configurar varios perfiles**: Permite la configuración de varios perfiles de ejecución para diferentes escenarios. La flexibilidad permite cambiar los contextos y probar la aplicación en diferentes ambientes rápidamente.
 
-- **Customizacion de la url**: Para propositos de desarrollo, uno podria querer correr la aplicacion en un puerto especifico o con cierto hostname.
+- **Customizacion de la url**: Para propósitos de desarrollo, uno podría querer correr la aplicación en un puerto específico o con cierto hostname.
 
 ## Limpieza del archivo
 
-Si solo se requiere un solo perfil y el servidor `Kestrel` el archivo quedaria:
+Si solo se requiere un solo perfil y el servidor `Kestrel` el archivo quedaría:
 
 ```JSON
 {

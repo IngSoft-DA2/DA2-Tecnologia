@@ -4,9 +4,9 @@
 
 - [Web API RESTfull](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api.md)
 
-- [Creacion de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
+- [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
 
-- [Ejecucion de web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api-execution.md)
+- [Ejecución de web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api-execution.md)
 
 - [Program.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/program.md)
 
