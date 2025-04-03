@@ -24,7 +24,7 @@ El nombre del `contexto concreto` debe de dar informacion sobre de que negocio e
 Tambien se podria dar informacion sobre que ORM utiliza, quedando el nombre asi:
 
 ```C#
-public sealed class VidlyEfCoreContext : DbContext
+public sealed class VidlyEfCoreDbContext : DbContext
 {
   // some code
 }
