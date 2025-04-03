@@ -1,7 +1,5 @@
 # Repositorio de clase
 
-https://meet.google.com/ozq-epiq-aii
-
 ## Introducción
 
 Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
