@@ -13,15 +13,15 @@
 ```
 ## Main
 
-![Build - Test - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
+![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
 
-![Code Analysis - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
+![Code Analysis - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 
 ## Develop
 
-![Build - Test - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
+![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
 
-![Code Analysis - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
+![Code Analysis - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
 ```
 > [!IMPORTANT]
 > Respetar los espacios para que las insigneas se ubiquen una abajo de la otra y actualizarlas con la url de su repositorio.
@@ -64,7 +64,7 @@ A continuación van a encontrar los archivos que son requeridos en la solución 
 Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el código.
 
 ```md
-![Build - Test - Develop](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
+![Build - Test - Develop](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
 ```
 
 <p align="center">
@@ -72,7 +72,7 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 </p>
 
 ```md
-![Build - Test - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
+![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
 ```
 
 <p align="center">
@@ -81,7 +81,7 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 
 ```md
-![Clean Code - Develop](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
+![Clean Code - Develop](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
 ```
 
 <p align="center">
@@ -89,14 +89,14 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 </p>
 
 ```md
-![Clean Code - Main](https://github.com/IngSoft-DA2/Test/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
+![Clean Code - Main](/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 ```
 
 <p align="center">
   [Badge de clean code para main]
 </p>
 
-Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `https://github.com/IngSoft-DA2/Test` por la url del repositorio. Se deberán de ordenar por branch teniendo bajo el dominio de `## Main` las insigneas de esta rama y repetir con `## Develop`.
+Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `<<url de tu repo>>` por la url del repositorio del obligatorio. Se deberán de ordenar por branch teniendo bajo el dominio de `## Main` las insigneas de esta rama y repetir con `## Develop`, tal como se indica más arriba.
 
 # Configuración de branches
 
