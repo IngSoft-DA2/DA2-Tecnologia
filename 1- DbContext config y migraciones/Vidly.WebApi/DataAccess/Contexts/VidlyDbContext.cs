@@ -33,15 +33,6 @@ namespace Vidly.WebApi.DataAccess.Contexts
                .UsingEntity<UserMovie>(
                r => r.HasOne(x => x.Movie).WithMany().HasForeignKey(x => x.MovieId),
                l => l.HasOne(x => x.User).WithMany().HasForeignKey(x => x.UserId));
-
-            var movieBuilder = modelBuilder.Entity<Movie>(entity =>
-            {
-                entity.Property(e => e.Platforms)
-                .HasConversion(
-                    v => JsonSerializer.Serialize(v, JsonSerializerOptions.Default),
-                    v => JsonSerializer.Deserialize<List<string>>(v, JsonSerializerOptions.Default) ?? new List<string>()
-                    );
-            });
         }
 
         private void ConfigSeedData(ModelBuilder modelBuilder)
@@ -51,6 +42,7 @@ namespace Vidly.WebApi.DataAccess.Contexts
                 .HasData(
                     new User
                     {
+                        Id = "21800025-a3b5-46cd-bff7-d7d793403f60",
                         FirstName = "Admin",
                         LastName = "Admin",
                         FullName = "Admin Admin",
