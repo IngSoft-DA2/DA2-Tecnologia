@@ -89,7 +89,7 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 </p>
 
 ```md
-![Clean Code - Main](/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
+![Clean Code - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 ```
 
 <p align="center">
