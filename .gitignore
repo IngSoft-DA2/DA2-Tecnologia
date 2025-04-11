@@ -7,6 +7,9 @@
 
 # mstest test results
 TestResults
+test-results
+.idea
+.vs
 
 node-modules
 .angular
