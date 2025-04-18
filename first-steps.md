@@ -248,7 +248,7 @@ Comandos:
 
 #### 5.1 Contexto en otro proyecto
 
-En caso de que el contexto se encuentre en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comando a ejecutar es el siguiente:
+En caso de que el contexto se encuentre en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comando a ejecutar situado en el proyecto del contexto es el siguiente:
 
 ```
 dotnet ef migrations add InitialCreation --verbose --startup-project ../<<directorio del proyecto de web api>>
