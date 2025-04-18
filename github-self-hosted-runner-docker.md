@@ -189,7 +189,7 @@ RUN chmod +x /entrypoint.sh
 USER root
 RUN ./bin/installdependencies.sh
 
-RUN mkdir -p /runner/_worker && chown -R runner:runner /runner
+RUN mkdir -p /runner/_work && chown -R runner:runner /runner
 
 # Go back to non-root user for safety
 USER runner
