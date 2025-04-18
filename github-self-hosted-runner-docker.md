@@ -206,7 +206,7 @@ Este contenedor:
 
 En el siguiente paso explicamos en detalle qué hace el archivo `entrypoint.sh`.
 
-## 6. Explicar el archivo `entrypoint.sh`
+## 6. Crear el archivo `entrypoint.sh`
 
 El archivo `entrypoint.sh` es un script de inicio que se ejecuta cuando se inicia el contenedor. Este script se encarga de registrar el runner con el repositorio de GitHub usando el **registration token** y luego ejecuta el runner en sí.
 
