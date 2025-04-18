@@ -187,6 +187,8 @@ RUN chmod +x /entrypoint.sh
 USER root
 RUN ./bin/installdependencies.sh
 
+RUN mkdir -p /runner/_worker && chown -R runner:runner /runner
+
 # Go back to non-root user for safety
 USER runner
 
@@ -209,6 +211,7 @@ El archivo `entrypoint.sh` es un script de inicio que se ejecuta cuando se inici
 Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el archivo `entrypoint.sh` con el siguiente contenido:
 
 ```bash
+#!/bin/bash
 #!/bin/bash
 set -e
 
@@ -249,9 +252,6 @@ cleanup() {
 
 trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
-
-# Before starting the runner, fix permissions on the mounted volume
-chown -R runner:runner /runner/_work
 
 # Start the runner
 ./run.sh
