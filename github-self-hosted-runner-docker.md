@@ -279,7 +279,7 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el arch
 services:
   nombre-de-tu-repo-self-hosted-runner:
     build: .
-    image: nombre-de-tu-repo-self-hosted-runner
+    image: dotnet-self-hosted-runner
     container_name: nombre-de-tu-repo-self-hosted-runner
     environment:
       REPO_URL: ${REPO_URL}
