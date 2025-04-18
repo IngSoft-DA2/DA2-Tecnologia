@@ -33,6 +33,8 @@ Para que el runner funcione correctamente, los archivos que vamos a ver en los p
 
 Ese directorio **debe ubicarse por fuera del repositorio de código que va a usar el runner**, ya que cumple una función separada: alojar el entorno del runner.
 
+Crearemos este directorio o carpeta en nuestra maquina y **no lo subiremos a GitHub** dado que es una configuracion que utilizaremos localmente en todo momento.
+
 ### 📂 Nombre del directorio
 
 El nombre del directorio debe seguir esta convención:
