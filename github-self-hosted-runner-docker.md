@@ -216,7 +216,6 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el arch
 
 ```bash
 #!/bin/bash
-#!/bin/bash
 set -e
 
 if [[ -z "$GITHUB_PAT" || -z "$REPO_URL" || -z "$RUNNER_NAME" ]]; then
@@ -279,10 +278,10 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el arch
 
 ```yaml
 services:
-  nombre-de-tu-repo-self-hosted-runner:
+  nombre-del-negocio-self-hosted-runner:
     build: .
     image: dotnet-self-hosted-runner
-    container_name: nombre-de-tu-repo-self-hosted-runner
+    container_name: nombre-del-negocio-self-hosted-runner
     environment:
       REPO_URL: ${REPO_URL}
       GITHUB_PAT: ${GITHUB_PAT}
@@ -295,6 +294,7 @@ services:
 volumes:
   runner-data:
 ```
+*Sustituir donde dice **nombre-de-la-negocio** por el nombre del negocio*
 
 ### 1. Servicios (`services`)
 
