@@ -1,6 +1,6 @@
 [Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main)
 
-# Correr un GitHub Self-Hosted Runner en Docker
+# Correr GitHub Self-Hosted Runner en un Docker Container
 
 ## 1. Introducción
 
