@@ -240,8 +240,6 @@ fi
   --url "$REPO_URL" \
   --token "$RUNNER_TOKEN" \
   --name "$RUNNER_NAME" \
-  --labels "$RUNNER_NAME" \
-  --no-default-labels \
   --work _work \
   --unattended \
   --replace
@@ -450,18 +448,6 @@ uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@self-ho
 ```
 >Esto apunta a una versión del workflow preparada específicamente para runners self-hosted.
 
-2. **Agregar la variable `self-hosted-labels`**
-
-Ahora es necesario indicar los labels que identifican a los runners disponibles del equipo.
-
-En **build-test-yml** y **code-analysis.yml**
-```yaml
-with:
-  self-hosted-labels: "[ 'daniel-test', 'juan-runner', 'equipo3' ]"
-```
->📌 Los labels deben coincidir con los que se definieron como RUNNER_NAME en cada contenedor.
-Deben ir entre comillas simples y estar separados por coma, dentro de una string entre comillas dobles.
-
 ## Paso 11: Consideraciones y troubleshooting
 
 A continuación, se listan algunos puntos importantes a tener en cuenta para garantizar el correcto funcionamiento de los runners self-hosted:
@@ -471,8 +457,8 @@ A continuación, se listan algunos puntos importantes a tener en cuenta para gar
 - **Siempre debe haber al menos un runner en ejecución:**  
   Si no hay ningún runner activo en el equipo, los workflows de GitHub Actions (como los que se ejecutan en los Pull Requests) quedarán en estado "pendiente" indefinidamente hasta que se levante un runner.
 
-- **Las etiquetas (`labels`) ya no se crean automáticamente:**  
-  En el modelo de runner self-hosted, las etiquetas de ejecución deben estar definidas en los workflows. No se crean dinámicamente como con los runners hospedados por GitHub.
+- **Las etiquetas (`labels`) en los PRs ya no se crean automáticamente:**  
+  Al usar los **self hosted runners** las etiquetas de los PRs que bloqueaban el PR en caso de encontrar un error ya no existen.
 
 - **Podés reintentar jobs fallidos sin hacer nuevos commits:**  
   Si una ejecución falla (por ejemplo, por un error de red, permisos, o por un problema temporal del runner), podés reintentar el job desde la interfaz de GitHub usando el botón **"Re-run jobs"**, sin necesidad de modificar el código ni realizar un nuevo commit.
