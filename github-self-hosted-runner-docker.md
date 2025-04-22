@@ -203,7 +203,7 @@ Este contenedor:
 
 - Usa como base `ubuntu:22.04`.
 - Instala herramientas necesarias como `curl`, `git`, `python3`, `dotnet-sdk`, etc.
-- Descarga la versión 2.314.1 del **GitHub Actions runner**.
+- Descarga la versión 2.323.0 del **GitHub Actions runner**.
 - Copia y prepara el script `entrypoint.sh`, que será el encargado de registrar y ejecutar el runner automáticamente cada vez que se inicie el contenedor.
 
 En el siguiente paso explicamos en detalle qué hace el archivo `entrypoint.sh`.
