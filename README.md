@@ -26,6 +26,7 @@ Es importante ver y seguir cada una de estas guías para tener un ambiente local
 #### Configuración
 
 - [Creación del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
+- [Github Self Hosted Runner](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/github-self-hosted-runner-docker.md)
 - [Configuración de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
 - [Creación PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
 
