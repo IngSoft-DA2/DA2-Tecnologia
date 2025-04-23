@@ -71,6 +71,7 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá un arch
 REPO_URL: <url del repositorio del obligatorio>
 GITHUB_PAT: <personal access token>
 RUNNER_NAME: <su cuenta de github>
+ARCH: <tipo de arquitectura de su maquina> 
 ```
 
 ### Explicación de las variables
@@ -81,6 +82,11 @@ RUNNER_NAME: <su cuenta de github>
   > ⚠️ Este valor es sensible y **no debe compartirse públicamente ni subirse a GitHub**.
 
 - `RUNNER_NAME`: Es el nombre que tendrá el runner dentro del repositorio de GitHub. El nombre debe ser el username de github.
+
+- `ARCH`: Es el tipo de arquitectura de la maquina host, acepta dos valores posibles 64 o arm64
+    - Intel usa x64
+    - MacOS con chip m1, m2, m3, m4 usa arm64
+    - Snapdragon arm64
 
 > ✅ Asegurate de que el archivo `.env` esté guardado en el mismo directorio que el `docker-compose.yml`, `Dockerfile` y `entrypoint.sh`.
 
@@ -180,7 +186,7 @@ USER runner
 ENV RUNNER_VERSION=2.323.0
 
 # Download and extract the GitHub Actions runner
-RUN curl -o actions-runner.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz && \
+RUN curl -o actions-runner.tar.gz -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-${ARCH}-${RUNNER_VERSION}.tar.gz && \
     tar xzf ./actions-runner.tar.gz && \
     rm actions-runner.tar.gz
 
