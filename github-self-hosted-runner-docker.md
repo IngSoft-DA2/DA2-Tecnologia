@@ -117,7 +117,7 @@ Pegá ese token en el archivo `.env` como valor de la variable `GITHUB_PAT`.
 Este token se va a usar internamente para obtener un **registration token**, que es necesario para que el runner se registre correctamente en el repositorio.
 
 Podés probar si el `GITHUB_PAT` funciona correctamente utilizando **Postman**:
-
+1. Asegurarse de que la visibilidad del repositorio sea `public`, en caso de no serlo, cambiarlo para esta visibilidad par aprobar y luego volver a la visibilidad original.
 1. Abrí Postman y creá una nueva petición `POST`.
 2. URL: https://api.github.com/repos/IngSoft-DA2/**NOMBRE DE TU REPO**/actions/runners/registration-token
 
