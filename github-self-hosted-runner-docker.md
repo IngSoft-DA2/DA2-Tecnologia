@@ -309,6 +309,7 @@ services:
       REPO_URL: ${REPO_URL}
       GITHUB_PAT: ${GITHUB_PAT}
       RUNNER_NAME: ${RUNNER_NAME}
+      ARCH: ${ARCH}
 
     volumes:
       - runner-data:/runner/_work
@@ -370,7 +371,7 @@ Una vez que todos los archivos necesarios estén creados (`.env`, `Dockerfile`, 
 Desde la terminal, ubicándote dentro del directorio donde están los archivos mencionados, ejecutá el siguiente comando:
 
 ```bash
-docker compose up -d
+docker-compose up --build
 ```
 Este comando:
 
