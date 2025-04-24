@@ -76,7 +76,7 @@ ARCH: <tipo de arquitectura de su maquina>
 
 ### Explicación de las variables
 
-- `REPO_URL`: Es la URL del repositorio de GitHub donde se quiere registrar el runner. Este runner solo podrá ejecutar workflows de ese repositorio.
+- `REPO_URL`: Es la URL del repositorio de GitHub donde se quiere registrar el runner. Este runner solo podrá ejecutar workflows de ese repositorio. Ejemplo de URL: `https://github.com/IngSoft-DA2/DA2-Tecnologia`
 
 - `GITHUB_PAT`: Es un **token de acceso personal (Personal Access Token)** que debe tener permisos para administrar runners en ese repositorio.  
   > ⚠️ Este valor es sensible y **no debe compartirse públicamente ni subirse a GitHub**.
