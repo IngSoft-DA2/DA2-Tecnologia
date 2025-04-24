@@ -2,6 +2,8 @@
 
 # Correr GitHub Self-Hosted Runner en un Docker Container
 
+## Todos los integrantes del equipo tendrán que realizar la guía
+
 ## 1. Introducción
 
 GitHub Actions es una herramienta que permite automatizar tareas dentro del flujo de trabajo de un proyecto, como compilar código, correr tests o desplegar aplicaciones.
