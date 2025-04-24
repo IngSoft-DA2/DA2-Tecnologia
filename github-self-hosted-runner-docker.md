@@ -123,11 +123,11 @@ Podés probar si el `GITHUB_PAT` funciona correctamente utilizando **Postman**:
 (Reemplazá **NOMBRE DE TU REPO** por el nombre de tu repo)
 
 3. En la pestaña **Headers**, agregá: 
-    - Key: Authorization Value: token TU_GITHUB_PAT
+    - **Key**: `Authorization`, **Value**: `token TU_GITHUB_PAT`
     
       (Reemplazá `TU_GITHUB_PAT` por el token que generaste)
     
-    - Key: Accept Value: application/vnd.github+json
+    - **Key**: `Accept`, **Value**: `application/vnd.github+json`
 4. En la pestaña **Body**, dejá la opción **raw** vacía (el endpoint no requiere contenido).
 5. Hacé clic en **Send**.
 
