@@ -304,13 +304,13 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el arch
 
 ```yaml
 services:
-  workflows-test-self-hosted-runner:
+  nombre-de-la-negocio-self-hosted-runner:
     build:
       context: .
       args:
         ARCH: ${ARCH}
     image: dotnet-self-hosted-runner
-    container_name: workflows-test-self-hosted-runner
+    container_name: nombre-de-la-negocio-self-hosted-runner
 
     environment:
       REPO_URL: ${REPO_URL}
