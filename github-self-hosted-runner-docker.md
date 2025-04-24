@@ -83,7 +83,7 @@ ARCH: <tipo de arquitectura de su maquina>
 
 - `RUNNER_NAME`: Es el nombre que tendrá el runner dentro del repositorio de GitHub. El nombre debe ser el username de github.
 
-- `ARCH`: Es el tipo de arquitectura de la maquina host, acepta dos valores posibles 64 o arm64
+- `ARCH`: Es el tipo de arquitectura de la maquina host, acepta dos valores posibles `x64` o `arm64`
     - Intel usa `x64`
     - MacOS con chip m1, m2, m3, m4 usa `arm64`
     - Chip Snapdragon `arm64`
