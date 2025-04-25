@@ -310,7 +310,7 @@ services:
       args:
         ARCH: ${ARCH}
     image: dotnet-self-hosted-runner
-    container_name: nombre-de-la-negocio-self-hosted-runner
+    container_name: nombre-del-negocio-self-hosted-runner
 
     environment:
       REPO_URL: ${REPO_URL}
@@ -324,7 +324,7 @@ services:
 volumes:
   runner-data:
 ```
-*Sustituir donde dice **nombre-de-la-negocio** por el nombre del negocio*
+*Sustituir donde dice **nombre-del-negocio** por el nombre del negocio*
 
 ### 1. Servicios (`services`)
 
