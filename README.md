@@ -43,4 +43,4 @@ Algunas desventajas:
 En resumen, a pesar de las desventajas, reflection sigue siendo una herramienta poderosa, particularmente en escenarios donde la flexibilidad que trae en tiempo de ejecución y el dinamismo sobre comportamientos es esencial. Sin embargo, es importante usar reflection de forma cautelosa y considerar caminos alternativos para mitigar posibles problemas.
 
 ## Ejemplo
-- (Ejemplo de reflection real)[https://github.com/CodeQuality-Uyu/unit-of-work/blob/main/CQ.UnitOfWork.Abstractions/Extensions/ExceptionExtensions.cs]
+- [Ejemplo de reflection real](https://github.com/CodeQuality-Uyu/unit-of-work/blob/main/CQ.UnitOfWork.Abstractions/Extensions/ExceptionExtensions.cs)
