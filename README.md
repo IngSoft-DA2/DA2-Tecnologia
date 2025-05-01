@@ -12,7 +12,7 @@ Acá van a encontrar tanto materiales de interes para profundizar, cómo código
 Es importante ver y seguir cada una de estas guías para tener un ambiente local listo y andando.
 
 - [Herramienta de desarrollo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/ide.md)
-- Docker
+- [Docker](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/docker.md))
 - Herramienta de control de versiones
 - Base de datos
 - Postman
