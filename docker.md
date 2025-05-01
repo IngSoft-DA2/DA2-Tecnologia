@@ -1,6 +1,10 @@
-# 🧭 Sección 1: ¿Qué es Docker?
+[Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#repositorio-de-clase)
 
-## 🔍 Explicación sencilla
+# Docker
+
+# 🧭 ¿Qué es Docker?
+
+## 🔍 Intro
 
 **Docker es una herramienta que nos permite crear, ejecutar y administrar contenedores.**
 
