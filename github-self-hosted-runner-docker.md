@@ -2,8 +2,6 @@
 
 # Correr GitHub Self-Hosted Runner en un Docker Container
 
-## Todos los integrantes del equipo tendrán que realizar la guía
-
 ## 1. Introducción
 
 GitHub Actions es una herramienta que permite automatizar tareas dentro del flujo de trabajo de un proyecto, como compilar código, correr tests o desplegar aplicaciones.
@@ -28,6 +26,24 @@ Ejecutar el runner dentro de un contenedor Docker agrega más beneficios:
 - Facilita la portabilidad y la replicación del entorno.
 
 En esta guía vamos a ver cómo correr un self-hosted runner de GitHub dentro de un contenedor Docker, paso a paso.
+
+### ¿Por qué cada colaborador debe configurar el contenedor del self-hosted runner en su entorno local?
+
+El modelo de runner self-hosted en contenedor funciona como una **pila compartida de runners registrados** en el repositorio. GitHub Actions no asigna un workflow a un runner específico por colaborador, sino que simplemente envía el trabajo al primer runner disponible que cumpla con los requisitos del job.
+
+Esto significa que:
+
+- Si solo uno o dos colaboradores tienen sus contenedores activos, **todos los workflows del equipo (incluidos pull requests de otros)** se ejecutarán en esos runners.
+- Si ninguno de los runners está activo en el momento de la ejecución, **los workflows quedarán pendientes indefinidamente**, afectando la automatización y el flujo de trabajo.
+- No hay garantía de que el runner local de un colaborador ejecute exclusivamente sus propios workflows; **el primer runner disponible es el que toma el trabajo**, sin importar quién hizo el PR o el push.
+
+Por eso, es fundamental que **cada colaborador configure y mantenga activo su propio contenedor de runner en su entorno local**, ya que:
+
+- **Se incrementa la disponibilidad global de runners**, reduciendo el riesgo de bloqueos por falta de recursos.
+- **Se distribuye la carga de ejecución de workflows**, permitiendo trabajo en paralelo y evitando saturar un único contenedor.
+- **Se mantiene el flujo de CI funcionando de forma autónoma**, sin depender del estado de una única máquina o usuario.
+
+Este enfoque colaborativo asegura que el sistema de automatización del repositorio sea resiliente, distribuido y siempre disponible durante el desarrollo.
 
 ## 3. Organización del proyecto
 
