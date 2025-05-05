@@ -1,10 +1,10 @@
 # Filtro de excepciones
 
-Este filtro define una forma de manejar las excepciones no catcheadas en el sistema de forma global. Puede ser utilizado para manejar politicas custom sobre las excepciones.
+Este filtro define una forma de manejar las excepciones no catcheadas en el sistema de forma global. Puede ser utilizado para manejar políticas custom sobre las excepciones.
 
 Para implementar un filtro de excepciones, se debe implementar la interfaz `IExceptionFilter`.
 
-El siguiente codigo muestra como implementar este filtro con la interfaz `IExceptionFilter`:
+El siguiente código muestra como implementar este filtro con la interfaz `IExceptionFilter`:
 
 ```C#
 public sealed class CustomExceptionFilterAttribute : Attribute, IExceptionFiler
@@ -16,7 +16,7 @@ public sealed class CustomExceptionFilterAttribute : Attribute, IExceptionFiler
 }
 ```
 
-El siguiente codigo muestra como usar el filtro de excepcion a nivel de clase:
+El siguiente código muestra como usar el filtro de excepcion a nivel de clase:
 
 ```C#
 [ApiController]
@@ -27,24 +27,24 @@ public sealed class CustomController : ControllerBase
   [HttpGet]
   public void Action()
   {
-    //som code
+    //some code
   }
 }
 ```
 
-Este filtro de excepciones custom, manejara todas las excepciones no manejadas que ocurran dentro de esta clase.
+Este filtro de excepciones custom, manejará todas las excepciones no manejadas que ocurran dentro de esta clase.
 
-Una vez que llega la excepcion al filtro, este debera de setear a la property `ExceptionHandled` el valor de `true` o un valor a la property `Result` para responder el error al cliente. Este filtro no puede convertir la respuesta de error en una de exito, solo el filtro de `Action` puede hacer eso.
+Una vez que llega la excepción al filtro, este deberá de setear a la property `ExceptionHandled` en `true`, o asignar un valor a la property `Result` para responder el error al cliente. Este filtro no puede convertir la respuesta de error en una de éxito, solo el filtro de `Action` puede hacer eso.
 
-Estos filtros son buenos como ultimo recurso para aquellas excepciones no manejadas dentro del sistema pero tienen la desventaja que no son tan flexibles como un middleware para manejar los errores.
+Estos filtros son buenos como último recurso para aquellas excepciones no manejadas dentro del sistema pero tienen la desventaja que no son tan flexibles como un middleware para manejar los errores.
 
-## Caminos de implementacion
+## Caminos de implementación
 
 ### Camino 1
 
-Se puede tener tantos exception filter como uno quiera, eso da a lugar que se podria tener un exception filter por cada controller donde cada exception filter solo controla las excepciones que se lancen dentro de los metodos de ese controller.
+Se puede tener tantos exception filter como uno quiera, eso da a lugar que se podría tener un exception filter por cada controller donde cada exception filter solo controla las excepciones que se lancen dentro de los métodos de ese controller.
 
-Eso quiere decir que si tenemos los controllers: `Controller1` y el `Controller2`, podriamos crear un filtro de excepcion independiente para cada controller.
+Eso quiere decir que si tenemos los controllers: `Controller1` y el `Controller2`, podríamos crear un filtro de excepción independiente para cada controller.
 
 Teniendo lo siguiente:
 
@@ -56,7 +56,7 @@ public sealed class Controller1ExceptionFilterAttribute : Attribute, IExceptionF
 ```
 
 <p align="center">
-[Filtro de excepcion para `Controller1`]
+[Filtro de excepción para `Controller1`]
 </p>
 
 ```C#
@@ -67,14 +67,14 @@ public sealed class Controller2ExceptionFilterAttribute : Attribute, IExceptionF
 ```
 
 <p align="center">
-[Filtro de excepcion para `Controller2`]
+[Filtro de excepción para `Controller2`]
 </p>
 
-Los cuales se usarian de la siguiente manera:
+Los cuales se usarían de la siguiente manera:
 
 ```C#
 [ApiController]
-[Route('controller1')]
+[Route("controller1")]
 [Controller1ExceptionFilter]
 public sealed class Controller1Controller : ControllerBase
 {
@@ -88,7 +88,7 @@ public sealed class Controller1Controller : ControllerBase
 
 ```C#
 [ApiController]
-[Route('controller1')]
+[Route("controller2")]
 [Controller2ExceptionFilter]
 public sealed class Controller2Controller : ControllerBase
 {
@@ -100,15 +100,15 @@ public sealed class Controller2Controller : ControllerBase
 [Controller2 con su filtro de excepciones]
 </p>
 
-Esto llevaria a tener varios filtros de excepcion con un tamaño adecuado para mantener.
+Esto llevaría a tener varios filtros de excepción con un tamaño adecuado para mantener.
 
 Este camino no tiene en cuenta aquellas excepciones que no son especificas del controller, las cuales deben ser manejadas de forma global.
 
 ### Camino 2
 
-Tener un solo filtro de excepciones el cual tiene el control de cualquier excepcion no manejada y este debe ser declarado de forma global.
+Tener un solo filtro de excepciones el cual tiene el control de cualquier excepción no manejada y este debe ser declarado de forma global.
 
-La implementacion del filtro no varia, varia la forma de usarlo, ya que no se especificara en ninguna clase o metodo.
+La implementación del filtro no varía, lo que varía es la forma de utilizarlo, ya que no se especificará en ninguna clase o método.
 
 Para registrar un filtro de excepciones de forma global, es necesario modificar la clase `Program.cs`
 
