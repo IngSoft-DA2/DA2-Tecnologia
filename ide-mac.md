@@ -53,10 +53,10 @@ VS Code es una de las herramientas más populares entre los desarrolladores debi
 
 1. Al abrir VS Code por primera vez, puedes personalizar la interfaz seleccionando un tema.
 2. Como se mencionó anteriormente, VS Code es un editor de texto que debe configurarse adecuadamente para acercarse a la experiencia de un IDE.
-3. Para ello, se debe importar el perfil preparado [.NET](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/.NET-profile), el cual incluye todos los plugins necesarios y los [settings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/settings.json) de VS Code, estableciendo configuraciones comunes para todos los integrantes del repositorio.
+3. Para ello, se deben descargar el perfil preparado [.NET](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/.NET.code-profile), el cual incluye todos los plugins necesarios y los [settings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/settings.json) de VS Code, estableciendo configuraciones comunes para todos los integrantes del repositorio. 
 
 > [!IMPORTANT]
-> El archivo `settings.json` debe ubicarse dentro de una carpeta llamada `.vscode` en la raíz del repositorio.
+> Tanto el archivo `settings.json` y `.NET.code-profile` deben ubicarse dentro de una carpeta llamada `.vscode` en la raíz del repositorio.
 
 4. Para importar el perfil:
    - Descarga el perfil desde el enlace proporcionado.
