@@ -157,3 +157,18 @@ Sustituir los campos, server, user name y password por las creadas en el paso: 5
 [Conexion creada]
 </p>
 
+Docker Compose
+```
+services:
+  sqlserver-local:
+    image: mcr.microsoft.com/azure-sql-edge
+    container_name: sqlServer
+    environment:
+      SA_PASSWORD: "Passw1rd"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data:/var/opt/mssql/data
+```
+
