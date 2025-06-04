@@ -529,3 +529,6 @@ A continuación, se listan algunos puntos importantes a tener en cuenta para gar
 ---
 
 Con estos pasos y recomendaciones, tu equipo ya puede usar **GitHub Actions** de manera eficiente con **runners propios**, optimizando tiempos y recursos.
+
+### Links de interes:
+- [Github self hosted runner](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)
