@@ -11,7 +11,7 @@ on:
 jobs:
   run:
     name: Run
-    uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@main
+    uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@self-hosted-runner
     permissions: write-all
     with:
       solution-name: '<<el nombre del archivo de tu solucion, por ejemplo: Test.sln>>'
