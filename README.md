@@ -1,6 +1,6 @@
 [Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
-# Subida de archivos
+# Paso 1: Subida de archivos
 1. Clonar su repositorio de obligatorio
 2. Deberíamos de estar situados en la rama main
 3. Agregar todos los archivos descriptos en la sección [Archivos de configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#archivos-de-configuraci%C3%B3n) en la carpeta raiz del repositorio
@@ -98,7 +98,10 @@ Las badges son elementos que nos permiten visualizar rapidamente el estado del r
 
 Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `<<url de tu repo>>` por la url del repositorio del obligatorio. Se deberán de ordenar por branch teniendo bajo el dominio de `## Main` las insigneas de esta rama y repetir con `## Develop`, tal como se indica más arriba.
 
-# Configuración de branches
+# Paso 2: Configuración de Github Self Hosted Runners
+En el siguiente [link](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/github-self-hosted-runner-docker.md) podran encontrar los pasos para instalar un self hosted runner usando un container de docker para mejor aislamiento del sistema operativo.
+
+# Paso 3: Configuración de branches
 
 Se requiere que configuren reglas en las branches principales para evitar conflictos al momento de mergear.
 
