@@ -138,9 +138,9 @@ Este token se va a usar internamente para obtener un **registration token**, que
 
 Podés probar si el `GITHUB_PAT` funciona correctamente utilizando **Postman**:
 1. Abrí Postman y creá una nueva petición `POST`.
-2. URL: https://api.github.com/repos/IngSoft-DA2/**NOMBRE DE TU REPO**/actions/runners/registration-token
+2. URL: https://api.github.com/repos/IngSoft-DA2/**NOMBRE-DE-TU-REPO**/actions/runners/registration-token
 
-(Reemplazá **NOMBRE DE TU REPO** por el nombre de tu repo)
+(Reemplazá **NOMBRE-DE-TU-REPO** por el nombre de tu repo)
 
 3. En la pestaña **Headers**, agregá: 
     - **Key**: `Authorization`, **Value**: `token TU_GITHUB_PAT`
