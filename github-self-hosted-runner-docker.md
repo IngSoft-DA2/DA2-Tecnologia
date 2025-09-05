@@ -92,6 +92,8 @@ RUNNER_NAME: <su cuenta de github>
 ARCH: <tipo de arquitectura de su maquina> 
 ```
 
+> ⚠️ Los valores de las variables no deben contener el caracter < ni >. El valor de la variable REPO_URL no debe tener al final .git
+
 ### Explicación de las variables
 
 - `REPO_URL`: Es la URL del repositorio de GitHub donde se quiere registrar el runner. Este runner solo podrá ejecutar workflows de ese repositorio. Ejemplo de URL: `https://github.com/IngSoft-DA2/DA2-Tecnologia`
@@ -320,7 +322,7 @@ Dentro del directorio `nombre-del-repositorio-self-hosted-runner`, creá el arch
 
 ```yaml
 services:
-  nombre-de-la-negocio-self-hosted-runner:
+  nombre-del-negocio-self-hosted-runner:
     build:
       context: .
       args:
@@ -340,7 +342,7 @@ services:
 volumes:
   runner-data:
 ```
-*Sustituir donde dice **nombre-del-negocio** por el nombre del negocio*
+*Sustituir donde dice **nombre-del-negocio** por el nombre del negocio que identifique el contexto del obligatorio o aplicación*
 
 ### 1. Servicios (`services`)
 
