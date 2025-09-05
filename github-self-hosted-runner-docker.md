@@ -464,39 +464,7 @@ Si todo salió bien, el runner aparecerá en estado **Idle**, lo que indica que 
 
 > 🟢 Esto confirma que tu runner self-hosted está correctamente vinculado al repositorio y funcionando.
 
-## 🛠️ Paso 10 - Actualizar los workflows para usar los runners self-hosted
-
-Ahora que el runner está en funcionamiento, hay que actualizar los archivos de workflows del repositorio obligatorio para que usen los runners self-hosted que configuró el equipo.
-
-### ✏️ ¿Qué hay que modificar?
-
-1. **Actualizar la referencia al workflow reutilizable**
-
-En **build-test.yml**
-
-Antes:
-```yaml
-uses: IngSoft-DA2/workflows/.github/workflows/reusable-build-test.yml@main
-```
-
-Después:
-```yaml
-uses: IngSoft-DA2/workflows/.github/workflows/reusable-build-test.yml@self-hosted
-```
-
-En **code-analysis.yml**
-Antes:
-```yaml
-uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@main
-```
-
-Después:
-```yaml
-uses: IngSoft-DA2/workflows/.github/workflows/reusable-code-analysis.yml@self-hosted
-```
->Esto apunta a una versión del workflow preparada específicamente para runners self-hosted.
-
-## Paso 11: Consideraciones y troubleshooting
+## Paso 10: Consideraciones y troubleshooting
 
 A continuación, se listan algunos puntos importantes a tener en cuenta para garantizar el correcto funcionamiento de los runners self-hosted:
 
