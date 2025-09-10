@@ -22,7 +22,7 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 - [Herramienta de control de versiones (Git)](./control-version-git.md)
 - [Base de datos (SQL Server)](./sql-server.md)
 - [Postman (testing de APIs)](./client-http.md)
-- Node.js
+- [Node.js](node-js.md)
 
 ---
 
