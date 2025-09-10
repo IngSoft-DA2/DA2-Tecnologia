@@ -28,7 +28,106 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 
 ## 📖 Material Teórico
 
-- [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
+Se recopila una serie de lecturas y recursos recomendados para profundizar en los principales estilos de arquitectura de software aplicados en el mundo .NET y en el desarrollo de aplicaciones empresariales modernas. Los materiales cubren Domain Driven Design (DDD), Clean Architecture, Onion Architecture, Layered Architecture, así como recursos adicionales para entender cómo aplicar estos patrones y sus ventajas. Estas lecturas son útiles tanto para desarrolladores que buscan buenas prácticas como para arquitectos de software que desean tomar decisiones informadas sobre la estructura de sus aplicaciones.
+
+## ¿Por qué son útiles estos recursos?
+- **Claridad Estructural:** Permiten comprender cómo organizar el código para mantenerlo mantenible y escalable.
+- **Buenas Prácticas:** Refuerzan principios sólidos de diseño y desarrollo.
+- **Casos Prácticos:** Incluyen artículos y ejemplos aplicados en .NET y ASP.NET Core.
+- **Visión Crítica:** Algunos materiales discuten ventajas y desventajas, ayudando a elegir el enfoque correcto para cada caso.
+
+<details>
+<summary><strong>Domain Driven Design (DDD)</strong></summary>
+
+**Resumen:**  
+El Diseño Guiado por el Dominio (DDD) es una metodología que centra el desarrollo de software en el conocimiento profundo del dominio del negocio, facilitando la colaboración entre expertos técnicos y de negocio. DDD promueve la creación de modelos ricos en significado, una separación clara entre las distintas capas del sistema y la evolución constante del software junto al negocio.
+
+**Utilidad:**  
+Estos recursos te ayudarán a entender cómo el diseño guiado por el dominio puede mejorar la alineación entre el software y los procesos de negocio, facilitando la colaboración con expertos del dominio y la evolución de la aplicación.
+
+**Lecturas:**
+- [Domain-Driven Design - Martin Fowler](https://martinfowler.com/bliki/DomainDrivenDesign.html)
+- [Principios, beneficios y elementos de DDD (Español)](https://medium.com/@jonathanloscalzo/domain-driven-design-principios-beneficios-y-elementos-primera-parte-aad90f30aa35)
+- [Implementando Clean Architecture y DDD en .NET Core](https://medium.com/vx-company/implementing-clean-architecture-ddd-style-in-net-core-3bc3899f5978)
+- [DDD en aplicaciones ASP.NET Core](https://enlabsoftware.com/development/domain-driven-design-in-asp-net-core-applications.html)
+- [Qué es un Domain Service y cuándo usarlo](https://www.linkedin.com/posts/milan-jovanovic_what-is-a-domain-service-and-when-do-you-activity-7110219840128245760-XImd?utm_source=share&utm_medium=member_desktop)
+</details>
+
+<details>
+<summary><strong>Clean Architecture</strong></summary>
+
+**Resumen:**  
+Clean Architecture es una propuesta para organizar el código de forma que la lógica de negocio quede aislada de frameworks, UI, y detalles de infraestructura, facilitando el testeo, la mantenibilidad y la independencia tecnológica. Propone capas concéntricas donde el dominio y los casos de uso ocupan el centro.
+
+**Utilidad:**  
+Te permitirá conocer cómo separar responsabilidades en tu código para lograr aplicaciones mantenibles, testables y flexibles ante cambios de requerimientos o tecnología.
+
+**Lecturas:**
+- [Clean Architecture en .NET Core](https://www.bytehide.com/blog/clean-architecture-net-core)
+- [Enfoque práctico a Clean Architecture en C#](https://maherz.medium.com/a-practical-approach-to-clean-architecture-in-c-net-13fe27ea23b1)
+- [Por qué Clean Architecture es ideal para sistemas complejos](https://www.linkedin.com/posts/milan-jovanovic_why-is-clean-architecture-great-for-complex-activity-7105508795883098112-EnpB?utm_source=share&utm_medium=member_desktop)
+- [Clean Architecture: Principios y ventajas](https://www.linkedin.com/posts/milan-jovanovic_clean-architecture-activity-7101811343980150784-5BOp?utm_source=share&utm_medium=member_desktop)
+</details>
+
+<details>
+<summary><strong>Onion Architecture</strong></summary>
+
+**Resumen:**  
+Onion Architecture es un patrón que busca proteger el núcleo de la aplicación (el dominio) rodeándolo de capas que dependen hacia adentro, logrando así independencia respecto a frameworks o mecanismos externos. Favorece la mantenibilidad y la facilidad para realizar pruebas unitarias.
+
+**Utilidad:**  
+Ofrecen una visión sobre cómo proteger el núcleo de la aplicación y lograr independencia respecto a frameworks, facilitando el mantenimiento y pruebas.
+
+**Lecturas:**
+- [Introducción a Onion Architecture (Jeffrey Palermo)](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/)
+- [Onion Architecture explicada (Medium)](https://medium.com/the-software-architecture-chronicles/onion-architecture-79529d127f85)
+- [Onion Architecture en sistemas C#](https://www.clarity-ventures.com/articles/c-onion-based-architecture#:~:text=Onion%20architecture%20is%20a%20software,strong%20and%20cohesive%20system%20core.)
+- [Onion Architecture en ASP.NET Core](https://code-maze.com/onion-architecture-in-aspnetcore/)
+</details>
+
+<details>
+<summary><strong>Layered Architecture</strong></summary>
+
+**Resumen:**  
+La arquitectura en capas es uno de los patrones más tradicionales y ampliamente adoptados en el desarrollo de software empresarial. Se basa en dividir la aplicación en capas bien definidas (por ejemplo: presentación, lógica, acceso a datos), permitiendo separar responsabilidades y facilitar el mantenimiento.
+
+**Utilidad:**  
+Ayudan a comprender la tradicional separación de responsabilidades en capas (presentación, lógica de negocio, datos) y cómo aplicar este patrón en proyectos reales.
+
+**Lecturas:**
+- [Arquitectura en capas con ASP.NET Core y EF Core](https://medium.com/aspnetrun/layered-architecture-with-asp-net-core-entity-framework-core-and-razor-pages-53a54c4028e3)
+- [Comparativa Onion vs Three Layer Architecture](https://medium.com/swlh/onion-architecture-vs-three-layer-59a9ba2c6e02)
+- [El patrón de arquitectura en capas](https://medium.com/kayvan-kaseb/the-layered-architecture-pattern-in-software-architecture-324922d381ad)
+</details>
+
+<details>
+<summary><strong>Vertical Slice Architecture</strong></summary>
+
+**Resumen:**  
+Vertical Slice Architecture propone organizar el código por funcionalidades o "slices" verticales (casos de uso), en lugar de por capas técnicas. Cada slice abarca desde la entrada (por ejemplo, un endpoint) hasta el dominio y la persistencia, permitiendo que cada funcionalidad evolucione de forma independiente.
+
+**Utilidad:**  
+Descubrirás una alternativa moderna a la organización tradicional por capas, enfocada en separar la lógica de negocio por caso de uso o funcionalidad. Esto facilita la mantenibilidad, la escalabilidad y la entrega incremental de funcionalidades, especialmente útil para equipos ágiles y proyectos que requieren adaptación constante.
+
+**Lecturas:**
+- [The problem with Clean Architecture: Vertical Slices](https://medium.com/design-microservices-architecture-with-patterns/the-problem-with-clean-architecture-vertical-slices-111537c0ffcb#:~:text=In%20a%20Vertical%20Slice%20architecture,are%20delivered%20over%20the%20web.)
+- [Vertical Slice Architecture (YouTube: KqWNtCpjUi8)](https://www.youtube.com/watch?v=KqWNtCpjUi8&t=19)
+- [Presentación, Dominio y Capa de Datos - Martin Fowler](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
+</details>
+
+<details>
+<summary><strong>Lecturas adicionales y recursos generales</strong></summary>
+
+**Resumen:**  
+Estos recursos complementan los estilos arquitectónicos principales, presentando guías y reflexiones de expertos sobre patrones, buenas prácticas y decisiones de diseño que afectan a la arquitectura de aplicaciones modernas.
+
+**Utilidad:**  
+Complementan los conceptos, presentan discusiones críticas sobre los patrones y muestran ejemplos prácticos y recomendaciones de expertos reconocidos.
+
+**Lecturas:**
+- [Guía de arquitecturas comunes de aplicaciones web en Azure (.NET)](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
+- [Principios de Layering (Martin Fowler)](https://martinfowler.com/bliki/LayeringPrinciples.html)
+</details>
 
 ---
 
@@ -60,7 +159,6 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 ---
 
 > **Nota:** El código para cada tema se encuentra en su propia branch, facilitando la búsqueda y el estudio independiente de cada tópico.
-
 
 ## ⚠️ Aclaración Importante
 
