@@ -1,3 +1,5 @@
+[Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/web-api#indice) -> [Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main)
+
 # Guía: Creación de una Solución y un Proyecto Web API en .NET
 
 Esta guía te llevará paso a paso desde la creación de una solución base en .NET hasta la incorporación de un proyecto Web API siguiendo buenas prácticas de estructura y comandos recomendados.
