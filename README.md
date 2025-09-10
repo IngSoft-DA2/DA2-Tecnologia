@@ -21,7 +21,7 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 - [Docker](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/docker.md)
 - [Herramienta de control de versiones (Git)](./control-version-git.md)
 - [Base de datos (SQL Server)](./sql-server.md)
-- Postman (testing de APIs)
+- [Postman (testing de APIs)](./client-http.md)
 - Node.js
 
 ---
