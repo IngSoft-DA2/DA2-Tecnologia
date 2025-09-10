@@ -1,170 +1,129 @@
 [Volver - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
-# Paso 1: Subida de archivos
-1. Clonar su repositorio de obligatorio
-2. Deberíamos de estar situados en la rama main
-3. Agregar todos los archivos descriptos en la sección [Archivos de configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#archivos-de-configuraci%C3%B3n) en la carpeta raiz del repositorio
+# Configuración Inicial del Repositorio – DA2
 
-> [!IMPORTANT]
-> Respetar las carpetas, los nombres y extensiones de los archivos
+Esta guía te ayudará a dejar tu repositorio listo para trabajar de manera profesional en el curso, con buenas prácticas y herramientas automáticas desde el principio.
 
-4. Agregar un archivo con extensión `.cs` (por ejemplo `Test.cs`), esto hará que se ejecuten las actions al commitearse
-5. Modificar el `Readme.md` con las insigneas pudiendo diferenciar cuales son de `main` y cuales son de `develop` por ejemplo quedando parecido a lo siguiente
-```
-## Main
+---
 
-![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
+## 🚦 Paso 1: Configuración de Github Self Hosted Runners
 
-![Code Analysis - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
+Para que las acciones (Actions) funcionen correctamente y puedas compilar, testear y analizar tu código automáticamente, es fundamental instalar un runner propio.
 
-## Develop
+Consulta la siguiente guía para hacerlo con Docker:  
+👉 [Configuración de self-hosted runner](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/github-self-hosted-runner-docker.md)
 
-![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
+---
 
-![Code Analysis - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
-```
-> [!IMPORTANT]
-> Respetar los espacios para que las insigneas se ubiquen una abajo de la otra y actualizarlas con la url de su repositorio.
+## 📥 Paso 2: Subida de archivos y preparación del repositorio
 
-6. Una vez agregado todos los archivos, el `.cs` de prueba y modificado el readme, realizar el commit inicial
-7. Deberíamos de ver que las actions están ejecutándose y deberían fallar porque no tenemos código para probar, compilar ni analizar de forma estática
-8. Una vez que terminen de ejecutar las actions continuar con: [Configuración de branches](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/README.md#configuraci%C3%B3n-de-branches)
-9. Al finalizar toda la configuración como resultado deberíamos de tener
-   - Un único commit en `origin-main` y `origin-develop` debera estar creado a partir de éste
-   - Dos actions ejecutadas y en estado failure
-   - Las insigneas en la rama `origin-main` deben estar en failure y las de `orgin-develop` no deben tener un status ni de success ni de failure porque aun no se commitio nada a esta rama. 
-10. Luego de que se termino de configurar y se creo la rama develop, en el primer PR podemos eliminar esta clase `Test.cs` de prueba creada
+1. **Clona tu repositorio obligatorio** recién creado.
+2. Asegúrate de estar en la rama `main`.
+3. Agrega todos los archivos descriptos en la sección [Archivos de configuración](#archivos-de-configuración) (respetando nombres, carpetas y extensiones).
+4. **IMPORTANTE:**  
+   - Respetar las carpetas, los nombres y extensiones de los archivos.
+   - Agrega un archivo `.cs` (por ejemplo `Test.cs`). Esto hará que se ejecuten las actions al hacer commit.
+5. Modifica el `README.md` y **agrega los badges para distinguir el estado de las ramas `main` y `develop`**:
 
-# Archivos de configuración
+   ```md
+   ## Main
 
-A continuación van a encontrar los archivos que son requeridos en la solución junto con una breve descripción de su funcionalidad dentro del repositorio y de la solución.
+   ![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
+   ![Code Analysis - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
 
-## Archivos
+   ## Develop
 
-- **[.gitignore](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitignore)**: Este archivo es para ignorar aquellos archivos que no se quiere tener un control de version. Esto quiere decir, que ciertos archivos por más que sean modificados, eliminados o agregados, no se vera ningún cambio efectuado en el histórico de cambios de git al momento de crear un commit. Para que este archivo haga efecto, tiene que ser controlado primero por git antes que aquellos archivos que deseamos ignorar. En caso de agregar este archivo posteriormente al repo y los archivos que deseamos ignorar ya estan siendo trackeados por git, estos deberán de ser eliminados, commitear la eliminación de los mismos y luego cuando vuelvan a ser agregados estos ya no se verán en el historico de cambios. La eliminación de los archivos y el commit hacen que git deje de trackear los cambios en esos archivos para que pueda tener efecto el gitignore.
+   ![Build - Test - Develop](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
+   ![Code Analysis - Develop](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
+   ```
 
-- **[.editorconfig](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.editorconfig)**: Configuración de reglas de clean code para C#.
+   - Cambia `<<url de tu repo>>` por la URL real de tu repositorio.
+   - Respeta el formato vertical para que las insignias queden una debajo de la otra.
 
-- **[Directory.Build.props](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/Directory.Build.props)**: Archivo dónde se especifícan aquellos paquetes junto con sus versiones que son usados por todos los proyectos locales de la solución. Es una forma más rápida de controlar sus versiones y que los paquetes locales se actualicen en simultaneo. Es muy util este archivo para tener centralizado aquellas dependencias transversales que impactan a todos los proyectos de la solución.
+6. Realiza el commit inicial con todos los archivos y el `Test.cs` de prueba, y sube los cambios.
+7. Las Actions deberían ejecutarse y probablemente fallar (no hay código aún para probar, compilar o analizar).
+8. Cuando terminen de ejecutarse las Actions, continúa con: [Configuración de branches](#configuración-de-branches).
+9. Al finalizar toda la configuración, deberías tener:
+   - Un único commit en `origin/main` y `origin/develop` debe estar generado a partir de este.
+   - Dos actions ejecutadas y en estado failure.
+   - Los badges en `main` en failure y los de `develop` sin estado (aún no hay commits).
+10. Cuando termines el PR inicial, puedes eliminar `Test.cs`.
 
-- **[pull_request_template.md](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/pull_request_template.md)**: Es una guía sobre la información a incluir en los pull request que se creen. La mísma se debera de modificar en las partes necesarias para agregar información sobre el PR del trabajo realizado.
+---
 
-- **[.github/workflows/build-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml)**: Es la configuración que permitira que compile la solución y corra las pruebas a la hora de mergear una rama no protegida a una protegida (develop y main), también se ejecutara cuando se cree un PR a una rama protegida o cuando este PR creado se vea modificado al crear nuevos commits en la rama.
+## ⚙️ Archivos de configuración
 
-- **[.github/workflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml)**: Es la configuración que analiza el código estático para corroborar el cumplimiento de los estandares establecidos y reglas de clean code en el archivo **.editorconfig**.
+Estos archivos son esenciales para que tu repositorio siga las buenas prácticas y utilice las herramientas automáticas del curso.
 
-  - Estos dos ultimos archivos para que tengan efecto, se tienen que encontrar en el directorio `.github/workflows` en la raíz del repositorio.
+### Archivos requeridos
 
-- **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes)**: Este archivo de configuración permite asignarle atributos a otros archivos y directorios en el proyecto, para poder indicarle a Git como debe tratarlos.
+- **[.gitignore](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitignore):** Ignora archivos no deseados en control de versiones.
+- **[.editorconfig](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.editorconfig):** Reglas de estilo y clean code para C#.
+- **[Directory.Build.props](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/Directory.Build.props):** Referencias y versiones de paquetes para todos los proyectos.
+- **[pull_request_template.md](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/pull_request_template.md):** Guía de información para los pull requests.
+- **[.github/workflows/build-test.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/build-test.yml):** Compilación y pruebas automáticas.
+- **[.github/workflows/code-analysis.yml](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.github/workflows/code-analysis.yml):** Análisis estático de código.
+  - Ambos archivos deben estar en `.github/workflows/` en la raíz.
+- **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes):** Configura atributos de archivos para Git.
+- **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings):** Configura cobertura de código para los tests.
 
-- **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings)**: Este archivo de configuración permite configurar algunos elementos al generar la cobertura de código usando `dotnet cli`. Lo que configura particularmente es que se ignoren las `migraciones` generadas y cualquier clase con algun atributo `GeneratedCodeAttribute`. De esta manera estamos dejando por fuera clases autogeneradas de la cobertura.
+---
 
-# Badges
+## 🔀 Paso 3: Configuración de branches y ajustes generales
 
-Las badges son elementos que nos permiten visualizar rapidamente el estado del repositorio. Estos nos van a servir para ver rapidamente si las pruebas estan pasando o fallando y si se esta respetando clean code sin la necesidad de inspeccionar en profundidad el repositorio y/o el código.
+Configura las ramas principales y las opciones generales para proteger el código y evitar conflictos.
 
-```md
-![Build - Test - Develop](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=develop&event=push)
-```
+### 1. Rama por defecto: ¿Por qué debe ser `develop`?
 
-<p align="center">
-  [Badge de build y test para develop]
-</p>
+La rama por defecto **debe ser `develop`** porque así aislamos el desarrollo activo (nuevas funcionalidades, correcciones, experimentos) de la rama principal de producción (`main`). Esto permite:
 
-```md
-![Build - Test - Main](<<url de tu repo>>/actions/workflows/build-test.yml/badge.svg?branch=main&event=push)
-```
+- Trabajar de forma segura sin afectar la versión productiva.
+- Forzar que todo pase por un Pull Request y revisiones antes de llegar a producción.
+- Pruebas, builds y code analysis automáticos se aplican primero en `develop`.
+- Mejor organización y flujo de trabajo profesional (Git Flow básico).
 
-<p align="center">
-  [Badge de build y test para main]
-</p>
+**¿Cómo configurarlo?**
+---
 
+### 2. Configuración General
 
-```md
-![Clean Code - Develop](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=develop&event=push)
-```
+- Dirígete a la sección **General**.
+- En la subsección **Default Branch**, selecciona `develop` como la rama por defecto.
+- En la subsección **Features**, asegúrate de que **solo la opción "Projects" esté activa**. Desactiva Wiki, Issues, Discussions y demás opciones si no son necesarias para el curso.
+---
 
-<p align="center">
-  [Badge de clean code para develop]
-</p>
+### 3. Opciones de Pull Requests
 
-```md
-![Clean Code - Main](<<url de tu repo>>/actions/workflows/code-analysis.yml/badge.svg?branch=main&event=push)
-```
+Al configurar Pull Requests, verás diferentes acciones para hacer merge cuando un PR está listo:
 
-<p align="center">
-  [Badge de clean code para main]
-</p>
+- **Create a merge commit**: (recomendado y debe estar activo) Esta opción crea un commit de merge, manteniendo el historial completo de los cambios y es la más clara para trabajos colaborativos.
+- **Squash merging**: Fusiona todos los commits del PR en un solo commit en la rama base. Útil para mantener un historial más limpio, pero puede ocultar detalles.
+- **Rebase and merge**: Aplica los commits del PR de forma individual sobre la rama base, reescribiendo el historial. Puede ser útil para un historial lineal, pero es más avanzado.
 
-Dichos badges, se tienen que pegar en el `Readme.md` del repositorio y se debe cambiar `<<url de tu repo>>` por la url del repositorio del obligatorio. Se deberán de ordenar por branch teniendo bajo el dominio de `## Main` las insigneas de esta rama y repetir con `## Develop`, tal como se indica más arriba.
+> **Para el curso, deja **solo la opción "Create a merge commit"** activa y desactiva las otras. Es la más fácil de auditar para docentes y mantiene el contexto de los cambios.
 
-# Paso 2: Configuración de Github Self Hosted Runners
-En el siguiente [link](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/github-self-hosted-runner-docker.md) podran encontrar los pasos para instalar un self hosted runner usando un container de docker para mejor aislamiento del sistema operativo.
+Además, encontrarás otras opciones importantes:
+- **Always suggest updating pull requests**: Recomienda siempre actualizar los PRs con la rama base antes de hacer merge.  
+  _Sugerimos dejar esta opción **activa** para evitar conflictos y mantener la rama actualizada._
+- **Allow auto-merge**: Permite que los PRs se fusionen automáticamente cuando cumplen los requisitos de revisión y CI.  
+  _Activa esta opción para facilitar la integración continua._
+- **Automatically delete head branches**: Elimina la rama automáticamente después de hacer merge.  
+  _Activa esta opción para mantener tu repositorio limpio._
 
-# Paso 3: Configuración de branches
+---
 
-Se requiere que configuren reglas en las branches principales para evitar conflictos al momento de mergear.
+### 4. Protección de ramas
 
-- Ir a Settings (Última opción en la barra de navegación en github en el repositorio)
-<p align="center">
-<img src="images/image-1.png"/>
-</p>
+Crea reglas de protección para `main` y `develop`:
+- Haz click en `Add classic branch protection rule`.
+- Especifica el nombre: `main` o `develop`.
+- Selecciona:
+  - `Require a pull request before merging`
+  - `Require status checks to pass before merging` y marca `Build`, `Test` y `Analysis`.
+  - `Do not allow bypassing the above settings`
+- Guarda la regla.
+- Repite para ambas ramas principales.
 
-## General
+---
 
-- Ir a `General`
-<p align="center">
-<img src="images/image-10.png"/>
-</p>
-
-- La branch por defecto debera ser una rama con el nombre `develop`. El nombre de la branch indica el ambiente en el cual está el código, la branch `develop` es el ambiente de desarrollo, por eso es que debe ser la `default` branch ya que es a la que se estara mergeando y actualizando constantemente. La branch `main` es para el ambiente de "producción", a ésta rama no se le suele mergear código tan seguidamente cómo a `develop`. Esta rama se vera actualizada únicamente los días de las entregas y solamente puede ser actualizada desde `develop`.
-
-<p align="center">
-<img src="images/image-7.png"/>
-</p>
-
-- Sección `Feature`. Desmarcar todos los check-box excepto por el último.
-
-<p align="center">
-<img src="images/image-11.png"/>
-</p>
-
-- Configurar la sección de `Pull Requests` de la siguiente manera
-<p align="center">
-<img src="images/image-8.png"/>
-</p>
-
-## Branches
-
-- Ir a Branches
-<p align="center">
-<img src="images/image-2.png"/>
-</p>
-
-- Crear una nueva regla, seleccionar la opción `Add classic branch protection rule`.
-<p align="center">
-<img src="images/image-3.png"/>
-</p>
-
-- En el nombre de la rama poner: `main`
-
-- Seleccionar la opción `Require a pull request before merging`
-<p align="center">
-<img src="images/image-4.png"/>
-</p>
-
-- Seleccionar `Require status checks to pass before merging` y poner `Build`, `Test` y `Analysis`. Para que aparezcan estas opciones, previamente se tuvieron que agregar los `github-actions`.
-
-<p align="center">
-<img src="images/image-5.png"/>
-</p>
-
-- Seleccionar `Do not allow bypassing the above settings`
-
-<p align="center">
-<img src="images/image-6.png"/>
-</p>
-
-- Para terminar apretar `Create`
-
-- Repetir los mismos pasos pero con `develop`
+¡Con esto tu repositorio estará listo y seguro para comenzar a trabajar de forma profesional!
