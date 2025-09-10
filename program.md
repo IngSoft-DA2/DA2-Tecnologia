@@ -1,69 +1,102 @@
-# Program.cs
+[Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/web-api?tab=readme-ov-file#indice) -> [Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
+# Program.cs en ASP.NET Core: El Punto de Entrada de tu Aplicación Web
 
-Es el punto de entrada de nuestra aplicación, es donde vamos a configurar un host de tipo web application. También se configurará y se registrarán todos aquellos servicios requeridos para el funcionamiento de nuestra aplicación en conjunto con el proceso de middlewares y endpoints.
+El archivo `Program.cs` es el **punto de entrada** de toda aplicación ASP.NET Core moderna. Aquí se configura y arranca el *host* de la aplicación web, además de registrarse todos los servicios y middlewares fundamentales para su funcionamiento.
 
-## Host
+---
 
-Un host es un envoltorio que cubre nuestra aplicación. Es el responsable de iniciar y gestionar la vida de la aplicación. El host contiene la configuración de la aplicación y un servidor HTTP (en nuestro caso un servidor - [Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/kestrel.md)) que está atento a peticiones HTTP para atender y devolver una respuesta. También es la que configura otros aspectos como logging, inyección de dependencia, procesamiento de las requests, etc.
+## 🏠 ¿Qué es un Host?
 
-Así como configuramos una web application, también existen otros tipos de host:
+Un **host** es el "envoltorio" que administra el ciclo de vida de la aplicación. Es responsable de:
 
-- Web Application (o minimal host)
-- Generic Host
-- Web host
+- Iniciar y detener la app.
+- Cargar la configuración.
+- Gestionar el *servidor HTTP* (ej. Kestrel).
+- Inyectar dependencias y servicios.
 
-En esta clase podremos encontrar lo siguiente
+**Tipos de host más comunes:**
+- **Web Application Host (Minimal Host):** Para aplicaciones web (API/SPA).
+- **Generic Host:** Para aplicaciones de consola, workers, etc.
+- **Web Host:** (obsoleto) Era el modelo anterior a .NET 6.
+
+---
+
+## 📝 Estructura moderna de Program.cs
+
+Desde .NET 6, la estructura de `Program.cs` es mucho más concisa y minimalista. No verás explícitamente el método `Main` en la mayoría de los casos, ya que el SDK lo genera automáticamente. La aplicación sigue tres pasos principales: **crear**, **configurar** y **correr** la web app.
 
 <p align="center">
   <img src="images/image-12.png"/>
 </p>
 
-Lo primero que podemos notar es que no existe un método `main`. El método `main` en versiones anteriores o en otro tipo de aplicaciones como las aplicaciones de consola, es el punto de entrada del programa. Pero a partir de la versión 9 de `C#` se introdujo los segmentos top-level, donde uno no tiene porque especificar un método `main` o un `namespace`. Esto nos permite tener una clase que solo contiene declaraciones.
+---
 
-La clase `program` crea la `web application` en tres pasos, **crea**, **configura** y **corre**.
+### 1. Crear el builder
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+```
+
+- Crea y configura el host web con opciones por defecto.
+- Prepara:
+  - El servidor HTTP ([Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/kestrel.md))
+  - Logging
+  - Configuración (appsettings, environment, etc.)
+  - Contenedor de servicios (*Dependency Injection*)
+
+Aquí es donde se agregan los servicios con `builder.Services.Add...`.
+
+---
+
+### 2. Construir la aplicación
+
+```csharp
+var app = builder.Build();
+```
+
+- Ensambla la aplicación usando la configuración previa.
+- Aquí se definen los **middlewares** y el pipeline de la app.
+
+Algunos middlewares habituales:
+
+```csharp
+app.UseHttpsRedirection();
+```
+Redirecciona automáticamente las solicitudes HTTP a HTTPS para mayor seguridad.
+
+```csharp
+app.UseAuthorization();
+```
+Verifica que los usuarios tengan los permisos adecuados antes de acceder a recursos protegidos.
+
+```csharp
+app.MapControllers();
+```
+Habilita el ruteo de controladores, exponiendo los endpoints definidos en tus clases Controller.
 
 <p align="center">
   <img src="images/image-13.png"/>
 </p>
 
-## CreateBuilder
+---
 
-La primera línea crea una instancia de tipo `WebApplicationBuilder`. El método `CreateBuilder` es un método estático de la clase `WebApplication`, y el resultado es una configuración por defecto de los siguientes elementos:
+### 3. Ejecutar la aplicación
 
-- Tipo de servidor HTTP que se va a usar (**[Kestrel](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/kestrel.md)**)
-
-- Logging
-
-- Configuración
-
-- Contenedor de servicios
-
-- Agrega algunos servicios del framework
-
-El resultado de la instancia de tipo `WebApplicationBuilder` es un objeto donde podemos hacer configuraciones adicionales necesarias para nuestra aplicación.
-
-## Build
-
-El método `Build` de la clase `WebApplicationBuilder` crea una instancia de tipo `WebApplication`. Utilizaremos este objeto para setear middleware's y endpoints. En las líneas siguientes podemos ver como se configuraron tres middleware's.
-
-```C#
-app.UseHttpsRedirection();
+```csharp
+app.Run();
 ```
+- Inicia la aplicación web y comienza a escuchar solicitudes HTTP en los puertos configurados.
 
-Es un middleware de .Net Core para redireccionar request HTTP a requests HTTPS, también realiza el mismo comportamiento para las respuestas. Esto quiere decir que si se expone dos puertos, uno en `http` y otro en `https`, todas las request destinadas al puerto en `http` serán forwardeadas al puerto de `https`.
+---
 
-```C#
-app.UseAuthorization();
-```
+## 🚦 Resumen de responsabilidades clave en Program.cs
 
-Es un middleware que autoriza a usuarios a acceder recursos protegidos al chequear permisos del usuario antes de realizar ciertas operaciones.
+- **Configuración del servidor y entorno**
+- **Registro de servicios y dependencias**
+- **Definición de middlewares y pipeline de ejecución**
+- **Mapeo de endpoints (Controllers, Minimal APIs, etc.)**
+- **Inicio de la aplicación**
 
-```C#
-app.MapControllers();
-```
+---
 
-Es un middleware que se encarga de buscar los controllers en el proyecto y crear los endpoints apropiados segun los valores en los atributos de ruta en los mismos. Este middleware hace disponible los endpoints para luego consumirlos desde un cliente HTTP.
-
-## Run
-
-Este método inicia la aplicación y escucha requests http en los puertos configurados para su ejecución.
+> **Consejo:** Mantén `Program.cs` limpio y organizado, delegando la configuración compleja a métodos de extensión o clases auxiliares. Así tu punto de entrada será siempre claro y mantenible.
