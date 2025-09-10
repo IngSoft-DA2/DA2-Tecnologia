@@ -37,6 +37,8 @@ REST es un estilo arquitectónico para diseñar servicios de red, definido por R
 
 Un servicio o API es **RESTful** cuando implementa correctamente los principios y restricciones de REST. No toda API HTTP es RESTful: debe respetar la semántica de los métodos y la estructura de los recursos.
 
+Pueden profundizar mas sobre el tema en [REST](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest.md).
+
 ---
 
 ## 📡 ¿Qué es una API?
