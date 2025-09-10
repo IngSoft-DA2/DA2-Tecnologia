@@ -1,49 +1,76 @@
-[Atras - Main](https://github.com/IngSoft-DA2/DA2-Tecnologia)
+[⬅️ Volver a la guía principal](https://github.com/IngSoft-DA2/DA2-Tecnologia)
 
-# Creación del repositorio
+# 🚀 Guía Visual – Creación de un Repositorio en GitHub para DA2
 
-Una vez aceptada la invitación a la organización, para crear un repositorio, deberán de seguir los siguientes pasos.
+¡Bienvenido/a! Aquí aprenderás paso a paso y de forma visual cómo crear tu propio repositorio en la organización del curso. Seguir buenas prácticas desde el inicio te ahorrará problemas a futuro y facilitará la colaboración y entrega de tu trabajo.
 
-## 1. Ubicarse en la organización dentro de Github
+---
+
+## 📝 ¿Por qué es importante crear bien tu repositorio?
+
+- Garantiza la organización y privacidad de tus entregas.
+- Permite aprovechar herramientas de integración continua y colaboración.
+- Es base para el trabajo profesional en desarrollo de software.
+
+---
+
+## 1. Ingresa a la organización en GitHub
 
 <p align="center">
-<img src="./images/image.png">
+  <img src="./images/image.png" alt="Inicio organización">
 </p>
 <p align="center">
-[Inicio de la organización en GitHub]
+  <em>Pantalla de inicio de la organización</em>
 </p>
 
-## 2. Seleccionar la tab `Repositories`
+---
+
+## 2. Selecciona la pestaña <code>Repositories</code>
+
 <p align="center">
-<img src="./images/image-1.png">
+  <img src="./images/image-1.png" alt="Sección Repositorios">
 </p>
 <p align="center">
-[Sección repositorios]
+  <em>Listado de repositorios dentro de la organización</em>
 </p>
 
-## 3. Hacer click en `New Repository`
+---
+
+## 3. Haz click en <code>New Repository</code>
+
 <p align="center">
-<img src="./images/image-2.png">
+  <img src="./images/image-2.png" alt="Nuevo repositorio">
 </p>
 <p align="center">
-[Formulario nuevo repositorio]
+  <em>Formulario de creación de repositorio</em>
 </p>
 
-  - Los siguientes campos son los que deben ser completados
-    - Nombre (Pueden ser el numero de estudiantes, apellidos, lo que deseen siempre y cuando sea algo formal y profesional)
-    - La visibilidad debe ser privado
-    - Agregar README.md
-    - **No agregar .gitignore**
-    - **No agregar licence**
+Completa los siguientes campos:
+
+- **Nombre:** Puede ser tu apellido, grupo o una convención formal y profesional.
+- **Visibilidad:** Selecciona <strong>Privado</strong> (¡importante!).
+- Marca **Agregar README.md**.
+- **No** agregues <code>.gitignore</code> ni <code>licencia</code> en esta instancia.
+
+---
 
 ## 4. Resultado final del formulario
+
 <p align="center">
-<img src="./images/image-3.png">
+  <img src="./images/image-3.png" alt="Formulario completado">
 </p>
 <p align="center">
-[Formulario finalizado]
+  <em>Ejemplo de formulario correctamente completado</em>
 </p>
 
-## 5. Configurar el repositorio recién creado
-Seguir los pasos en [configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/repo-configuration) para este paso
+---
 
+## 5. Configura tu repositorio recién creado
+
+Sigue los pasos de la [guía de configuración](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/repo-configuration) para asegurar buenas prácticas y preparación del entorno.
+
+---
+
+### ✅ ¡Listo! Ya tienes tu repositorio preparado para trabajar en DA2.
+
+> Recuerda: Un repositorio bien creado es el primer paso hacia un desarrollo profesional y organizado. Si tienes dudas, consulta con el equipo docente o revisa la documentación oficial de GitHub.
