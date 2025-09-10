@@ -1,79 +1,90 @@
-# Repositorio de clase
+# DA2-Tecnologia – Diseño de Aplicaciones 2
 
-## Introducción
+Bienvenido/a al repositorio oficial de apoyo para la materia **Diseño de Aplicaciones 2** (DA2). Este espacio está pensado para centralizar materiales, guías y ejemplos de código que te acompañarán durante el curso.
 
-Este repositorio tiene como objetivo servir de apoyo a las clases de tecnología de la materia Diseño de Aplicaciones 2.
+---
 
-Acá van a encontrar tanto materiales de interes para profundizar, cómo códigos de ejemplo que serán de utilidad para la realización del obligatorio.
+## 📚 ¿Qué encontrarás aquí?
 
-## Temas
+- **Guías de ambiente de desarrollo:** Para que puedas configurar tu equipo y herramientas rápidamente.
+- **Ejemplos de código:** Recursos prácticos y ramificaciones (branches) específicas para cada tema tratado en clase.
+- **Material teórico y enlaces útiles:** Lecturas recomendadas, cheatsheets y ayuda extra para profundizar en los conceptos.
+- **Apoyo para el obligatorio:** Todo lo necesario para que avances en la entrega obligatoria de la materia.
 
-### Preparación del ambiente local
-Es importante ver y seguir cada una de estas guías para tener un ambiente local listo y andando.
+---
+
+## 🛠️ Preparación del ambiente local
+
+Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un entorno funcional:
 
 - [Herramienta de desarrollo](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/ide.md)
 - [Docker](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/docker.md)
-- Herramienta de control de versiones
-- Base de datos
-- Postman
-- Node
-  
-### Teórico
-- [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
-  
-### Tecnología
+- Herramienta de control de versiones (Git)
+- Base de datos (SQL Server)
+- Postman (testing de APIs)
+- Node.js
 
-#### Configuración
+---
+
+## 📖 Material Teórico
+
+- [Lecturas recomendadas](https://fi365-my.sharepoint.com/:w:/g/personal/da185082_fi365_ort_edu_uy/EWbXua0c5yNAiVPDFNML0rIBlhlyEwbTdsCpyoMJ5ywONQ?e=oSyA92)
+
+---
+
+## 🚀 Temas y Ejemplos de Código
+
+### Configuración y Buenas Prácticas
 
 - [Creación del repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-creation)
 - [Github Self Hosted Runner](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/github-self-hosted-runner-docker.md)
 - [Configuración de repositorio](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/repo-configuration)
-- [Creación PR](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
-
-#### Ayuda
-
+- [Creación de Pull Requests](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/pr-creation)
 - [Prácticas Clean Code](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/clean-code.md)
 - [Cheat sheet](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/cheat-sheet.md)
 
-#### Primera parte: .NET WebApi
+### Primera Parte: .NET WebAPI
 
 - [Web API](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
-- [Pruebas unitarias y de integración](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Uso postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
+- [Pruebas unitarias e integración](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
+- [Uso de Postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Inyección de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
-- [EF Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
+- [Entity Framework Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
 - [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
 
-#### Segunda parte: SPAs y Angular
+### Segunda Parte: SPAs y Angular
 
 - [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
 
-Podrán encontrar el codigo relacionado a cada tema en su respectiva **branch** de forma aislada al resto. Esto facilita la busqueda puntual de algo que necesiten.
+---
 
-<!-- - [SQL Server](https://www.microsoft.com/es-es/sql-server/sql-server-downloads) / [SQL Server para MAC](https://docs.microsoft.com/en-us/sql/linux/quickstart-install-connect-docker?view=sql-server-ver15&pivots=cs1-bash)
-- [Postman](https://www.postman.com/)
-- [Angular](https://angular.io/)
-- [NVM](https://4geeks.com/how-to/nvm-install-windows)
-- [Node](https://nodejs.org/es/)
-- [Git](https://git-scm.com/) (si quieren mas info sobre manejo de git pueden leer este [libro](https://sisbibliotecas.ort.edu.uy/cgi-bin/koha/opac-detail.pl?biblionumber=80216))
-- [Github desktop](https://desktop.github.com/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop)
--->
-## Aclaración
+> **Nota:** El código para cada tema se encuentra en su propia branch, facilitando la búsqueda y el estudio independiente de cada tópico.
 
-⚠️ El código que se encuentra está escrito en un ámbito de clase lo cual implica que esta desarrollado de forma practica por tema de tiempos. Todo el codigo no se debe tomar como ejemplo final. Tomar con cuidado, es solo un ejemplo ⚠️
 
-## Links de interes
+## ⚠️ Aclaración Importante
 
-- [Puerto por defecto cambiado en docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
-- [Comparación de strings case insensitive](https://github.com/npgsql/efcore.pg/issues/1498)
-- [Creación de links simbólicos - como npm link](https://github.com/nwheels-io/NuLink)
-- [Const vs Readonly](https://josipmisko.com/posts/c-sharp-const-vs-readonly)
-- [C# sintaxis](https://www.tutorialspoint.com/csharp/index.htm)
+El código presente fue desarrollado en contexto de clase, priorizando la comprensión y la practicidad. **No todo el código debe tomarse como referencia de producción**; su principal objetivo es didáctico.
+
+---
+
+## 🔗 Links de Interés
+
+- [Puerto por defecto cambiado en Docker](https://learn.microsoft.com/en-us/dotnet/core/compatibility/containers/8.0/aspnet-port)
+- [Comparación case-insensitive de strings](https://github.com/npgsql/efcore.pg/issues/1498)
+- [Creación de links simbólicos (npm link)](https://github.com/nwheels-io/NuLink)
+- [Const vs Readonly en C#](https://josipmisko.com/posts/c-sharp-const-vs-readonly)
+- [Sintaxis de C#](https://www.tutorialspoint.com/csharp/index.htm)
 - [LINQ](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
-- [Lambda expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
+- [Expresiones Lambda](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions)
 
-## Docentes
-- :space_invader: Daniel Acevedo
-- :space_invader: Federico Gonzalez
+---
+
+## 👨‍🏫 Docentes
+
+- 👾 Daniel Acevedo
+- 👾 Federico Gonzalez
+
+---
+
+¡Esperamos que este repositorio te ayude a sacarle el máximo provecho al curso!
