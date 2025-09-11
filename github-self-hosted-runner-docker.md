@@ -4,7 +4,7 @@
 
 ## 1. Introducción
 
-GitHub Actions permite automatizar tareas como compilar código, correr tests o desplegar aplicaciones. Por defecto, GitHub ejecuta estos procesos en runners propios (*hosted runners*), pero para DA2 vas a configurar tu propio runner auto-hospedado, aislado en un contenedor Docker.
+GitHub Actions permite automatizar tareas como compilar código, correr tests o desplegar aplicaciones. Por defecto, GitHub ejecuta estos procesos en runners propios (*hosted runners*), pero para DA2 a menudo es preferible usar **runners self-hosted**.
 
 ### ¿Por qué usar un runner self-hosted?
 
@@ -23,9 +23,17 @@ GitHub Actions permite automatizar tareas como compilar código, correr tests o 
 
 ### ❗ ¡Importante! Todos deben tener el runner activo
 
-El modelo de runners self-hosted funciona como una **pila compartida de runners**. Si solo uno o dos compañeros tienen el runner encendido, **todos los workflows del equipo** (incluso los de otros miembros) podrían ejecutarse en sus máquinas. Si nadie tiene el runner activo, **los workflows quedan pendientes y el equipo se tranca**.
+El modelo de runners self-hosted funciona como una **pila compartida de runners**. Si solo uno o dos compañeros tienen el runner encendido, **todos los workflows del equipo** (incluso los de otros miembros) quedarán pendientes si nadie más lo tiene activo.
 
 **Por eso, cada colaborador debe tener su contenedor de runner activo mientras trabaja.**
+
+---
+
+## 📽️ Video explicativo
+
+Si prefieres ver el proceso explicado paso a paso, puedes ver este video de apoyo:
+
+[Ver video en Google Drive](https://drive.google.com/file/d/12C_hM3mBgsa5fr4xPsV5tHlclZOufeVA/view)
 
 ---
 
