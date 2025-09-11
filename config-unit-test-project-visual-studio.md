@@ -1,87 +1,53 @@
-[Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md) > [Volver - Configuración Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
+[⬅️ Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md) > [⬅️ Volver - Configuración Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
 
-# Configuración de proyecto de prueba unitaria Visual Studio
+# 🛠️ Configuración de Proyecto de Prueba Unitaria en Visual Studio
 
-## Moq
+A continuación, se describe cómo agregar los paquetes recomendados **Moq** y **FluentAssertions** a tu proyecto de pruebas usando Visual Studio.  
+¡Sigue estos pasos para potenciar la calidad y la legibilidad de tus pruebas! 🚀
 
-- Hacer click derecho en el proyecto de prueba del proyecto -> Manage NuGet Packages
-<p align="center">
-<img src='./images/image-17.png'>
-</p>
+---
 
-<p align="center">
-[Manage NuGet Packages opcion]
-</p>
+## 🎭 Moq
 
-- Buscar Moq
-<p align="center">
-<img src='./images/image-18.png'>
+1. **Haz click derecho** sobre el proyecto de prueba  
+   → Selecciona **Manage NuGet Packages...**  
+   ![Manage NuGet Packages opción](./images/image-17.png)
 
-</p>
+2. **Busca `Moq`** en la barra de búsqueda  
+   ![Buscar Moq](./images/image-18.png)
 
-<p align="center">
-[Moq]
-</p>
+3. **Selecciona e instala** la última versión.  
+   - Asegúrate que la fuente del paquete sea `nuget.org`  
+   ![Instalar versión](./images/image-19.png)
 
-- Instalar última versión. La fuente del paquete debe ser `nuget.org`
+4. **Verifica la instalación:**  
+   - El paquete debe aparecer listado en la sección `Packages` del proyecto de prueba  
+   ![Chequear instalación](./images/image-20.png)
 
-<p align="center">
-<img src='./images/image-19.png'>
+---
 
-</p>
+## ✨ FluentAssertions
 
-<p align="center">
-[Instalar versión]
-</p>
+> **Recomendación:**  
+> Agrega **FluentAssertions** para obtener una sintaxis más expresiva y legible en tus assertions.  
+> Esto mejorará la calidad y mantenibilidad de tus pruebas unitarias.
 
-- Chequear instalación. El paquete debe estar listado en los `Packages` del proyecto de prueba.
-<p align="center">
-<img src='./images/image-20.png'>
+1. **Haz click derecho** sobre el proyecto de prueba  
+   → Selecciona **Manage NuGet Packages...**  
+   ![Manage NuGet Packages opción](./images/image-17.png)
 
-</p>
+2. **Busca `FluentAssertions`** en la barra de búsqueda  
+   ![Buscar FluentAssertions](./images/image-21.png)
 
-<p align="center">
-[Chequear instalación]
-</p>
+3. **Selecciona e instala** la última versión.  
+   - Asegúrate que la fuente del paquete sea `nuget.org`  
+   ![Instalar versión](./images/image-22.png)
 
-## FluentAssertions
+4. **Verifica la instalación:**  
+   - El paquete debe aparecer listado en la sección `Packages` del proyecto de prueba  
+   ![Chequear instalación](./images/image-23.png)
 
-- Hacer click derecho en el proyecto de prueba del proyecto -> Manage NuGet Packages
-<p align="center">
-<img src='./images/image-17.png'>
-</p>
+---
 
-<p align="center">
-[Manage NuGet Packages opción]
-</p>
-
-- Buscar FluentAssertions
-<p align="center">
-<img src='./images/image-21.png'>
-
-</p>
-
-<p align="center">
-[FluentAssertions]
-</p>
-
-- Instalar última versión. La fuente del paquete debe ser `nuget.org`
-<p align="center">
-<img src='./images/image-22.png'>
-
-</p>
-
-<p align="center">
-[Instalar versión]
-</p>
-
-- Chequear instalación. El paquete debe estar listado en los `Packages` del proyecto de prueba.
-
-<p align="center">
-<img src='./images/image-23.png'>
-
-</p>
-
-<p align="center">
-[Chequear instalación]
-</p>
+¡Listo!  
+Ya tienes integrados los paquetes recomendados para escribir **pruebas unitarias profesionales y efectivas** en tu proyecto. 💡
