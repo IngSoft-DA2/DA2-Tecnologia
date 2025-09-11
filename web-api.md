@@ -4,14 +4,77 @@
 
 ## 🌐 Arquitectura Web
 
-La **arquitectura web** describe cómo se organizan y comunican los componentes de una aplicación web. Normalmente incluye:
-
-- **Cliente (Frontend):** Interfaz de usuario, habitualmente una web o app móvil.
-- **Servidor (Backend):** Procesa solicitudes, ejecuta la lógica de negocio y accede a los datos.
-- **Base de datos:** Almacena la información persistente.
-- **Red (Internet):** Medio por el cual cliente y servidor se comunican usando protocolos como HTTP/HTTPS.
+Las arquitecturas web modernas funcionan gracias a la integración de diferentes componentes, cada uno con un rol específico pero estrechamente relacionados para ofrecer una experiencia fluida, segura y escalable. 
 
 El patrón más común es el **cliente-servidor**, donde el cliente hace solicitudes al servidor, y este responde con datos o resultados.
+
+### 1. Aplicación Web: el punto de partida
+
+Una **aplicación web** es un software que los usuarios pueden utilizar a través de un navegador (como Chrome o Firefox) y que funciona gracias a una combinación de tecnologías del lado del cliente (frontend) y del servidor (backend). A diferencia de los programas tradicionales, las aplicaciones web no requieren instalación local: todo ocurre accediendo a una URL.
+
+Ejemplos de aplicaciones web: Gmail, Facebook, herramientas bancarias online, sistemas de gestión académica, etc.
+
+---
+
+### 2. Servidor: el cerebro detrás de la web
+
+Un **servidor** es una computadora (física o virtual) configurada para responder solicitudes de otros dispositivos llamados “clientes”. Su función principal es recibir peticiones, procesarlas (usando lógica de negocio, consultas a bases de datos, etc.) y devolver respuestas (normalmente páginas web, archivos o datos).
+
+En el contexto web, los servidores más comunes ejecutan software como Apache, Nginx, Node.js, etc. El cliente casi siempre es el navegador del usuario, aunque también puede ser una app móvil u otro sistema.
+
+---
+
+### 3. Servicio Web: funcionalidad compartida
+
+Un **servicio web** es una funcionalidad accesible a través de la red (normalmente por Internet) que permite que diferentes aplicaciones se comuniquen, independientemente del lenguaje o plataforma en que estén escritas. Los servicios web exponen métodos o endpoints para realizar operaciones como consultar, crear o modificar datos.
+
+Ejemplo: Un servicio web de clima que devuelve la temperatura al recibir una solicitud HTTP, usado tanto por apps móviles como por sitios web.
+
+---
+
+### 4. Protocolo HTTP/HTTPS: el idioma común
+
+- **HTTP (HyperText Transfer Protocol):**  
+  Es el protocolo principal que regula cómo los clientes y servidores web se comunican. Define cómo deben estructurarse las solicitudes y respuestas, permitiendo transferir páginas HTML, archivos, imágenes, datos JSON, etc. HTTP es “sin estado”, es decir, cada solicitud es independiente.
+
+- **HTTPS (HTTP Secure):**  
+  Es la versión segura de HTTP. Usa cifrado (SSL/TLS) para proteger la información transmitida entre el cliente y el servidor, asegurando autenticidad, privacidad e integridad de los datos. Hoy en día, HTTPS es esencial para proteger información sensible (contraseñas, tarjetas de crédito, etc.) y es el estándar recomendado.
+
+---
+
+### 5. Servidor DNS: el traductor de nombres
+
+El **DNS (Domain Name System)** es como la “guía telefónica” de Internet. Su función es traducir los nombres de dominio legibles por humanos (como `www.ejemplo.com`) en direcciones IP que las computadoras usan para identificarse en la red (como `192.0.2.1`).  
+Cuando escribes una URL en tu navegador, el primer paso es consultar un servidor DNS para saber a qué dirección IP debe conectarse tu equipo.
+
+---
+
+### 6. Load Balancer: distribuyendo la carga
+
+Un **load balancer** distribuye el tráfico de red entrante entre varios servidores para evitar que uno solo se sobrecargue, mejorar el rendimiento, la disponibilidad y la tolerancia a fallos. Si uno de los servidores deja de funcionar, el balanceador redirige el tráfico a los que siguen en línea, asegurando que la aplicación siga disponible para los usuarios.
+
+---
+
+### 8. API Gateway: la puerta de entrada centralizada
+
+Un **API Gateway** es un componente central en arquitecturas modernas (como microservicios). Actúa como un “puente” o punto de entrada único para todas las solicitudes externas dirigidas a las APIs de una aplicación. Sus funciones incluyen:
+
+- Unificar el acceso a múltiples servicios internos.
+- Autenticación y autorización.
+- Limitación de tráfico (rate limiting).
+- Transformación de formatos de datos.
+- Registro y monitoreo.
+
+Con un API Gateway, los clientes no interactúan directamente con cada microservicio, sino que solo se comunican con el gateway, que luego enruta la solicitud al servicio adecuado.
+
+---
+
+**En resumen:**  
+La experiencia de un usuario con una aplicación web involucra a todos estos componentes interconectados: desde que escribe una dirección en su navegador (DNS), pasando por el envío de solicitudes (HTTP/HTTPS y load balancer), la lógica del servidor y los servicios web, hasta la gestión avanzada mediante un API Gateway. Cada elemento cumple un papel clave y su integración es lo que hace posible que las aplicaciones web modernas sean seguras, eficientes y escalables.
+
+---
+
+> **En conjunto**, estos componentes forman la base de las aplicaciones web modernas, permitiendo que sean escalables, seguras y fáciles de mantener.
 
 ---
 
