@@ -112,7 +112,8 @@ Una **API** (Application Programming Interface) es un conjunto de reglas y mecan
 - `GET /productos` → Lista todos los productos.
 - `POST /productos` → Crea un nuevo producto.
 - `GET /productos/42` → Obtiene el producto con id 42.
-- `PUT /productos/42` → Actualiza el producto 42.
+- `PUT /productos/42` → Actualiza **todo** el producto 42.
+- `PATCH /productos/42` → Actualiza **parcialmente** el producto 42.
 - `DELETE /productos/42` → Elimina el producto 42.
 
 ---
