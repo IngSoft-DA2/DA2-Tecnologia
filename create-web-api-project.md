@@ -63,20 +63,19 @@ cd src
 Ejecuta el siguiente comando (reemplaza `<<NombreDelNegocio>>` por el contexto de tu proyecto):
 
 ```bash
-dotnet new webapi -au none --no-openapi -controllers -n <<NombreDelNegocio>>.WebApi
+dotnet new webapi --no-openapi -controllers -n <<NombreDelNegocio>>.WebApi
 ```
 
 > 📝 **Opciones usadas:**  
 > - `webapi`: tipo de proyecto  
-> - `-n`: nombre del proyecto  
-> - `-au none`: sin autenticación  
 > - `--no-openapi`: sin Swagger/OpenAPI (puedes agregarlo más adelante)  
 > - `-controllers`: controllers tradicionales (no minimal API)
+> - `-n`: nombre del proyecto  
 
 **Ejemplo:**  
 Si tu negocio es "Vidly":
 ```bash
-dotnet new webapi -au none --no-openapi -controllers -n Vidly.WebApi
+dotnet new webapi --no-openapi -controllers -n Vidly.WebApi
 ```
 
 Verifica que se creó correctamente:
