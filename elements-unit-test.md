@@ -1,12 +1,20 @@
-[Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md)
+[⬅️ Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md)
 
-# Elementos en una clase de pruebas unitarias
+# 🏗️ Elementos en una Clase de Pruebas Unitarias
 
-Una clase de pruebas unitaria encapsula una configuración predeterminada para probar una unidad de código determinada. La misma prepara un ambiente y elementos a usar para que las diferentes pruebas unitarias puedan reutilizarlos, dejando a las mismas la responsabilidad de definir los diferentes escenarios de prueba.
+Una clase de pruebas unitaria encapsula una configuración predeterminada para probar una unidad de código determinada.  
+Prepara el ambiente y los elementos necesarios para que las diferentes pruebas sean consistentes, aisladas y fácilmente mantenibles.
 
-Para que una clase sea determinada por el framework como una clase de pruebas unitarias, la misma deberá de ser `public` y contener el atributo `[TestClass]`. Estas condiciones de la clase le permiten al framework identificar las pruebas disponibles para ejecutarlas.
+---
 
-```C#
+## 🏷️ Estructura Básica de una Clase de Prueba
+
+Para que el framework identifique tu clase como una clase de pruebas unitarias:
+
+- Debe ser **`public`**
+- Debe tener el atributo **`[TestClass]`**
+
+```csharp
 [TestClass]
 public sealed class MovieServiceTests
 {
@@ -14,27 +22,27 @@ public sealed class MovieServiceTests
 }
 ```
 
-Esta clase de prueba, es un ejemplo de una clase que quiere probar el comportamiento público de la clase `MovieService`. Esta es una forma de organización de la prueba, tiene la ventaja y desventaja de que todo lo relacionado a este `service` está encapsulado en una clase sola. Independientemente de si la clase tiene muchos comportamientos a probar, esta clase de prueba definirá varios casos de uso haciendola una clase muy extensa en donde trabajar. Una forma de resolver esta problemática es hacer uso de las `regions`.
+Esta clase es un ejemplo para probar el comportamiento público de la clase `MovieService`.  
+> 📝 **Tip:** Puedes organizar tus pruebas agrupando por clase del sistema o por comportamiento específico.
 
-Otra opcion de marco de trabajo podría ser tener una clase de prueba por comportamiento a probar. Siguiendo este camino podría existir lo siguiente:
+### Ejemplo: Clase separada para un comportamiento
 
-```C#
+```csharp
 [TestClass]
 public sealed class CreateMovieServiceTests
 {
   // unit tests
 }
 ```
+Esto hace que cada clase de prueba sea más compacta, pero puede incrementar la cantidad de archivos de prueba.
 
-Esta clase hace referencia a probar el comportamiento `Create` de la clase `MovieService`. Este camino hace que cada clase de prueba sea mas compacta pero incrementa en cantidad las clases de prueba a mantener.
+---
 
-## TestInitialize
+## 🛠️ [TestInitialize]
 
-Es el atributo que se le puede dar a un método que se ejecutará previamente a cada prueba individualmente. Este atributo nos permite definir un espacio para la inicialización de elementos previamente a cada prueba. Esto permite respetar la independencia entre las pruebas.
+Usa el atributo **`[TestInitialize]`** en un método para ejecutar lógica de inicialización antes de cada prueba individual:
 
-Dado que es un método con un atributo, en este no podremos inicializar los estados de la clase que hagan uso de la palabra clave `readonly`. Dichos estados deberán ser definidos en el constructor de la clase de prueba o en la misma línea de declaracion.
-
-```C#
+```csharp
 [TestClass]
 public sealed class MovieServiceTests
 {
@@ -45,17 +53,18 @@ public sealed class MovieServiceTests
   }
 }
 ```
+> ⚠️ No se puede inicializar campos `readonly` en este método; deben ser definidos en el constructor.
 
-## TestCleanup
+---
 
-Es el atributo que se le puede dar a un método que se ejecutará posteriormente a cada prueba individualmente. Este atributo nos permite definir un espacio para borrar estado de la prueba o en otros elementos para respetar la independencia entre las pruebas.
+## 🧹 [TestCleanup]
 
-```C#
+El atributo **`[TestCleanup]`** marca un método que se ejecuta después de cada prueba, útil para limpiar el estado o liberar recursos.
+
+```csharp
 [TestClass]
 public sealed class MovieServiceTests
 {
-  // some code
-
   [TestCleanup]
   public void Cleanup()
   {
@@ -64,16 +73,19 @@ public sealed class MovieServiceTests
 }
 ```
 
-## TestMethod
-Es el atributo que se le da a un método de prueba. Sirve para que el framework identifique las pruebas a ejecutar. La visibilidad de dicha prueba debe de ser `public` y el retorno `void`.
+---
 
-```C#
+## 🧪 [TestMethod]
+
+Marca a un método como una prueba unitaria.  
+Debe ser **`public`** y retornar **`void`**.
+
+```csharp
 [TestClass]
 public sealed class MovieServiceTests
 {
-  // some code
   [TestMethod]
-  public void MethotToTest_WhenConditionsOfTheTest_ShouldBehaviourExpected()
+  public void MethodToTest_WhenConditionsOfTheTest_ShouldBehaviourExpected()
   {
     // Arrange
     // Act
@@ -81,39 +93,57 @@ public sealed class MovieServiceTests
   }
 }
 ```
-El nombre de la prueba se divide en tres secciones: `section1_section2_section3`. Las mismas se refieren lo siguiente:
-- `section1`: nombre del método del objeto real que se quiere probar.
-- `section2`: condiciones de la prueba, empieza la sección con la palabra `When` seguido de las condiciones.
-- `section3`: resultados esperados en la prueba, empieza la sección con la palabra `Should` seguido del resultado.
 
-Por ejemplo 
-- El nombre de una prueba para crear un usuario con información correcta sería: `Create_WhenInfoIsCorrect_ShouldReturnNewId`
-- El nombre de una prueba para crear un usuario y el email tiene formato inválido sería: `Create_WhenEmailFormatIsIncorrect_ShouldThrowEmailFormatException`
+### 📝 Convención de nombres
 
-## DataRow
-Existen algunas condiciones donde queremos ejecutar la misma prueba, es decir, la misma sección de `Arrange`, `Act` y `Assert` pero solo variando cierta data en el `Arrange`. Para evitar duplicar las pruebas, se puede utilizar el atributo `DataRow` para leer estos valores desde parámetros del método de prueba sin necesidad de hardcodearlos en la prueba misma. La forma de utilizar dicho atributo es la siguiente:
-```C#
+`MetodoAProbar_WhenCondicionesDeLaPrueba_ShouldResultadoEsperado`
+
+- **section1**: nombre del método del objeto real a probar
+- **section2**: condiciones de la prueba (empieza con `When`)
+- **section3**: resultado esperado (empieza con `Should`)
+
+**Ejemplo:**  
+- `Create_WhenInfoIsCorrect_ShouldReturnNewId`
+- `Create_WhenEmailFormatIsIncorrect_ShouldThrowEmailFormatException`
+
+---
+
+## 📦 [DataRow]
+
+Permite ejecutar la misma prueba con diferentes datos, evitando duplicación de código.
+
+```csharp
 [TestMethod]
-[DataRow("")
-[DataRow(null)
+[DataRow("")]
+[DataRow(null)]
 public void MethodToTest_WhenConditionsOfTheTest_ShouldBehaviourExpected(string name)
 {
-  //Arrange
-  //Act
-  //Assert
+  // Arrange
+  // Act
+  // Assert
 }
 ```
 
-## TestCategory
-Tanto a las pruebas como a las clases que encapsulan pruebas las podemos agrupar dentro de una categoría para filtrar aquellas pruebas que queremos ejecutar. Para realizar esto usamos el atributo `TestCategory` indicando el nombre de la categoría, y estas las podemos filtrar en el explorador de pruebas de Visual Studio. Dicho atributo lo podemos usar de la siguiente manera:
+---
 
-```C#
+## 🏷️ [TestCategory]
+
+Agrupa pruebas o clases bajo una categoría, facilitando el filtrado y la ejecución selectiva.
+
+```csharp
 [TestClass]
-[TestCategory("Service")
+[TestCategory("Service")]
 [TestCategory("Movie")]
 public sealed class MovieServiceTests
 {
   //...
 }
 ```
-En este código se crearon dos categorías, la categoría `Service` para agrupar todas las pruebas relacionadas con la capa de aplicación y servicios, y la otra categoría `Movie` que es mas específica relacionado a la entidad `Movie`. Las mismas estan ordenadas de lo mas genérico (modular) a algo más específico (concreto).
+- **`Service`**: agrupa pruebas de la capa de servicios/aplicación
+- **`Movie`**: categoría más específica
+
+---
+
+> ✅ **Resumen:**  
+> Aprovecha estos atributos y convenciones para escribir clases de pruebas ordenadas, legibles y mantenibles.  
+> ¡Un buen diseño de pruebas acelera el desarrollo y asegura la calidad del software! 🧑‍💻🧪
