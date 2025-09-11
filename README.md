@@ -15,5 +15,3 @@
 - [Código de pruebas unitarias para filtro autenticación](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/unit-testing/4-%20Unit%20test%20authentication%20filter)
 
 - [Código de pruebas unitarias para filtro de excepción](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/unit-testing/5-%20Unit%20test%20exception%20filter)
-
-- [Pruebas de integración](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/unit-testing/4-%20Integration%20Tests)
