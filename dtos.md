@@ -41,32 +41,85 @@ El objetivo principal de un DTO es **servir como contrato de datos** entre difer
 
 ## 🏗️ Estructura recomendada de un DTO en C#
 
-En C#, la mejor práctica moderna es definir los DTOs como **readonly struct**. Esto significa que:
+### Implicancias de definir DTOs como `readonly struct`
 
-- Son tipos por valor (no referencia), lo que mejora la eficiencia en escenarios de alto rendimiento.
-- Son inmutables: una vez creados, sus valores no pueden ser modificados.
-- Solo exponen propiedades de solo lectura y no tienen métodos de lógica.
+- **Tipo por valor:** Los `struct` son tipos por valor. Se copian en cada asignación o parámetro por valor, lo que puede mejorar la eficiencia para objetos pequeños, pero puede penalizar para objetos grandes.
+- **Inmutabilidad:** Con `readonly`, garantizas que las propiedades no pueden cambiar una vez creado el struct.
+- **Rendimiento:** Beneficioso en escenarios de alto rendimiento y objetos pequeños; evita la presión en el recolector de basura (GC).
+- **Limitaciones:** No soporta herencia, ni igualdad estructural nativa, ni constructor primario (ver más abajo).
+- **Serialización:** Compatible con serializadores modernos, pero puede requerir configuración adicional.
+- **Escenarios ideales:** DTOs muy simples y pequeños.
 
-**Ejemplo correcto de DTO:**
+### Implicancias de definir DTOs como `sealed record`
 
+- **Tipo por referencia:** Los `record` son tipos por referencia (clase), viven en el heap y se pasan por referencia.
+- **Inmutabilidad:** Inmutables por defecto si usas propiedades `init`.
+- **Igualdad estructural:** Comparan por valores de sus propiedades, no por referencia.
+- **Serialización:** Soportados de forma nativa y sencilla por los serializadores actuales.
+- **Herencia:** Un `sealed record` no puede ser heredado, lo que refuerza su uso como contrato cerrado.
+- **Escenarios ideales:** DTOs de tamaño medio a grande, o cuando buscas máxima claridad y compatibilidad.
+
+### Record struct y constructor primario
+
+- **record struct:** Permite tener un tipo valor (struct) con igualdad estructural y constructor primario.
+- **Constructor primario:** Permite definir todos los parámetros del constructor en la declaración, igual que los records de clase.
+- **readonly record struct:** Combina inmutabilidad, igualdad estructural, tipo valor y constructor primario.
+
+#### Ejemplo de record struct:
+```csharp
+public readonly record struct ProductRequestDto(string Name, decimal Price);
+```
+
+### ¿Puedo definir un struct tradicional con constructor primario?
+
+- **No es posible** en C# (hasta la versión 12) definir un `struct` tradicional con constructor primario.
+- Los constructores primarios solo están permitidos en `record class` y `record struct`.
+
+#### Tabla comparativa
+
+| Tipo                  | Valor/Referencia | Inmutable | Igualdad estructural | Constructor primario | Herencia | Serialización fácil |
+|-----------------------|:---------------:|:---------:|:-------------------:|:-------------------:|:--------:|:------------------:|
+| struct                | Valor           | Opcional  | No                  | No                  | No       | Sí (*)             |
+| readonly struct       | Valor           | Sí        | No                  | No                  | No       | Sí (*)             |
+| record class          | Referencia      | Sí        | Sí                  | Sí                  | Sí       | Sí                 |
+| sealed record         | Referencia      | Sí        | Sí                  | Sí                  | No       | Sí                 |
+| record struct         | Valor           | Opcional  | Sí                  | Sí                  | No       | Sí                 |
+| readonly record struct| Valor           | Sí        | Sí                  | Sí                  | No       | Sí                 |
+
+> (*) Los struct pueden requerir configuración extra para serialización con algunos frameworks.
+
+### Ejemplos prácticos
+
+**readonly struct**
 ```csharp
 public readonly struct UserDto
 {
     public int Id { get; init; }
     public string Name { get; init; }
-    public string Email { get; init; }
 }
 ```
 
-- **readonly struct:** Indica que es inmutable.
-- **init:** Permite la inicialización solo al momento de crear la instancia, no después.
-- **Solo tipos primitivos o simples:** Para facilitar la serialización/deserialización y evitar dependencias con el dominio.
+**sealed record**
+```csharp
+public sealed record UserDto(int Id, string Name);
+```
+
+**readonly record struct**
+```csharp
+public readonly record struct UserDto(int Id, string Name);
+```
+
+### Recomendaciones
+
+- Usa `sealed record` o `readonly record struct` para la mayoría de los DTOs modernos: son claros, inmutables, fácilmente serializables y soportan constructor primario.
+- Reserva `readonly struct` para casos de DTOs muy pequeños y de uso intensivo donde el rendimiento por valor sea crítico.
+- Evita clases mutables o herencia desde entidades de dominio.
 
 ---
 
 ## 👍 Buenas prácticas
 
-- **Defínelos como `readonly struct`.**
+- **No definirlos como `class`.**
 - **Mantén los DTOs simples:** Solo propiedades, sin métodos de lógica.
 - **Usa tipos primitivos o estructuras simples:** Para facilitar la serialización/deserialización.
 - **Agrupa solo los datos necesarios para el contexto de uso:** No incluyas más información de la necesaria.
