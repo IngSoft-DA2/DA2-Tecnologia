@@ -1,211 +1,193 @@
-[Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md)
+[⬅️ Volver a Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md)
 
-# Creación de proyecto MSTest
+# 🚀 Creación de una Solución y Proyecto de Pruebas MSTest
 
-A la solución creada en el paso [Creación de una Solucion](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/solution-creation.md) le vamos agregar un proyecto de prueba `MSTest` que pruebe un proyecto `ClassLib`.
+El siguiente tutorial describe paso a paso cómo crear una solución en .NET, organizar los proyectos fuente y de pruebas, y configurar un proyecto MSTest para comenzar a escribir pruebas unitarias sobre tu lógica de negocio.
 
-- Abrir una terminal en el directorio de la solución. Para saber si estamos bien situados ejecutar `ls` y se debería de ver el archivo `.sln`
+---
 
-```
-ls
-```
+## 🟦 1. Creación de la Solución
 
-Comandos:
+> **¿Qué es una solución?**  
+> Una solución (`.sln`) es un contenedor que agrupa múltiples proyectos de .NET (aplicaciones, bibliotecas, pruebas, etc.), facilitando la gestión y el desarrollo colaborativo.
 
-- `ls`: lista elementos en un directorio
+### 📝 Pasos
 
-<p align="center">
-<img src='./images/image.png'>
-</p>
-<p align="center">
-[Terminal en directorio]
-</p>
+1. **Abre una terminal** en el directorio donde quieras crear la solución.  
+   Asegúrate de estar en el directorio raíz del repositorio clonado.
 
-- Para crear el proyecto `MSTest` nos situaremos en la carpeta `tests` con la terminal ejectuando:
+   ```bash
+   ls
+   ```
 
-```
-cd tests
-```
+2. **Crea la solución:**  
+   Reemplaza `<NombreNegocio>` por el nombre de tu negocio o proyecto.
 
-Comandos:
+   ```bash
+   dotnet new sln -n <NombreNegocio>
+   ```
 
-- `cd`: movimiento a un directorio en particular
+   - `dotnet`: CLI de .NET
+   - `new`: Crear un nuevo recurso
+   - `sln`: Indica que quieres una solución
+   - `-n`: Especifica el nombre
 
-- Una vez parados en la carpeta `tests` con la terminal, crearemos un proyecto `MSTest` ejecutando lo siguiente
+3. **Crea los directorios principales:**
 
-```C#
-dotnet new mstest -n Vidly.BusinessLogic.Test
-```
+   ```bash
+   mkdir src
+   mkdir tests
+   ```
 
-Comandos y parámetros:
+   - `src`: Contendrá el código fuente
+   - `tests`: Contendrá los proyectos de pruebas
 
-- `new`: crea un nuevo proyecto
-- `mstest`: tipo de proyecto a crear
-- `-n`: nombre del proyecto
-- `Vidly.BusinessLogic.Test`: `Vidly` es el contexto del negocio, `BusinessLogic` es el proyecto que quiero probar, `Test` para indicar que son pruebas
+---
 
-<p align="center">
-<img src='./images/image-2.png'>
-</p>
+## 🧪 2. Creación del Proyecto de Pruebas MSTest
 
-<p align="center">
-[Creación proyecto MSTest]
-</p>
+### 📂 Pasos
 
-- Chequear que se creó el proyecto. En el directorio ejecutar `ls`.
+1. **Ubícate en la carpeta de pruebas:**
 
-```C#
-ls
-```
+   ```bash
+   cd tests
+   ```
 
-<p align="center">
-<img src='./images/image-3.png'>
-</p>
+2. **Crea el proyecto MSTest:**  
+   Reemplaza el nombre según tu contexto.
 
-<p align="center">
-[Chequear creación de proyecto]
-</p>
+   ```bash
+   dotnet new mstest -n Vidly.BusinessLogic.Test
+   ```
 
-- Ahora dicho proyecto `MSTest` lo debemos de agregar a la solución. Para esto debemos situarnos con la terminal en el directorio donde está la solución `.sln`, para esto ejecutaremos:
+   - `mstest`: Tipo de proyecto (pruebas unitarias)
+   - `-n`: Nombre.  
+     Ejemplo:  
+     - `Vidly`: Contexto del negocio  
+     - `BusinessLogic`: El proyecto a probar  
+     - `Test`: Indica que es para pruebas
 
-```
-cd ..
-```
+   ![Creación del proyecto MSTest](./images/image-2.png)
 
-Comandos:
+3. **Verifica la creación:**
 
-- `cd ..`: nos posiciona la terminal en un directorio para atrás
+   ```bash
+   ls
+   ```
 
-Una vez que estemos bien situados, para agregar el proyecto a la solución `.sln` debemos ejecutar:
+   ![Chequeo proyecto MSTest](./images/image-3.png)
 
-```C#
-dotnet sln add tests/Vidly.BusinessLogic.Test
-```
+---
 
-Comandos y parámetros
+## ⚙️ 3. Agregar Proyecto de Pruebas a la Solución
 
-- `sln`: operar con solución
-- `add`: agregar proyecto a la solución
-- `test/Vidly.BusinessLogic.Test`: nombre del proyecto a agregar a la solución
+1. **Ve al directorio raíz de la solución:**
 
-<p align="center">
-<img src='./images/image-4.png'>
-</p>
+   ```bash
+   cd ..
+   ```
 
-<p align="center">
-[Agregar proyecto a solución]
-</p>
+2. **Agrega el proyecto de pruebas a la solución:**
 
-- Chequear que se agrego el proyecto a la solución
+   ```bash
+   dotnet sln add tests/Vidly.BusinessLogic.Test
+   ```
 
-```C#
-dotnet sln list
-```
+   ![Agregar proyecto a solución](./images/image-4.png)
 
-Comandos:
+3. **Verifica que fue agregado:**
 
-- `sln`: operar con solución
-- `list`: listar proyectos en solución
+   ```bash
+   dotnet sln list
+   ```
 
-<p align="center">
-<img src='./images/image-5.png'>
-</p>
+   ![Chequeo en solución](./images/image-5.png)
 
-<p align="center">
-[Chequear que se agrego a la solución]
-</p>
+---
 
-- Debemos agregar el proyecto `ClassLib` que se quiere probar a la solucion. Para esto debemos situarnos en la carpeta `src` ejecutando el siguiente comando:
+## 📦 4. Creación del Proyecto de Lógica de Negocio
 
-```
-cd src
-```
+1. **Ubícate en la carpeta de código fuente:**
 
-- En este directorio crearemos nuestro proyecto `ClassLib` que agrupe nuestra lógica de negocio, para ello ejecutaremos lo siguiente:
+   ```bash
+   cd src
+   ```
 
-```
-dotnet new classlib -n Vidly.BusinessLogic
-```
+2. **Crea el proyecto Class Library:**
 
-<p align="center">
-<img src='./images/image-7.png'>
-</p>
+   ```bash
+   dotnet new classlib -n Vidly.BusinessLogic
+   ```
 
-<p align="center">
-[Creación proyecto ClassLib]
-</p>
+   ![Creación proyecto ClassLib](./images/image-7.png)
 
-- Para chequear que se creó el proyecto, ejecutaremos lo siguiente:
+3. **Verifica la creación:**
 
-```
-ls
-```
+   ```bash
+   ls
+   ```
 
-<p align="center">
-<img src='./images/image-8.png'>
-</p>
+   ![Verificación ClassLib](./images/image-8.png)
 
-<p align="center">
-[Verificación]
-</p>
+   El archivo `Vidly.BusinessLogic.csproj` debe verse similar a:
 
-Y el archivo `Vidly.BusinessLogic.csproj` debe verse de la siguiente manera:
+   ![Archivo configuración BusinessLogic](./images/image-9.png)
 
-<p align="center">
-<img src='./images/image-9.png'>
-</p>
+---
 
-<p align="center">
-[Archivo configuración del proyecto BusinessLogic]
-</p>
+## ➕ 5. Agregar Proyecto de Lógica a la Solución
 
-- Ahora se debe agregar referencia del proyecto `ClassLib` a la solución ejecutando los siguientes comandos de forma individual:
+1. **Vuelve a la raíz y agrega el proyecto a la solución:**
 
-```C#
-cd ..
-dotnet sln add src/Vidly.BusinessLogic
-```
+   ```bash
+   cd ..
+   dotnet sln add src/Vidly.BusinessLogic
+   ```
 
-- Para verificar que fue agregado exitosamente se debe ejecutar el siguiente comando:
+2. **Verifica la adición:**
 
-```C#
-dotnet sln list
-```
+   ```bash
+   dotnet sln list
+   ```
 
-<p align="center">
-<img src='./images/image-10.png'>
-</p>
+   ![Verificación agregado a solución](./images/image-10.png)
 
-<p align="center">
-[Verificación proyecto agregado a solución]
-</p>
+---
 
-- Una vez teniendo los proyectos en la solución `.sln` debemos agregar la referencia del proyecto `ClassLib` al proyecto `MSTest`. Para ello debemos ejecutar el siguiente comando desde el proyecto `MSTest`:
+## 🔗 6. Referenciar la Lógica de Negocio en el Proyecto de Pruebas
 
-```C#
-cd tests
-cd Vidly.BusinessLogic.Test
-dotnet add reference ../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj
-```
+1. **Ubícate en el directorio del proyecto de pruebas:**
 
-Comandos:
+   ```bash
+   cd tests
+   cd Vidly.BusinessLogic.Test
+   ```
 
-- `add`: operacion para agregar
-- `reference`: referencia a proyecto en solución
-- `../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj`: archivo de configuración del proyecto a probar
+2. **Agrega la referencia del proyecto de lógica de negocio:**
 
-  <p align="center">
-  <img src='./images/image-11.png'>
-  </p>
+   ```bash
+   dotnet add reference ../../src/Vidly.BusinessLogic/Vidly.BusinessLogic.csproj
+   ```
 
-  <p align="center">
-  [Agregar referencia]
-  </p>
+   ![Agregar referencia](./images/image-11.png)
 
-- Para chequear que se agrego bien la referencia, hacer doble click en `Vidly.BusinessLogic.Test.csproj`
-<p align="center">
-<img src='./images/image-12.png'>
-</p>
-<p align="center">
-[Vidly.BusinessLogic.Test.csproj]
-</p>
+3. **Verifica la referencia:**  
+   Abre el archivo `Vidly.BusinessLogic.Test.csproj` y revisa que la referencia esté correctamente agregada.
+
+   ![Verificación referencia en csproj](./images/image-12.png)
+
+---
+
+## 🏁 ¡Listo!
+
+Ahora tienes una solución organizada, con un proyecto de lógica de negocio y un proyecto de pruebas MSTest correctamente configurados y referenciados.  
+Puedes comenzar a escribir tus pruebas unitarias para garantizar la calidad de tu código. 🧑‍💻✅
+
+---
+
+## 📚 Recursos útiles
+
+- [Documentación oficial de MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest)
+- [Buenas prácticas para pruebas unitarias - Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+- [Pirámide de Testing](./unit-testing.md)
