@@ -1,98 +1,89 @@
-[Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md) > [Volver - Configuración Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
+[⬅️ Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md) > [⬅️ Volver - Configuración Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/config-unit-test-project.md)
 
-# Creación de proyecto de prueba unitaria por comandos
+# 💻 Creación de Proyecto de Prueba Unitaria por Comandos (CLI)
 
-- Abrir terminal en el directorio de la solución. Para saber si estamos bien situados ejecutar `ls` y se debería de ver el archivo `.sln`
+Sigue estos pasos para configurar tu proyecto de pruebas unitarias usando la terminal y la CLI de .NET.  
+¡Optimiza tus pruebas agregando las herramientas recomendadas para un desarrollo profesional y efectivo! 🚀
 
-```C#
+---
+
+## 1️⃣ Abrir terminal en el directorio de la solución
+
+Para verificar que estás en el lugar correcto, ejecuta:
+
+```bash
 ls
 ```
+Deberías ver el archivo `.sln` en la salida.
 
-Comandos:
-
-- `ls`: lista elementos en un directorio
 <p align="center">
 <img src='./images/image-16.png'>
 </p>
+<p align="center"><em>Terminal en directorio de la solución</em></p>
 
-<p align="center">
-[Terminal en directorio]
-</p>
+---
 
-- Entrar al directorio del proyecto de prueba. Vidly.BusinessLogic.Test
+## 2️⃣ Entrar al directorio del proyecto de pruebas
 
-```C#
+```bash
 cd Vidly.BusinessLogic.Test
 ```
-
-Comandos y parámetros:
-
-- `cd`: entrar a un directorio
-
 <p align="center">
 <img src='./images/image-24.png'>
 </p>
+<p align="center"><em>Entrar a directorio de prueba</em></p>
 
-<p align="center">
-[Entrar a directorio de prueba]
-</p>
+---
 
-- Agregar referencia a `Moq`
+## 3️⃣ Instalar Moq
 
-```C#
+**Moq** es el framework recomendado para simular dependencias en pruebas unitarias.
+
+```bash
 dotnet add package Moq
 ```
-
-Comandos
-
-- `add`: operación de agregar
-- `package`: paquete de `nuget.org`
-- `Moq`: nombre de paquete
+- 🎭 Permite crear mocks de objetos fácilmente.
 
 <p align="center">
 <img src='./images/image-25.png'>
 </p>
+<p align="center"><em>Agregar Moq</em></p>
 
-<p align="center">
-[Agregar Moq]
-</p>
+Verifica la instalación abriendo el archivo `Vidly.BusinessLogic.Test.csproj`:
 
-- Chequear que se agrego `Moq`. Hacer doble click en `Vidly.BusinessLogic.Test.csproj`
 <p align="center">
 <img src='./images/image-28.png'>
 </p>
+<p align="center"><em>Chequear Moq agregado</em></p>
 
-<p align="center">
-[Chequear Moq]
-</p>
-</p>
+---
 
-- Agregar referencia a `FluentAssertions`
+## 4️⃣ Recomendación: Instala FluentAssertions
 
-```C#
-dotnet add package FluentAssertinos
+> **Se recomienda instalar FluentAssertions** para lograr una sintaxis más expresiva, legible y profesional en tus assertions.  
+> Facilita la escritura de pruebas claras, robustas y fáciles de mantener.
+
+```bash
+dotnet add package FluentAssertions
 ```
-
-Comandos
-
-- `add`: operación de agregar
-- `package`: paquete de `nuget.org`
-- `FluentAssertions`: nombre de paquete
+- ✨ Permite encadenar múltiples assertions.
+- 📣 Proporciona mensajes de error claros y descriptivos.
+- 🧰 Cobertura para objetos, colecciones, cadenas, números, excepciones y más.
 
 <p align="center">
 <img src='./images/image-27.png'>
 </p>
+<p align="center"><em>Agregar FluentAssertions</em></p>
 
-<p align="center">
-[Agregar FluentAssertions]
-</p>
+Verifica la instalación abriendo el archivo `Vidly.BusinessLogic.Test.csproj`:
 
-- Chequear que se agrego `FluentAssertions`. Hacer doble click en `Vidly.BusinessLogic.Test.csproj`
 <p align="center">
 <img src='./images/image-26.png'>
 </p>
+<p align="center"><em>Chequear FluentAssertions agregado</em></p>
 
-<p align="center">
-[Chequear FluentAssertions]
-</p>
-</p>
+---
+
+¡Listo!  
+Ahora tu proyecto de pruebas unitarias está equipado para escribir tests efectivos, aislados y legibles.  
+Sigue estas buenas prácticas para asegurar la calidad de tu código. 🧪✅
