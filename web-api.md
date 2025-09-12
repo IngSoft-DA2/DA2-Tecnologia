@@ -104,20 +104,6 @@ Pueden profundizar mas sobre el tema en [REST](https://github.com/daniel18aceved
 
 ---
 
-## 📡 ¿Qué es una API?
-
-Una **API** (Application Programming Interface) es un conjunto de reglas y mecanismos que permite que dos aplicaciones se comuniquen entre sí. En el contexto web, una **API web** define cómo interactuar con los recursos del servidor usando HTTP.
-
-**Ejemplo de API RESTful:**
-- `GET /productos` → Lista todos los productos.
-- `POST /productos` → Crea un nuevo producto.
-- `GET /productos/42` → Obtiene el producto con id 42.
-- `PUT /productos/42` → Actualiza **todo** el producto 42.
-- `PATCH /productos/42` → Actualiza **parcialmente** el producto 42.
-- `DELETE /productos/42` → Elimina el producto 42.
-
----
-
 ## 📍 ¿Qué es un Endpoint?
 
 Un **endpoint** es una URL específica a la que un cliente puede enviar peticiones para interactuar con un recurso o funcionalidad de un servidor.
@@ -150,6 +136,20 @@ Cada combinación de ruta + verbo HTTP es un endpoint diferente.
 
 ---
 
+## 📡 ¿Qué es una API?
+
+Una **API** (Application Programming Interface) es un conjunto de reglas y mecanismos que permite que dos aplicaciones se comuniquen entre sí. En el contexto web, una **API web** define cómo interactuar con los recursos del servidor usando HTTP.
+
+**Ejemplo de API RESTful:**
+- `GET /productos` → Lista todos los productos.
+- `POST /productos` → Crea un nuevo producto.
+- `GET /productos/42` → Obtiene el producto con id 42.
+- `PUT /productos/42` → Actualiza **todo** el producto 42.
+- `PATCH /productos/42` → Actualiza **parcialmente** el producto 42.
+- `DELETE /productos/42` → Elimina el producto 42.
+
+---
+
 ## 🤖 Diferencia entre API y SDK
 
 - **API:** Especifica *qué* operaciones se pueden realizar y *cómo* acceder a ellas (por ejemplo, los endpoints REST de una web API).
@@ -158,6 +158,18 @@ Cada combinación de ruta + verbo HTTP es un endpoint diferente.
 **Ejemplo:**  
 - Google Maps tiene una *API REST* para consultar información de mapas.  
 - Google provee un *SDK para Android* que usa internamente esa API y ofrece métodos más sencillos para desarrolladores móviles.
+
+---
+
+## 🆚 ¿Cuándo usar API vs SDK?
+
+- Usa **API** cuando:
+  - Quieres máxima flexibilidad o integración con múltiples plataformas.
+  - Necesitas acceso directo a los endpoints y control total.
+
+- Usa **SDK** cuando:
+  - Quieres facilitar el desarrollo y reducir errores comunes.
+  - El proveedor ofrece un SDK oficial para tu lenguaje/plataforma.
 
 ---
 
@@ -177,18 +189,6 @@ Cada combinación de ruta + verbo HTTP es un endpoint diferente.
 - **Limitaciones de HTTP:** Depende de las restricciones y performance de HTTP.
 - **Versionado:** Mantener compatibilidad entre versiones puede ser complejo.
 - **Seguridad:** Expone endpoints en la web, por lo que requiere buenas prácticas de autenticación y autorización.
-
----
-
-## 🆚 ¿Cuándo usar API vs SDK?
-
-- Usa **API** cuando:
-  - Quieres máxima flexibilidad o integración con múltiples plataformas.
-  - Necesitas acceso directo a los endpoints y control total.
-
-- Usa **SDK** cuando:
-  - Quieres facilitar el desarrollo y reducir errores comunes.
-  - El proveedor ofrece un SDK oficial para tu lenguaje/plataforma.
 
 ---
 
