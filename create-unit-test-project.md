@@ -191,3 +191,4 @@ Puedes comenzar a escribir tus pruebas unitarias para garantizar la calidad de t
 - [Documentación oficial de MSTest](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest)
 - [Buenas prácticas para pruebas unitarias - Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
 - [Pirámide de Testing](./unit-testing.md)
+- [Como usar la extension testing en DevKit - VSC](https://code.visualstudio.com/docs/csharp/testing)
