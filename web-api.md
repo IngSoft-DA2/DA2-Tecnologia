@@ -100,7 +100,7 @@ REST es un estilo arquitectónico para diseñar servicios de red, definido por R
 
 Un servicio o API es **RESTful** cuando implementa correctamente los principios y restricciones de REST. No toda API HTTP es RESTful: debe respetar la semántica de los métodos y la estructura de los recursos.
 
-Pueden profundizar mas sobre el tema en [REST](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/rest.md).
+Pueden profundizar más sobre las restricciones que REST propone aqui: [Restricciones de Rest](./rest-restrictions.md).
 
 ---
 
@@ -134,6 +134,8 @@ Cada combinación de ruta + verbo HTTP es un endpoint diferente.
 
 > Un **endpoint** es el "punto de entrada" a una funcionalidad o recurso específico de un sistema web, identificado por una URL y generalmente asociado a un método HTTP. Son la columna vertebral de cualquier API moderna.
 
+Pueden produnfizar más sobre buenas practicas en el diseño de endpoints aqui: [Buenas practicas para endpoints](./rest-good-practices.md).
+
 ---
 
 ## 📡 ¿Qué es una API?
@@ -150,15 +152,34 @@ Una **API** (Application Programming Interface) es un conjunto de reglas y mecan
 
 ---
 
-## 🤖 Diferencia entre API y SDK
+# 🤖 ¿Qué es un SDK?
 
-- **API:** Especifica *qué* operaciones se pueden realizar y *cómo* acceder a ellas (por ejemplo, los endpoints REST de una web API).
-- **SDK (Software Development Kit):** Es un conjunto de herramientas, librerías y documentación que facilita el uso de una API desde un lenguaje o plataforma específica. El SDK suele envolver la API y simplificar su uso.
+Un **SDK** (Software Development Kit, o Kit de Desarrollo de Software) es un conjunto de herramientas, librerías, documentación, ejemplos y utilidades que los desarrolladores utilizan para crear aplicaciones para una plataforma, lenguaje o servicio específico.
+
+El SDK suele incluir:
+
+- 📚 **Librerías o APIs:** Código reutilizable que simplifica tareas comunes o permite interactuar con un sistema.
+- 📄 **Documentación:** Guías y referencias que explican cómo usar el SDK y sus componentes.
+- 🧩 **Ejemplos y plantillas:** Código de ejemplo para empezar rápidamente o comprender buenas prácticas.
+- 🛠️ **Herramientas:** Programas para depuración, construcción, pruebas, simulación, etc.
 
 **Ejemplo:**  
-- Google Maps tiene una *API REST* para consultar información de mapas.  
-- Google provee un *SDK para Android* que usa internamente esa API y ofrece métodos más sencillos para desarrolladores móviles.
+Si quieres crear una app móvil para Android, Google ofrece el **Android SDK**, que incluye todo lo necesario para programar y probar aplicaciones Android.
 
+---
+
+## 🔀 Diferencia entre SDK y API
+
+- Una **API** especifica *qué* operaciones se pueden realizar y *cómo* acceder a ellas (por ejemplo, los endpoints REST de una web API).
+- Un **SDK** es un paquete más completo que, además de la API, incluye herramientas, librerías y documentación que facilitan el trabajo del desarrollador, envolviendo o implementando la API para su uso directo.
+
+**Ejemplo:**  
+Google Maps ofrece una *API REST* para consultar información de mapas y también un *SDK para Android* que usa internamente esa API y ofrece métodos más sencillos para desarrolladores móviles.
+
+---
+
+> 💡 **En resumen:**  
+> Un SDK es un paquete integral para facilitar el desarrollo sobre una plataforma, mientras que una API es el contrato de comunicación entre sistemas.
 ---
 
 ## 🆚 ¿Cuándo usar API vs SDK?
