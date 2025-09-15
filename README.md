@@ -154,18 +154,9 @@ app.Run();
 
 ---
 
-## 🏷️ Registro de servicios y ciclos de vida
+# 🔄 Ejemplos de Servicios por Ciclo de Vida en Dependency Injection (.NET)
 
-Los servicios pueden tener diferentes **ciclos de vida**:
-
-- **Scoped** 🔄 (por request): Una instancia por cada request HTTP.
-  - Se registra con: `.AddScoped<TInterface, TImplementation>()`
-- **Transient** ♻️ (por consumo): Nueva instancia cada vez que se inyecta.
-  - Se registra con: `.AddTransient<TInterface, TImplementation>()`
-- **Singleton** 🗄️ (única): Solo una instancia durante toda la vida de la aplicación.
-  - Se registra con: `.AddSingleton<TInterface, TImplementation>()`
-
-> **Regla:** No inyectes servicios de menor duración en servicios de mayor duración (por ejemplo, no inyectes un `Scoped` dentro de un `Singleton`).
+En .NET, los servicios registrados en el contenedor de dependencias pueden tener tres ciclos de vida principales: **Singleton**, **Scoped** y **Transient**. Cada uno tiene características específicas y es adecuado para diferentes tipos de servicios.
 
 ---
 
