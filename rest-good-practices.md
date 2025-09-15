@@ -1,243 +1,344 @@
-# Buenas prácticas a seguir
+[📍 ¿Qué es un Endpoint?](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/web-api/web-api.md#-qu%C3%A9-es-un-endpoint) → [🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/web-api?tab=readme-ov-file#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
-Las marcadas con \* se deberán de intentar respetar siempre, el resto son reglas que se usan en la práctica y es bueno tener conocimiento de las mismas.
+# 🌟 Buenas Prácticas REST para el Diseño de APIs
 
-## 1. Endpoint/Rescurso (\*)
+Las prácticas marcadas con un asterisco (\*) son esenciales y siempre deben respetarse. El resto son recomendaciones útiles para lograr APIs más intuitivas, robustas y fáciles de mantener.
 
-Un endpoint es una URI (Uniform Resource Identifier) especifica en un web service o web API que es usado para acceder a un recurso particular o realizar una acción específica. Cada endpoint corresponde a una funcionalidad provista por un web service o una web api, y es accedida por request http.
+---
 
-Estos tienen que seguir las siguientes reglas:
+## 1️⃣ Endpoint/Recurso (\*)
 
-- **Sustantivos ante verbos**
+🔗 Un **endpoint** es una dirección única dentro de una API utilizada para acceder a un recurso o ejecutar una acción específica. Técnicamente, un endpoint se identifica mediante una **URI** (Uniform Resource Identifier), que es una cadena que permite identificar un recurso en Internet.  
+Dentro de las URIs existen dos conceptos: **URL** (Uniform Resource Locator) y **URN** (Uniform Resource Name):
 
-  - ../dogs\_ → URI para manipular perros
-  - .../users →\_ URI para manipular usuarios
-  - .../sessions → URI para manipular sesiones
+- **URI**: Es un identificador genérico para cualquier recurso en la web.  
+- **URL**: Es un tipo de URI que, además de identificar el recurso, indica cómo acceder a él (es decir, incluye el esquema/protocolo, como http, https, ftp, etc., además de la dirección concreta del recurso).  
+- **URN**: Es otro tipo de URI que identifica un recurso por nombre dentro de un espacio de nombres, pero no necesariamente indica cómo localizarlo.
 
-- **Intuitiva y simple**
+En la práctica, cuando hablamos de endpoints en APIs REST, generalmente nos referimos a **URLs** (por ejemplo, `https://api.misitio.com/users/1`), ya que especifican tanto la ubicación como el método de acceso al recurso.
 
-- **Plural ante singular**
+### 📝 Reglas clave:
+- **📦 Usa sustantivos, no verbos:**  
+  - ✅ `/dogs`, `/users`, `/sessions`  
+  - ❌ `/getAllLeashedDogs`, `/getHungerLevel`
+- **🔤 Nombres en plural y minúscula:**  
+  - ✅ `/admins`, `/dogs`  
+  - ❌ `/persons`, `/animals`
+- **🪝 Relaciona recursos con jerarquía:**  
+  - ✅ `/owners/1/dogs`  
+  - ❌ `/users/1/dogs/2`
+- **❓ Oculta la complejidad usando query params:**  
+  - ✅ `/dogs?leashed=true`
+- **🚫 No uses verbos en la URI:**  
+  - ❌ `/getAllLeashedDogs`
+- **📏 Limita a 3 niveles de profundidad:**  
+  - ✅ `/owners/1/dogs/5`
+  - ❌ `/a/b/c/d/e`
 
-- **En minúscula**
+> Es recomendable mantener las URIs (y por ende las URLs) intuitivas, simples, concretas y evitar nombres abstractos.
 
-- **Nombres concretos ante abstractos**
-
-1. Bien:
-   1. ../_dogs_
-   2. ../_admins_
-2. Evitar:
-   1. ../_animals_
-   2. ../_persons_
-
-- **Recursos con relaciones**
-
-1. Bien:
-   1. ../owners/1/dogs
-2. Evitar:
-   1. ../_users/1/dogs/2_
-
-- **Ocultar complejidad con '?'**
-
-- **Verbos fuera de la URI**
-
-1. Bien:
-   1. ../_dogs_?_leashed=true_
-   2. ../_dogs_
-2. Evitar:
-   1. ../_getAllLeashedDogs_
-   2. ../_getHungerLevel_
-
-- **Hasta 3 niveles**
-
-## 2. Verbos HTTP (\*)
-
-Existen varios verbos http, los mas comunes a usar y que representan bien las operaciones CRUD son: POST, GET, PUT, DELETE.
-
-La aplicación de los diferentes verbos ante el mismo endpoint, implican funciones distintas.
-
-Los verbos se los suele agrupar por ser idempotentes o no. Un verbo es idempotente si el efecto de realizar una request es el mismo que realizar muchas requests idénticas. Por ejemplo los verbos GET, PUT y DELETE son considerados idempotentes. Esto quiere decir que esos metodos se pueden ejecutar multiples veces sin causar efectos secundarios involuntarios.
-
-El verbo DELETE es considerado idempotente dado que si un cliente ejecuta una request con este verbo, la primera request impacta en borrar el recurso en la persistencia respondiendo un 204. Luego las request con este verbo responderan 404 por no encontrar el recurso lo cual no afectaría el estado del servidor.
-
-El verbo PUT es considerado también idempotente dado que si un cliente ejecuta una request con este verbo, el estado del servidor aplicará la modificación del recurso independientemente al estado previo, es decir, realizar una request o multiple request con los mismos valores, el estado del servidor no sufre variaciones secundarias.
-
-El verbo POST no es considerado idempotente dado que si un cliente ejecuta una request con este verbo, el estado del servidor se modifica y crea el recurso, pero realizar multiples request con la misma información impactara en duplicar la data en el estado del servidor implicando en tener inconsistencias en la persistencia.
-
-## 3. Manejo de errores (\*)
-
-Los mensajes de error deben proveer la información suficiente para poder resolver el error en una request posterior y sin exponer vulnerabilidades de seguridad.
-
-Estos errores serán interpretados por personas con rol desarrollador y por sistemas. Es importante destacar quienes van a ver los mensajes para realizar un buen diseño de estos para que sea fácil de interpretar el error.
-
-Este aspecto es importante para una API ya que la implementación es un elemento de caja negra para quienes consumen dicha API, es por eso que las respuestas exitosas como las de error deben prover la información suficiente y consistente.
-
-Un buen manejo de errores le permite a los desarrolladores seguir ciertas estrategias como **test-first** y **test-driven-development**.
-
-Las siguientes reglas se deben de cumplir para tener un buen diseño:
-
-- **Buen manejo de código de error**
-  Los codigos de error correctos especifican el tipo de error ocurrido. Es por eso que existen diferentes familias de errores. Existen mas de [70 códigos HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), eso no quiere decir que una api web va a utilizar cada uno de ellos, lo ideal es utilizar un set de codigos de cada familia y los mas conocidos para poder interpretar el error (200-Ok, 201-Created, 204-NoContent, 400-BadRequest, 401-Unauthorized, 403-Forbidden, 404-NotFound, 409-Conflict, 500-InternalServer).
-- **Consistencia de body**
-  Una vez diseñado la estructura del error, se deberá de cumplir independientemente del tipo de error.
-
-### 4. Funcionalidades no relacionadas a recursos (\*)
-
-Existen funsionalidades que no estan relacionadas a recursos. Por ejemplo, cálculos financieros o traducciones de lenguaje. Estas funcionalidades responden a un resultado y no a un recurso. En estos casos se debería de usar verbos y no sustantivos, pero el uso de estos verbos debe ser lo mas simple posible.
-
-Por ejemplo un endpoint para convertir de una moneda a otra, se puede tener algo de la siguiente manera:
-
+### 💡 Ejemplo de implementación:
+```http
+GET /users/42/dogs?leashed=true
 ```
-/convert?from=EUR&to=CNY&amount=100
+Obtiene todos los perros con correa del usuario 42.
+
+---
+
+## 2️⃣ Verbos HTTP (\*)
+
+REST utiliza los verbos HTTP para definir la acción sobre el recurso. Los principales son:
+
+- **GET:** Obtener recursos (idempotente)
+- **POST:** Crear recursos (no idempotente)
+- **PUT:** Reemplazar recursos (idempotente)
+- **PATCH:** Modificar parcialmente recursos (no siempre idempotente)
+- **DELETE:** Eliminar recursos (idempotente en la mayoría de los casos, pero puede variar)
+
+---
+
+### ⚡ ¿Qué es la idempotencia y por qué es importante?
+
+La idempotencia es una propiedad clave en las APIs REST y se refiere a que el resultado de ejecutar una operación una o varias veces es el mismo:  
+> Un verbo es idempotente si el efecto de realizar una request es el mismo que realizar muchas requests idénticas.  
+> Esto permite que los clientes puedan repetir una petición sin temor a producir efectos secundarios no deseados, lo cual resulta fundamental en entornos donde pueden ocurrir problemas de red, timeouts o reintentos automáticos.
+
+#### 🔹 Ejemplos prácticos de idempotencia en HTTP:
+
+- **GET, PUT y DELETE** son considerados idempotentes en la mayoría de las implementaciones:
+  - **GET**: Leer un recurso varias veces no cambia el estado del servidor.
+  - **PUT**: Si envías varias veces la misma actualización, el recurso queda en el mismo estado.
+
+- **DELETE**:  
+  Generalmente se considera idempotente, pero esto depende de la implementación:
+  - Si el DELETE realiza un "soft delete" (por ejemplo, marca el recurso como borrado), entonces repetir la operación no cambiará el estado tras la primera vez, y la respuesta podría ser 204 (No Content) o 404 (Not Found) sin afectar el estado interno.  
+  - Si el DELETE realiza un "hard delete" y realmente elimina el recurso de forma irreversible, entonces múltiples DELETE pueden no ser idempotentes si la implementación arroja un error o un estado inconsistente tras la primera eliminación.  
+  - Por esto, la idempotencia de DELETE debe analizarse según la lógica de borrado implementada.
+
+- **PUT**: También es idempotente, ya que aplicar la misma modificación varias veces deja el estado del recurso igual: una o varias requests con los mismos valores no generan variaciones secundarias.
+
+- **POST**: No es idempotente. Realizar múltiples requests POST con la misma información creará múltiples instancias del recurso, lo que puede llevar a duplicidad de datos e inconsistencias en la persistencia.
+
+#### 🔸 ¿Por qué es importante la idempotencia?
+- Permite a los clientes reintentar operaciones seguras ante fallos de red sin temor a cambiar el estado del sistema involuntariamente.
+- Facilita la confiabilidad, robustez y predictibilidad de las aplicaciones distribuidas.
+- Reduce riesgos de corrupción o duplicidad de datos frente a reintentos automáticos o usuarios impacientes.
+- Es una base para implementar mecanismos de retry automáticos y sistemas tolerantes a fallos.
+
+### 💡 Ejemplo de uso:
+```http
+POST /products
+{
+  "nombre": "Teclado Mecánico"
+}
+```
+Crea un nuevo producto.  
+```http
+DELETE /products/7
+```
+Elimina el producto con ID 7.
+
+---
+
+## 3️⃣ Manejo de errores (\*)
+
+Los mensajes de error deben ser claros, útiles y consistentes, sin revelar información sensible.
+
+✨ **Buenas prácticas y consideraciones clave:**
+
+- Los mensajes de error deben proveer la información suficiente para que el error pueda ser resuelto en una request posterior, pero sin exponer vulnerabilidades de seguridad.
+- Estos errores serán interpretados tanto por personas con rol desarrollador como por sistemas automáticos. Es importante pensar en quién recibirá el mensaje para diseñarlo de forma clara y fácil de interpretar.
+- La API es una caja negra para los consumidores, por lo que tanto respuestas exitosas como de error deben ser informativas y consistentes.
+- Un buen manejo de errores permite adoptar metodologías como **test-first** y **test-driven development**, facilitando el desarrollo robusto.
+- Es fundamental cumplir ciertas reglas para lograr un diseño de errores efectivo:
+
+  - **🔢 Uso correcto de códigos de estado HTTP:**  
+    Utiliza códigos que representen claramente el tipo de error ocurrido. Existen más de [70 códigos HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes), pero no es necesario usarlos todos. Lo ideal es seleccionar un set representativo de cada familia y los más conocidos, como:
+    - 200 OK  
+    - 201 Created  
+    - 204 No Content  
+    - 400 Bad Request  
+    - 401 Unauthorized  
+    - 403 Forbidden  
+    - 404 Not Found  
+    - 409 Conflict  
+    - 500 Internal Server Error
+
+  - **📦 Estructura de error consistente:**  
+    Una vez definida la estructura del error, debe mantenerse igual para todos los errores, facilitando el manejo en los clientes. Incluye siempre campos como `code`, `message` y, si es necesario, `details`.
+
+### 💡 Ejemplo de respuesta de error:
+```json
+{
+  "code": 404,
+  "message": "Usuario no encontrado",
+  "details": "No existe un usuario con el ID provisto."
+}
 ```
 
-Es importante que todos los endpoints sean documentados correctamente, en especial estos especificando sus parámetros y comportamiento. Dado que no es estándar, un usuario de la API no sabrá como se comporta fácilmente.
+---
 
-## 5. Versionado
+## 4️⃣ Funcionalidades no relacionadas a recursos (\*)
 
-El versionado se refiere a la práctica de manejar diferentes versions de endpoints para introducir cambios en el tiempo de forma segura siendo backward compatible para clientes existentes. Mientras que una API evoluciona, cambios son introducidos a bodies de requests y de responses, endpoints cambian, para evitar que los clientes se vean afectados por estos cambios, el versionado introduce un control de estos cambios permitiendole a los clientes no verse afectados por estos nuevos comportamientos.
+🔢🌐 En ocasiones, existen funcionalidades en una API que no están asociadas directamente a un recurso, sino que representan una acción o cálculo sobre datos. Ejemplos de esto pueden ser conversiones de moneda, cálculos financieros, traducciones de lenguaje, entre otros.
 
-Hay muchas formas de implementar versionado:
+Estas funcionalidades, a diferencia de los recursos tradicionales, responden con un **resultado** y no con un recurso propiamente dicho.  
+En estos casos, es válido utilizar **verbos** en la URI (por ejemplo: `/convert`, `/translate`), pero se recomienda que estos verbos sean lo más simples, claros y directos posible, evitando frases largas o descripciones complejas.
 
-1. URI: la información de la versión a utilizar es incluida en el endpoint. Por ejemplo: https://api.example.com/v1/resource, https://api.example.com/v2/resource.
-2. QueryParams: la información de la versión es incluida como query parameter en los endpoints. Por ejemplo: https://api.example.com/resource?version=1, https://api.example.com/resource?version=2.
-3. Header: la información de la versión es incluida en un header específico.
+### 💡 Ejemplo:
+```http
+GET /convert?from=EUR&to=CNY&amount=100
+```
+Convierte 100 euros a yuanes.
 
-La forma de versionar la api depende de factores como la complejidad de la API, el nivel de control necesario sobre el versionado y preferencias del equipo de desarrollo.
+> 📑 Es fundamental documentar estos endpoints detalladamente, explicando qué parámetros aceptan y cuál es el resultado esperado, ya que, al no ser estándar, los usuarios de la API pueden no saber cómo utilizarlos correctamente.
 
-El versionado ayuda a mantener backward compatibility para clientes existentes, permite un rollout gradual de los cambios y provee una forma clara de interacción con los cambios de la API con los clientes. Es escencial manejar el versionado de forma cuidadosa para evitar fragmentación, confusión y un overhead de mantenimiento.
+---
 
-## 6. Respuestas parciales
+## 5️⃣ Versionado
 
-Las respuestas parciales trata sobre retornar unicamente un set de properties solicitadas para la response, en vez de retornar todas las properties programadas a retornar. Esto puede ser una ventaja para aquellos clientes donde no necesiten todas las properties disponibles en la response o quieren reducir la cantidad de data que se manda sobre la network, esto es un incentivo para mejorar la performance y reducir la latencia.
+El **versionado** permite cambiar la API sin afectar a los clientes existentes.
 
-La forma de implementar respuestas parciales puede variar entre las API, una forma de implementarlo puede ser con el uso de query parameters, donde se especifican que parametros se quieren incluir. Por ejemplo: https://api.example.com/resource?fields=id, firstname, lastname.
+El versionado es la práctica de gestionar distintas versiones de los endpoints de una API para poder introducir cambios de manera segura, manteniendo la compatibilidad hacia atrás (backward compatibility) para los clientes que ya usan la API. A medida que la API evoluciona, pueden realizarse cambios en los cuerpos de las requests y responses, así como en los propios endpoints.  
+Para evitar que los clientes existentes se vean afectados por estos cambios, el versionado introduce un control explícito sobre ellos, permitiendo que los clientes sigan funcionando correctamente sin verse impactados por los nuevos comportamientos.
 
-La implementación de respuesta parcial requiere una consideración sobre el diseño de la api y las consideraciones de los clientes. Puede mejorar la eficiencia del envío de la data y reducir procesamiento de data de forma innecesaria. Sin embargo, es escencial balancear los beneficios que trae con la complejidad que puede introducir a la implementación. Adicionalmente, debe de existir una documentación clara para los clientes para asegurar el uso correcto y eficiente del mismo.
+Además, el versionado facilita una transición gradual hacia nuevas versiones, permitiendo un rollout progresivo de los cambios. Esto ofrece una forma clara de interacción entre los cambios de la API y los clientes, brindando estabilidad y previsibilidad.  
+Es esencial manejar el versionado con cuidado para evitar problemas como la fragmentación de la API, confusiones en el uso y un aumento innecesario en los esfuerzos de mantenimiento.
 
-## 7. Paginación
+### 🔢 Formas de versionar:
+- En la URI: `/v1/products`
+- En query params: `/products?version=1`
+- En headers: `Accept: application/vnd.example.v1+json`
 
-La paginación es la solución para reducir un set largo de data a uno más corto y manejable. Un objeto de paginación es una mejora significante en la performance y reducción de carga de datos innecesarios tanto para el servidor como para el cliente. Esto le permite al cliente obtener la data de forma incremental en vez de toda en una sola llamada. Esto es importante para aquellos datasets muy largos.
+### 💡 Ejemplo:
+```http
+GET /v2/products
+```
+Obtiene productos usando la versión 2 de la API.
 
-La forma de implementar paginación es con query parameters y los parámetros pueden variar entre las apis. Por ejemplo: https://api.example.com/resource?page=1&pageSize=10, https://api.example.com/resource?page=2&pageSize=10. Los parametros en el ejemplo son:
+---
 
-- page: para indicar el número de página que se quiere obtener
-- pageSize: la cantidad de elementos a incluir en la página.
+## 6️⃣ Respuestas parciales
 
-Otros parámetros podrían ser:https://api.example.com/resource?offset=1&limit=10, https://api.example.com/resource?offset=2&limit=10, siendo los parámetros:
+Permite que el cliente solicite solo ciertos campos del recurso para optimizar el tráfico y el procesamiento. Esto puede ser una ventaja para mejorar la eficiencia del envío de datos y reducir procesamiento tanto del lado del servidor como del cliente.
 
-- offset
-- limit
+Las respuestas parciales tratan sobre retornar únicamente un set de propiedades solicitadas para la response, en vez de retornar todas las propiedades programadas a retornar.  
+La forma de implementar respuestas parciales puede variar, por ejemplo usando query parameters donde se especifican los campos a incluir.
 
-El cálculo para incluir de forma correcta los datos involucrados en la página solicitada es el siguiente:
+### 💡 Ejemplo:
+```http
+GET /users/42?fields=name,email
+```
+Solo retorna el nombre y el email del usuario.
 
-(page-1)\*pageSize = índice del primer elemento en la página
+> La implementación de respuesta parcial requiere una consideración sobre el diseño de la API y las necesidades de los clientes. Puede mejorar la eficiencia del envío de la data y reducir procesamiento.  
+> Es importante documentar claramente cómo utilizar esta funcionalidad y qué campos pueden solicitarse.
 
-La implementación en .NET es:
+---
 
-```C#
+## 7️⃣ Paginación
+
+La **paginación** es esencial en APIs que devuelven grandes cantidades de datos, ya que:
+- 🔥 Reduce la carga en el servidor y el cliente
+- 🚀 Mejora la performance y la experiencia de usuario
+- 📊 Facilita el manejo y visualización de grandes colecciones
+
+La paginación es la solución para reducir un set largo de data a uno más corto y manejable. Un objeto de paginación es una mejora significante en la performance y reducción de carga de datos innecesarios.  
+Para asegurar consistencia de los datos en caso de querer filtrar y ordenar, se debe implementar estas acciones de forma previa a la paginación. La paginación debe ser el último paso antes de retornar los datos.
+
+**¿Cómo debe ser la respuesta?**
+Una respuesta paginada debe incluir:
+- Un arreglo con los elementos de la página solicitada
+- El número total de páginas (`totalPages`)
+- El número total de elementos (`totalElements`)
+- El número de la página actual (`page`)
+- El tamaño de página (`pageSize`)
+
+### 💡 Ejemplo de respuesta paginada:
+```json
+{
+  "elements": [
+    { "id": 1, "name": "Producto 1" },
+    { "id": 2, "name": "Producto 2" }
+  ],
+  "page": 1,
+  "pageSize": 2,
+  "totalPages": 5,
+  "totalElements": 10
+}
+```
+
+### 📝 Parámetros típicos de paginación:
+- `page` y `pageSize`
+- `offset` y `limit`
+
+### 🔢 ¿Cómo se calcula la paginación?
+Para obtener el índice del primer elemento de una página:
+```
+startIndex = (page - 1) * pageSize
+```
+Ejemplo: Para la página 3 y pageSize de 10, el primer elemento es el (3-1)*10 = 20.
+
+El número de páginas se calcula como:
+```
+totalPages = Math.ceil(totalElements / pageSize)
+```
+
+> Para asegurar consistencia de los datos en caso de querer filtrar y ordenar, se debe implementar estas acciones de forma previa a la paginación. La paginación debe ser el último paso antes de retornar los datos.
+
+### 💡 Ejemplo de requests:
+```http
+GET /products?page=2&pageSize=5
+```
+Devuelve los productos de la página 2, 5 por página.
+
+```http
+GET /products?offset=3&limit=10
+```
+Devuelve desde el elemento 4, 10 elementos.
+
+### 🧑‍💻 Ejemplo de implementación en C#:
+```csharp
 public Pagination<Entity> Pagination(int pageNumber, int pageSize)
 {
-    // TODO: chequear que ni pageNumber ni pageSize sean 0
-
     var elements = collection
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-    .ToList();
+      .Skip((pageNumber - 1) * pageSize)
+      .Take(pageSize)
+      .ToList();
 
     var totalElements = collection.Count;
-    var amountOfPages = totalElements / pageSize;
+    var amountOfPages = (int)Math.Ceiling((double)totalElements / pageSize);
 
     return new Pagination<Entity>(elements, amountOfPages, totalElements);
 }
 ```
 
-<p align="center">
-[Paginación]
-</p>
+### 🔎 Otros ejemplos avanzados
 
-Para asegurar consistencia de los datos en caso de querer filtrar y ordenar, se deberá de implementar estas acciones de forma previa a la paginación. La paginación deberá de ser el último paso antes de obtener los datos.
-
-```C#
+#### Filtrado y paginación
+```csharp
 public Pagination<Entity> Pagination(int pageNumber, int pageSize)
 {
-    // TODO: chequear que ni pageNumber ni pageSize sean 0
-
     var elements = collection
-    .Where(e => true)
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-    .ToList();
+      .Where(e => true)
+      .Skip((pageNumber - 1) * pageSize)
+      .Take(pageSize)
+      .ToList();
 
     var totalElements = collection.Count;
-    var amountOfPages = totalElements / pageSize;
+    var amountOfPages = (int)Math.Ceiling((double)totalElements / pageSize);
 
     return new Pagination<Entity>(elements, amountOfPages, totalElements);
 }
 ```
 
-<p align="center">
-[Filtrado y paginación]
-</p>
-
-```C#
+#### Filtrado, orden y paginación
+```csharp
 public Pagination<Entity> Pagination(int pageNumber, int pageSize)
 {
-    // TODO: chequear que ni pageNumber ni pageSize sean 0
-
     var elements = collection
-    .Where(e => e.Prop == prop)
-    .OrderBy(e => e.Prop)
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-    .ToList();
+      .Where(e => e.Prop == prop)
+      .OrderBy(e => e.Prop)
+      .Skip((pageNumber - 1) * pageSize)
+      .Take(pageSize)
+      .ToList();
 
     var totalElements = collection.Count;
-    var amountOfPages = totalElements / pageSize;
+    var amountOfPages = (int)Math.Ceiling((double)totalElements / pageSize);
 
     return new Pagination<Entity>(elements, amountOfPages, totalElements);
 }
 ```
 
-<p align="center">
-[Filtrado, orden y paginación]
-</p>
-
-```C#
+#### Filtrado, orden, agrupación y paginación
+```csharp
 public Pagination<Entity> Pagination(int pageNumber, int pageSize)
 {
-    // TODO: chequear que ni pageNumber ni pageSize sean 0
-
     var elements = collection
-    .Where(e => e.Prop == prop)
-    .GroupBy(e => e.Prop)
-    .OrderBy(e => e.Key)
-    .Select(e => new {
-      Prop = e.Key,
-      Amount = e.Count
-    })
-    .Skip((pageNumber - 1) * pageSize)
-    .Take(pageSize)
-    .ToList();
+      .Where(e => e.Prop == prop)
+      .GroupBy(e => e.Prop)
+      .OrderBy(e => e.Key)
+      .Select(e => new {
+        Prop = e.Key,
+        Amount = e.Count()
+      })
+      .Skip((pageNumber - 1) * pageSize)
+      .Take(pageSize)
+      .ToList();
 
     var totalElements = collection.Count;
-    var amountOfPages = totalElements / pageSize;
+    var amountOfPages = (int)Math.Ceiling((double)totalElements / pageSize);
 
     return new Pagination<Entity>(elements, amountOfPages, totalElements);
 }
 ```
 
-<p align="center">
-[Filtrado, orden, agrupación y paginación]
-</p>
+**🔗 Es fundamental implementar la paginación al final de cualquier operación de filtrado, orden o agrupamiento para asegurar la consistencia y precisión de los datos retornados.**
 
-Y se deberá de incluir la siguiente información:
+---
 
-- Elementos
-- Cantidad de páginas
-- Cantidad total de elementos
+## 📚 Lecturas recomendadas
 
-La paginación es escencial para mejorar la escalabilidad y performance de aquellas APIs que manejan un set largo de datos. Sin embargo, es crucial considerar factores como la consistencia de datos, estrategias de cacheo y la usabilidad para los clientes de la API. Adicionalmente, una clara documentación y consistencia en la convención de los nombres de los parámetros es escencial para asegurar que los clientes puedan interactuar con la API de forma efectiva.
+- [Diseño de API - Ebook](https://aulas.ort.edu.uy/pluginfile.php/441401/mod_resource/content/1/api-design-ebook-2012-03.pdf)
 
-# Lecturas recomendadas
-
-- [Diseño de api](https://aulas.ort.edu.uy/pluginfile.php/441401/mod_resource/content/1/api-design-ebook-2012-03.pdf)
+---
