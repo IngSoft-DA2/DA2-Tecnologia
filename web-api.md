@@ -152,34 +152,61 @@ Una **API** (Application Programming Interface) es un conjunto de reglas y mecan
 
 ---
 
-# 🤖 ¿Qué es un SDK?
+# 🤖✨ ¿Qué es un SDK?
 
-Un **SDK** (Software Development Kit, o Kit de Desarrollo de Software) es un conjunto de herramientas, librerías, documentación, ejemplos y utilidades que los desarrolladores utilizan para crear aplicaciones para una plataforma, lenguaje o servicio específico.
-
-El SDK suele incluir:
-
-- 📚 **Librerías o APIs:** Código reutilizable que simplifica tareas comunes o permite interactuar con un sistema.
-- 📄 **Documentación:** Guías y referencias que explican cómo usar el SDK y sus componentes.
-- 🧩 **Ejemplos y plantillas:** Código de ejemplo para empezar rápidamente o comprender buenas prácticas.
-- 🛠️ **Herramientas:** Programas para depuración, construcción, pruebas, simulación, etc.
-
-**Ejemplo:**  
-Si quieres crear una app móvil para Android, Google ofrece el **Android SDK**, que incluye todo lo necesario para programar y probar aplicaciones Android.
+Un **SDK** (_Software Development Kit_ o **Kit de Desarrollo de Software**) es un 🧰 conjunto de herramientas que facilita a los desarrolladores crear aplicaciones para una plataforma, sistema o servicio específico.
 
 ---
 
-## 🔀 Diferencia entre SDK y API
+## 🛠️ ¿Qué incluye un SDK?
 
-- Una **API** especifica *qué* operaciones se pueden realizar y *cómo* acceder a ellas (por ejemplo, los endpoints REST de una web API).
-- Un **SDK** es un paquete más completo que, además de la API, incluye herramientas, librerías y documentación que facilitan el trabajo del desarrollador, envolviendo o implementando la API para su uso directo.
+Un SDK suele estar compuesto por varios elementos que simplifican y aceleran el desarrollo de software:
 
-**Ejemplo:**  
-Google Maps ofrece una *API REST* para consultar información de mapas y también un *SDK para Android* que usa internamente esa API y ofrece métodos más sencillos para desarrolladores móviles.
+- 📚 **Librerías / APIs:**  
+  Fragmentos de código reutilizables que proporcionan acceso rápido a funcionalidades clave o a una API.
+- 📄 **Documentación:**  
+  Guías, manuales y referencias que explican cómo usar cada componente del SDK.
+- 🧩 **Ejemplos y plantillas:**  
+  Código de ejemplo y proyectos modelo para aprender buenas prácticas y empezar más rápido.
+- 🛠️ **Herramientas auxiliares:**  
+  Utilidades para depuración, pruebas, compilación, simulación, etc.
+
+---
+
+## 🎯 **Ejemplo práctico**
+
+> Si quieres desarrollar una app para Android, Google te proporciona el **Android SDK**, que incluye todo lo necesario para programar, probar y depurar aplicaciones móviles en ese sistema operativo.
+
+---
+
+# 🔗 Diferencia entre SDK y API
+
+|                 | **API** | **SDK** |
+|:----------------|:-------:|:-------:|
+| **¿Qué es?**    | Contrato o interfaz de comunicación entre sistemas. | Kit completo con herramientas, librerías, documentación y ejemplos. |
+| **¿Qué define?**| Qué se puede hacer y cómo acceder a los recursos. | Cómo hacerlo de forma sencilla y rápida en una plataforma concreta. |
+| **¿Incluye código?** | Generalmente no. | Sí, incluye librerías listas para usar. |
+| **¿Incluye herramientas?** | No. | Sí. |
+
+---
+
+## 🤝 Relación entre SDK y API
+
+- El **SDK** suele envolver o implementar la **API** para facilitar su uso.
+- Un SDK puede contener varias APIs, pero una API puede existir sin un SDK.
+
+---
+
+### 📌 **Ejemplo: Google Maps**
+
+- **API REST:** Permite consultar información de mapas a través de solicitudes HTTP.
+- **SDK para Android:** Ofrece métodos y herramientas listas para integrar mapas en aplicaciones móviles, usando internamente la API REST.
 
 ---
 
 > 💡 **En resumen:**  
-> Un SDK es un paquete integral para facilitar el desarrollo sobre una plataforma, mientras que una API es el contrato de comunicación entre sistemas.
+> Un **SDK** es un paquete integral que acelera y simplifica el desarrollo sobre una plataforma, mientras que una **API** es el contrato de comunicación entre sistemas o servicios.
+
 ---
 
 ## 🆚 ¿Cuándo usar API vs SDK?
