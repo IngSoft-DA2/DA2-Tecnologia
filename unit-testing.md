@@ -1,4 +1,4 @@
-[⬅️ Volver - Pruebas Unitarias](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/unit-testing/README.md)
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/unit-testing?tab=readme-ov-file#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
 # 🧪 Pruebas de Software
 
@@ -17,7 +17,6 @@ Las **pruebas** son un pilar fundamental en el desarrollo de software de calidad
 ---
 
 ### 🧑‍💻 Pruebas End-To-End (E2E)  
-🔗
 
 Evalúan el sistema en su totalidad, simulando flujos completos de uso desde la interfaz de usuario hasta la base de datos, replicando la experiencia real del usuario.  
 ⚠️ Por su complejidad y costo (tiempo y recursos), se emplean principalmente para validar funcionalidades críticas.
@@ -25,7 +24,6 @@ Evalúan el sistema en su totalidad, simulando flujos completos de uso desde la 
 ---
 
 ### 🔗 Pruebas de Integración  
-🔄
 
 Verifican la interacción entre diferentes **módulos o capas** del sistema, asegurando que funcionen correctamente en conjunto.  
 Aunque menos complejas que las E2E, también requieren suficiente configuración y suelen utilizarse para validar puntos de integración específicos.
@@ -33,7 +31,6 @@ Aunque menos complejas que las E2E, también requieren suficiente configuración
 ---
 
 ### 🔬 Pruebas Unitarias  
-🧩
 
 Constituyen la **base de la pirámide de testing**. Se enfocan en probar componentes individuales de forma aislada, validando la correcta funcionalidad de pequeñas unidades de código.  
 Permiten a los desarrolladores detectar rápidamente errores localizados y avanzar con seguridad en la evolución del sistema.
