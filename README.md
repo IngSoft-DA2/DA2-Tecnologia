@@ -66,6 +66,8 @@ Estos archivos son esenciales para que tu repositorio siga las buenas prácticas
   - Ambos archivos deben estar en `.github/workflows/` en la raíz.
 - **[.gitattributes](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/repo-configuration/.gitattributes):** Configura atributos de archivos para Git.
 - **[.runsettings](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.runsettings):** Configura cobertura de código para los tests.
+- **[.config](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/.config):** Configura una version estable de la herramienta dotnet ef para el proyecto.
+- **[global.json](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/repo-configuration/global.json):** Configura una version estable del SDK de .NET para el proyecto.
 
 ---
 
