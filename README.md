@@ -1,29 +1,47 @@
-# Inyección de dependencia
+# 💉 Inyección de Dependencias en .NET Core
 
-Gracias al framework .NET Core, podremos utilizar el patrón inyección de dependencia gracias a la libreria: `Microsoft.Extensions.DependencyInjection` de forma muy simple. Dicho patrón apunta a la gestión y control de las dependencias del sistema. Una de las ganancias de aplicar dicho patrón es poder implementar el principio de **inversión de dependencia** de forma clara y sencilla.
+¡Bienvenido! En este documento encontrarás una guía práctica y conceptual sobre el patrón **Inyección de Dependencias** (DI) usando .NET Core y la librería oficial [`Microsoft.Extensions.DependencyInjection`](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
 
-## Dependencia
+---
 
-Una dependencia entre clases o paquetes se da cuando una clase o paquete necesita un elemento (funcionalidad, clase, tipo, etc) en particular para poder realizar una operación específica en casos en los que este elemento se encuentra por fuera de la clase o paquete.
+## 📖 Índice
 
-Conceptualmente, la dependencia se trata como `uso`, es decir, cuando existe una dependencia entre clases, es porque una clase `usa` a la otra, lo mismo se puede aplicar a paquetes. Este tipo de relación la podemos ver entre clases, paquetes e incluso entre elementos `cliente` y `servidor`, los cuales son más tangibles y menos lógicos.
+- [¿Qué es una dependencia?](#qué-es-una-dependencia)
+- [Problemas que resuelve el patrón DI](#problemas-que-resuelve-el-patrón-di)
+- [Ejemplo de código: Sin DI](#ejemplo-de-código-sin-di)
+- [¿Cómo el patrón DI resuelve el problema?](#cómo-el-patrón-di-resuelve-el-problema)
+- [Ejemplo de código: Con DI](#ejemplo-de-código-con-di)
+- [Configuración de DI en .NET Core](#configuración-de-di-en-net-core)
+  - [Registro de servicios y ciclos de vida](#registro-de-servicios-y-ciclos-de-vida)
+  - [Ejemplos de servicios por ciclo de vida](#ejemplos-de-servicios-por-ciclo-de-vida)
+- [Referencias](#referencias)
 
-## Problema que el patrón intenta resolver
+---
 
-Sin el uso de la inyección de dependencia, el desarrollador deberá de instanciar, de forma manual, las dependencias necesarias directamente en las clases o métodos que las necesiten. Este approach puede ser útil en etapas inicilaes en un sistema, pero a la larga, genera un fuerte acoplamiento entre componentes, haciendo el código rígido y difícil de mantener o modificar. Algunas desventajas de instanciar las dependencias manualmente son:
+## ❓ ¿Qué es una dependencia?
 
-- Poca flexibilidad: Cuando una clase instancia directamente sus dependencias, se vuelve difícil cambiarlas o remplazarlas por otras. Por ejemplo, si una clase depende de una implementación específica sobre el acceso a datos de una base de datos, para poder cambiarla por otra implementacion sobre otra base de datos, se requerirá cambiar la clase en si. Esta falta de flexibilidad, se debe a que instanciar elementos concretos dentro de una clase aumenta el acoplamiento y disminuye la cohesión, no es responsabilidad de la clase crear ese elemento ni debería de conocer la implementación concreta.
+Una **dependencia** entre clases o paquetes ocurre cuando una clase necesita de otra (funcionalidad, clase, tipo, etc.) para realizar una operación específica. Conceptualmente, esto se traduce a una relación de **"uso"**:  
+> Si una clase usa otra, entonces depende de ella.
 
-- Difícil de probar de forma unitaria: un fuerte acomplamiento a implementaciones hace que realizar pruebas unitarias sea muy difícil o imposible. Cuando una clase instancia directamente sus dependencias, se vuelve desafiante aislar dicha clase para probarla. La realización de pruebas es crucial para mantener la calidad de código y asgurar que cambios emergentes no introduzcan comportamientos inesperados.
+Este tipo de relación puede dificultar el mantenimiento, la evolución y las pruebas de la aplicación si no se gestiona adecuadamente.
 
-- Difícil de escalar: A medida que la aplicación crece, manejar las dependencias se vuelve una tarea cada vez mas compleja. La intanciación de dichas dependencias de forma manual en diferentes lugares puede llevar a introducir bugs y a un decaimiento de la productividad.
+---
 
-Ejemplo del problema con código:
-Dado dos clases, `MovieController` y `MovieLogic`. `MovieController` es el controller específico para gestionar el recurso `movies` y exponer operaciones acorde a dicho recurso. La clase `MovieLogic` es la clase específica que encapsula toda la lógica de negocio sobre el recurso `Movie`, esta expondrá de forma pública ciertas operaciones para ser usadas por otras clases.
+## 🚧 Problemas que resuelve el patrón DI
 
-La dependencia se da desde `MovieController` hacia `MovieLogic`, como se puede ver en el segmento de código siguiente:
+Sin la inyección de dependencias, el desarrollador debe **instanciar manualmente** las dependencias dentro de las clases o métodos. Esto genera:
 
-```C#
+- 🔒 **Poca flexibilidad:** Cambiar implementaciones o sustituir dependencias es difícil si todo está acoplado directamente.
+- 🧪 **Pruebas unitarias difíciles:** El acoplamiento fuerte hace complejo el uso de mocks o fakes.
+- 📈 **Difícil de escalar:** A medida que crece la aplicación, gestionar dependencias se vuelve cada vez más complejo y propenso a errores.
+
+---
+
+## 🗒️ Ejemplo de código: Sin DI
+
+Supón dos clases: `MovieController` y `MovieLogic`. La dependencia se da de `MovieController` hacia `MovieLogic`.
+
+```csharp
 [ApiController]
 [Route("movies")]
 public sealed class MovieController : ControllerBase
@@ -40,202 +58,204 @@ public sealed class MovieController : ControllerBase
   {
     return _movieLogic.GetAll();
   }
-
-  // ... rest of the code
+  // ... resto del código
 }
 ```
 
-Podemos observar como `MovieController` necesita de una instancia de `MovieLogic` para realizar ciertas operaciones, es por eso que `MovieLogic` es una dependencia de `MovieController`.
+`MovieLogic` también instancia directamente sus propias dependencias:
 
-```C#
+```csharp
 public sealed class MovieLogic
 {
   private readonly IMovieRepository _movieRepository;
   private readonly IUserRepository _userRepository;
 
   public MovieLogic()
-    {
-      var dbContext = new DbContext();
-      _movieRepository = new MovieRepository(dbContext);
-      _userRepository_ = new UserRepository(dbContext);
-    }
-
-  // behaviour
-}
-```
-
-Configurar esta dependencia es muy simple porque `MovieLogic` nos lo permite, pero esto se podría complicar fácilmente si `MovieLogic` estuviese definido de la siguiente manera:
-
-```C#
-public sealed class MovieLogic
-{
-  // ...
-
-  public MovieLogic(DbContext context)
-    {
-      // ...
-    }
-
+  {
+    var dbContext = new DbContext();
+    _movieRepository = new MovieRepository(dbContext);
+    _userRepository = new UserRepository(dbContext);
+  }
   // ...
 }
 ```
 
-Haciendo que `MovieController` tuviese que definir sus dependencias y las dependencias de las dependencias.
+Esto **acopla** fuertemente las clases y hace el código rígido y difícil de probar.
 
-```C#
-[ApiController]
-[Route("movies")]
-public sealed class MovieController : ControllerBase
-{
-  private readonly MovieLogic _movieLogic;
+---
 
-  public MovieController()
-  {
-    // declar MovieLogic dependencies
-    _movieLogic = new MovieLogic(/* set MovieLogic dependencies*/);
-  }
+## 💡 ¿Cómo el patrón DI resuelve el problema?
 
-  [HttpGet]
-  public List<Movie> GetAll()
-  {
-    return _movieLogic.GetAll();
-  }
+El patrón desacopla las clases y **gestiona automáticamente** la provisión de dependencias, brindando:
 
-  // ... rest of the code
-}
-```
+- 🔗 **Bajo acoplamiento:** Las clases dependen de abstracciones, no de implementaciones concretas.
+- 🧪 **Pruebas fáciles:** Es simple reemplazar dependencias por mocks o dummies.
+- 🏗️ **Flexibilidad y escalabilidad:** El código es modular y fácil de extender.
+- ⚙️ **Configuración centralizada:** Todas las dependencias se configuran en un solo lugar: el inicio de la aplicación.
+- 📚 **Cumple con OCP y SRP:** Principios de diseño SOLID.
 
-Con este sencillo ejemplo logramos ver lo fácil que es comprometer y complejizar el mantenimiento y la calidad de código.
+---
 
-## ¿Cómo el patrón resuelve el problema?
+## 🗒️ Ejemplo de código: Con DI
 
-El patrón resuelve estas desventajas al desacoplar los elementos entre ellos y gestionar por ellos las dependencias que utilizarán. Gracias a esto obtenemos las siguientes ventajas.
-
-- Poco acoplamiento: DI promueve que haya poco acoplamiento entre componentes al remover las instanciaciones de las dependencias de forma directa/manual. Las clases solo pueden utilizar abstracciones (interfaces o clases abstractas), permitiendoles una fácil modificación y extensión de las mismas.
-
-- Realizacion de pruebas: Con DI, la realización de pruebas unitarias es sumamente straightforward el poder replazar las dependencias con mocks o implementaciones dummy para las pruebas. Esta aislación permite una mayor efectividad a la hora de realizar pruebas unitarias, llevando a tener una mejor calidad de código y menos bugs.
-
-- Flexibilidad: DI facilita la modularidad y la extensibilidad. Es fácil intercambiar dependencias o introducir nuevas sin la necesidad de modificar código existente, lo cual promueve a reutilizar código y hacer un sistema más adaptable a cambios de requerimientos.
-
-- Configuración de dependencias centralizada: DI promueve centralizar la configuración de las dependencias. El lugar indicado de realizar esto es al momento de iniciar la aplicación. Esto permite tener una consistencia sobre las dependencias en toda la aplicación.
-
-- Cumple con OCP y SRP
-
-Siguiendo el ejemplo de código, la aplicación de DI dejaría el código de la siguiente manera:
-
-```C#
+```csharp
 [ApiController]
 [Route("movies")]
 public sealed class MovieController(IMovieLogic movieLogic)
- : ControllerBase
+  : ControllerBase
 {
   [HttpGet]
   public List<Movie> GetAll()
   {
     return movieLogic.GetAll();
   }
-
-  // ... rest of the code
+  // ... resto del código
 }
 ```
 
-```C#
+```csharp
 public sealed class MovieLogic(
-IMovieRepository movieRepository,
-IUserRepository userRepository)
+  IMovieRepository movieRepository,
+  IUserRepository userRepository)
 {
-  // behaviour
+  // ...
 }
 ```
 
-Nuestro código se vió impactado en no instanciar las dependencias sino que en declarar que se necesita para que la clase funcione correctamente. Quien se encargue de instanciar estas dependencias en el momento adecuado será el framework siguiendo la configuración que nosotros especifiquemos.
+El framework se encarga de instanciar y entregar las dependencias necesarias.
 
-Para terminar de configurar el uso de DI en nuestro sistema, debemos de configurar las dependencias en el inicio de nuestra aplicaión. En un proyecto web-api usando .NET 8 es en la clase `Program.cs`. Dicha clase inicialmente se encuentra de la siguiente manera:
+---
 
-```C#
+## ⚙️ Configuración de DI en .NET Core
+
+La configuración se realiza en la clase principal de la aplicación (por ejemplo, `Program.cs` en un proyecto Web API con .NET 8):
+
+```csharp
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Registro de controladores
 builder.Services.AddControllers();
 
-var app = builder.Build();
-// Configure the HTTP request pipeline.
-
-app.MapControllers();
-
-app.Run();
-```
-
-Para realizar la configuración de las dependencias, las mismas se deberán de encontrar después de la primera línea `var builder = WebApplication.CreateBuilder(args);` y antes de la compulación de la app `var app = builder.Build();`.
-
-### Registro de servicios (dependencias)
-
-Los serivcios involucrados en el registro son aquellos que son dependencias de otro servicio. Dicho registro ocurre para un contenedor de servicios al cual podemos seleccionar el ciclo de vida que le queremos dar y este contenedor gestionará la vida de los mismos.
-Existen 3 ciclos de vida:
-
-#### Scope
-
-Estos servicios serán instanciados una vez dentro de un contexto de uso.
-
-Bajo el dominio de una web api, los servicios `scope` serán instanciados por cada request, y dicha instancia será compartida entre los lugares que se requiera dicha dependencia. Esto quiere decir que, si dos servicios (A y B) distintos, dependen del mismo servicio (C) y esta es declarada como `scope`, A y B comparten la misma instancia de C (siempre y cuando A y B se utilicen en la misma request).
-
-Esto implica que la instancia del servicio C es reusada para todos los servicios que la necesiten. Este ciclo de vida asegura consistencia y evita instancias duplicadas innecesariamente. Esta instancia es disposed por el contenedor de DI cuando la request termino de ejecutarse.
-
-Para registrar un servicio con este ciclo de vida se deberá de usar el metodo `AddScoped`
-
-#### Transient
-
-Estos servicios serán instanciadas para cada servicio que lo requiera.
-
-Esto quiere decir que si tenemos los servicios A y B que dependen de C, y C esta declarado con este ciclo de vida, la instancia pasada al servicio A es difrente a la instancia pasada al servicio B, esto implica que la instancia de C no es reusable.
-
-El largo de la vida de estos servicios es menor al largo de vida de los servicios `scope`;
-
-#### Singleton
-
-Solo existirá una única instancia de estos servicios y la misma será compartida y distribuida para aquellos servicios que la necesiten.
-
-Estos servicios se instanciarán en la primera petición y luego se reusará la instancia para peticiones futuras.
-
-La duración de vida de estos servicios es acorde a la vida del sistema.
-
-Las dependencias entre los diferentes servicios debe ser en sentido gradual con respecto al largo de vida de los mismos. Esta es una restricción para no utilizar servicios que el framework le hizo un dispose.
-
-El orden de vida es el siguiente: `Singleton > Scope > Transient`, traduciendose a: los servicios `Singleton` son los que perduran más en el tiempo seguido por los servicios `Scope` y luego los `Transient`. Esto hace que el sentido de depdendencias sea de forma inversa, quedando: `Transient -> Scope -> Singleton` y traduciendose a que servicios Transient pueden depender de otros servicios `Transient`, `Scope` o `Singleton`, servicios `Scope` pueden depender de servicios `Scope` o `Singleton` y servicios `Singleton` solo a servicios `Singleton`.
-
-El siguiente código muestra como configurar servicios con el ciclo de vida `Scope`
-
-```C#
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
-builder.Services.AddControllers();
-
-// services -> es el contenedor de servicios
-var services = builder.Services;
-
-// Registro de logica de negocio
-services
-  .AddScoped<IMovieLogic, MovieLogic>();
-
-// Registro de acceso a datos
-services
+// Registro de dependencias
+builder.Services
+  // Lógica de negocio
+  .AddScoped<IMovieLogic, MovieLogic>()
+  // Acceso a datos
   .AddScoped<DbContext, VidlyContext>()
   .AddScoped<IMovieRepository, MovieRepository>()
   .AddScoped<IUserRepository, UserRepository>();
 
 var app = builder.Build();
-// Configure the HTTP request pipeline.
 
 app.MapControllers();
 
 app.Run();
 ```
 
-Dado esta configuración, el framework sabrá como tratar e instanciar nuestros servicios para cuando llegue una request. El contenedor de servicios autogestiona las dependencias sin tener que involucrarse manualmente.
+---
 
-## Referencias
+## 🏷️ Registro de servicios y ciclos de vida
 
-[DI - Dependency injection in .NET Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0#entity-framework-contexts)
+Los servicios pueden tener diferentes **ciclos de vida**:
+
+- **Scoped** 🔄 (por request): Una instancia por cada request HTTP.
+  - Se registra con: `.AddScoped<TInterface, TImplementation>()`
+- **Transient** ♻️ (por consumo): Nueva instancia cada vez que se inyecta.
+  - Se registra con: `.AddTransient<TInterface, TImplementation>()`
+- **Singleton** 🗄️ (única): Solo una instancia durante toda la vida de la aplicación.
+  - Se registra con: `.AddSingleton<TInterface, TImplementation>()`
+
+> **Regla:** No inyectes servicios de menor duración en servicios de mayor duración (por ejemplo, no inyectes un `Scoped` dentro de un `Singleton`).
+
+---
+
+## 🔄 Ejemplos de Servicios por Ciclo de Vida
+
+### 🗄️ Singleton
+
+- **Descripción:** Solo existe **una única instancia** durante toda la vida de la aplicación. Se comparte entre todas las peticiones y usuarios.
+- **Uso típico:** Servicios que mantienen estado global o recursos compartidos, y no dependen de datos cambiantes por request.
+- **Ejemplo de servicios Singleton:**
+  - Servicio de configuración de la aplicación
+  - Servicio de logging (que escribe en un archivo o consola)
+  - Servicio de acceso a la caché en memoria global
+
+```csharp
+public interface IAppConfigService { /* ... */ }
+public class AppConfigService : IAppConfigService { /* ... */ }
+
+// Registro
+services.AddSingleton<IAppConfigService, AppConfigService>();
+```
+
+---
+
+### 🔄 Scoped
+
+- **Descripción:** Se crea **una instancia por cada request** HTTP. Todos los componentes dentro de la misma petición comparten la instancia.
+- **Uso típico:** Servicios que manejan contexto de usuario, acceso a datos o lógica de negocio donde la consistencia dentro de una misma request es importante.
+- **Ejemplo de servicios Scoped:**
+  - Servicio de acceso a base de datos (DbContext)
+  - Servicio de lógica de negocio (por ejemplo, procesamiento de órdenes)
+  - Servicio que almacena información del usuario autenticado durante la request
+
+```csharp
+public interface IOrderService { /* ... */ }
+public class OrderService : IOrderService { /* ... */ }
+
+// Registro
+services.AddScoped<IOrderService, OrderService>();
+```
+
+---
+
+### ♻️ Transient
+
+- **Descripción:** Se crea **una nueva instancia cada vez** que se solicita la dependencia. No se comparte en ningún contexto.
+- **Uso típico:** Servicios ligeros y sin estado, que no mantienen información entre usos.
+- **Ejemplo de servicios Transient:**
+  - Servicio de utilidad (por ejemplo, generación de tokens únicos)
+  - Servicio helper de formateo o validación de datos
+  - Servicio que implementa lógica puntual o tareas efímeras
+
+```csharp
+public interface ITokenGenerator { /* ... */ }
+public class TokenGenerator : ITokenGenerator { /* ... */ }
+
+// Registro
+services.AddTransient<ITokenGenerator, TokenGenerator>();
+```
+
+---
+
+### 🏁 Orden de duración de los ciclos de vida
+
+El orden de duración (de mayor a menor) es:
+
+```
+Singleton > Scoped > Transient
+```
+
+- **Singleton**: Vive toda la vida de la aplicación (más largo).
+- **Scoped**: Vive sólo durante una petición (intermedio).
+- **Transient**: Vive sólo hasta que termina el uso (más corto).
+
+> **Regla de oro:** Nunca inyectes un servicio de vida más corta (ej: Scoped o Transient) en uno de vida más larga (ej: Singleton), ya que puede causar errores y comportamientos inesperados.
+
+---
+
+### 📝 Resumen visual
+
+| Ciclo de Vida | Instancias por app | Instancias por request | Instancias por uso | Ejemplo típico                    |
+|:-------------:|:------------------:|:---------------------:|:------------------:|:----------------------------------|
+| Singleton     |        1           |          1            |        1           | Configuración, logging, caché     |
+| Scoped        |        1           |          1            |      1+ (por req)  | DbContext, lógica de negocio      |
+| Transient     |        1+          |         1+            |      1+            | Helpers, generadores, validadores |
+
+---
+
+## 📚 Referencias
+
+- [DI - Dependency injection in .NET Core (Microsoft Docs)](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-8.0#entity-framework-contexts)
+
+---
