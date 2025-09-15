@@ -146,7 +146,6 @@ Complementan los conceptos, presentan discusiones críticas sobre los patrones y
 
 - [Web API](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/web-api)
 - [Pruebas unitarias e integración](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/unit-testing)
-- [Uso de Postman](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/postman)
 - [Inyección de dependencias](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/dependency-injection)
 - [Entity Framework Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
