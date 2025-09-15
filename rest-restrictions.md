@@ -1,74 +1,147 @@
-# Restricciones
+[🔗 ¿Qué es REST y RESTful?](https://github.com/IngSoft-DA2/DA2-Tecnologia/edit/web-api/web-api.md#-qu%C3%A9-es-rest-y-restful) → [🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/web-api?tab=readme-ov-file#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
-## 1. Interfaz uniforme
+# 🚦 Restricciones REST
 
-Define una interfaz (un contrato), con un set de funcionalidades para una interacción cliente-servidor. Permite una evolución de la implementacion independientemente de la evolución del cliente. Esto implica un desacoplamiento entre ambos extremos.
+Las arquitecturas REST imponen una serie de **restricciones** que aseguran sistemas robustos, escalables y fáciles de evolucionar. A continuación, se describen cada una de ellas, con explicación ampliada, emojis y ejemplos de implementación o uso.
 
-Para lograr esto se deben seguir los siguientes principios:
+---
 
-- Basarse en recursos
-- Respuestas con la información necesaria para la manipulación
+## 1️⃣ Interfaz Uniforme
 
-## 2. Comunicación Stateless
+🔗 Una **interfaz uniforme** define un contrato claro entre cliente y servidor. Permite que ambos evolucionen de manera independiente, siempre que la interfaz se respete.
 
-Toda la información para interpretar la solicitud, tiene que estar contenida en la request misma (en el endpoint, body, headers, query params, etc). Esto es porque el servidor no mantiene una conexión viva con el cliente.
+**Principios clave:**
+- 📦 Basarse en **recursos**: cada entidad significativa del sistema (usuarios, productos, pedidos) se modela como un recurso accesible mediante una URL única.
+- 📋 Las respuestas incluyen toda la información necesaria para manipular los recursos, usando formatos estándar como JSON o XML.
+- 🚦 Uso consistente de métodos HTTP (GET, POST, PUT, DELETE) y códigos de estado (200 OK, 404 Not Found, etc.)
 
-Debido a esto, es necesario mandar la información correspondiente en la request, para que el servidor pueda identificar quien es el que hace la request para tomar acciones.
+**Ventajas:**  
+- Facilita la comprensión y el consumo de la API por parte de cualquier cliente.
+- Permite el desarrollo desacoplado y la evolución independiente del cliente y el servidor.
 
-Esta restricción impacta tanto al servidor como al cliente, ya que desde el lado del servidor se debe poder identificar el propietario de la request según la información que mande y desde el lado del cliente se debe guardar la identificación a mandar en futuras interacciones con el servidor.
+**Ejemplo de uso:**
+```http
+GET /productos/123
+```
+Respuesta:
+```json
+{
+  "id": 123,
+  "nombre": "Teclado Mecánico",
+  "precio": 79.99,
+  "stock": 25
+}
+```
+Aquí, cada recurso tiene su propia URL (`/productos/123`), y la respuesta contiene toda la información relevante para ese producto.
 
-Esta restricción tiene la ventaja de lograr que el servidor sea mas fácil de escalar y de ser distribuido. Esto implica poder realizar redespliegues fácilmente en casos de fallo y tambien un escalado individual.
+---
 
-Esto es gracias a que cada request puede ser dirigida a cualquier instancia/nodo/componente ya que no se establece una conexión punto a punto para una entablar una comunicación.
+## 2️⃣ Comunicación Stateless
 
-<p align="center">
-  <img src="images/image-15.png"/>
-</p>
+🗃️ **Stateless** significa que cada petición del cliente debe contener toda la información necesaria para ser procesada.  
+El servidor **no guarda el estado** de la sesión del cliente entre solicitudes.
 
-<p align="center">
-[Escalabilidad]
-</p>
+**¿Cómo se logra?**
+- Toda la información relevante viaja en cada request: tokens de autenticación, datos de contexto, etc.
+- El servidor puede procesar cualquier petición de forma aislada, sin depender de información previa.
 
-<p align="center">
-  <img src="images/image-16.png"/>
-</p>
+**Ventajas:**
+- 🚀 Escalabilidad: cualquier instancia puede atender la petición, facilitando balanceo de carga.
+- 🔄 Redespliegue y recuperación simples ante fallos, ya que no hay sesiones persistentes.
+- 🌐 Distribución eficiente y tolerancia a fallos.
 
-<p align="center">
-[Multiples conexiones]
-</p>
-
-## 3. Cacheable
-
-Algunas respuestas del servidor pueden ser cacheadas por los clientes. Para lograr esto, las respuestas con tal objetivo, deben definir algún parámetro para indicar que tal respuesta puede ser cacheada.
-
-Esto quiere decir que si una respuesta es marcada como cacheable, el cliente va a poder persistir esa respuesta desde su lado y consumirla más rápidamente sin la necesidad de ir al servidor.
-
-Esto se hace en aquellas respuestas que se saben que no varian con el tiempo.
-
-Esta restricción bien utilizada puede lograr eliminar la interacción con el servidor de forma parcial o total con el objetivo de mejorar la escalabilidad y performance.
-
-<p align="center">
-  <img src="images/image-17.png"/>
-</p>
-
-## 4. Cliente-Servidor
-
-Al tener una interfaz uniforme logramos separar los clientes de los servidores. Esto permite que los clientes no se preocupen de como los datos son almacenados a procesados, ya que es trabajo del servidor. Esto implica que el código del cliente sea más portable, ligero.
-
-Esto tiene la misma implicancia del lado del servidor, a este no le preocupa manejar una interfaz de usuario o el estado del mismo, ya que los servidores son mas escalables.
-
-Siempre y cuando la interfaz, el contrato, siga cumpliendose, los clientes y los servidores pueden variar.
+**Ejemplo de implementación:**
+```http
+GET /perfil
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+Cada request contiene el token de autenticación en el header, permitiendo que el servidor identifique al usuario sin necesidad de mantener una sesión.
 
 <p align="center">
-  <img src="images/image-18.png"/>
+  <img src="images/image-15.png" alt="Escalabilidad"/>
+</p>
+<p align="center">
+  <em>Escalabilidad</em>
+</p>
+<p align="center">
+  <img src="images/image-16.png" alt="Multiples conexiones"/>
+</p>
+<p align="center">
+  <em>Múltiples conexiones</em>
 </p>
 
-## 5. Tiered y Layered system
+---
 
-Esta restricción implica que un cliente no puede deducir si esta comunicandose con un servidor final o un intermediario (tier).
+## 3️⃣ Cacheable
 
-Los servidores intermediarios permiten mejorar la escalabilidad a traves de habilitar el balanceo de carga y caches compartidos. Cada capa también puede exigir políticas de seguridad. A su vez, se base en una arquitectura en capas.
+🗄️ Las respuestas del servidor pueden ser **cacheadas** por el cliente para reducir la necesidad de repetir solicitudes idénticas.
+
+**¿Cómo funciona?**
+- ✅ Las respuestas incluyen cabeceras (headers) como `Cache-Control` o `ETag` que indican si pueden ser almacenadas en caché y por cuánto tiempo.
+- ⚡ El cliente puede reutilizar estas respuestas, acelerando el acceso y reduciendo carga al servidor.
+- 🚫 Las respuestas que no deben ser cacheadas deben indicar explícitamente que no lo son.
+
+**Ventajas:**
+- 🚦 Mejora la **performance** y la experiencia de usuario.
+- 📈 Aumenta la **escalabilidad** y reduce el tráfico innecesario hacia el servidor.
+
+**Ejemplo de implementación:**
+```http
+GET /noticias
+Cache-Control: public, max-age=600
+```
+Esto indica que la respuesta puede almacenarse en caché durante 10 minutos (600 segundos). El cliente puede mostrar la misma noticia sin pedirla nuevamente al servidor durante ese periodo.
 
 <p align="center">
-  <img src="images/image-19.png"/>
+  <img src="images/image-17.png" alt="Cache"/>
 </p>
+
+---
+
+## 4️⃣ Cliente-Servidor
+
+🧑‍💻 ⇄ 🖥️ El modelo separa la interfaz de usuario (**cliente**) de la gestión de datos y lógica (**servidor**).
+
+**¿Por qué es importante?**
+- El cliente se enfoca en la experiencia de usuario, mientras que el servidor se encarga del almacenamiento, procesamiento y lógica de negocio.
+- Permite que ambos evolucionen de manera independiente mientras respeten la interfaz (API).
+- Facilita el desarrollo multiplataforma: diferentes tipos de clientes (web, móvil, IoT) pueden consumir los mismos servicios.
+
+**Ejemplo de implementación:**
+- Una aplicación móvil, una web SPA y un sistema de administración pueden consumir la misma API RESTful:
+
+```http
+GET /usuarios/42
+```
+Todos obtienen la representación del usuario con ID 42, aunque la forma de mostrarla varía según el cliente.
+
+<p align="center">
+  <img src="images/image-18.png" alt="Cliente-Servidor"/>
+</p>
+
+---
+
+## 5️⃣ Sistema en Capas (Tiered / Layered System)
+
+🏗️ Un cliente **no sabe** si está comunicándose con el servidor final o con un intermediario (por ejemplo, un proxy, un balanceador de carga o una caché compartida).
+
+**Propósitos y ventajas:**
+- ⚖️ Permiten balancear la carga entre múltiples servidores y mejorar la escalabilidad.
+- 🛡️ Implementan políticas de seguridad y filtrado en capas intermedias (firewalls, gateways).
+- 🧩 Facilitan la modularidad y el mantenimiento del sistema, agregando o eliminando capas según sea necesario sin afectar a los clientes.
+
+**Ejemplo de uso:**
+- Un API Gateway recibe todas las solicitudes, realiza autenticación y luego redirige la petición al microservicio correspondiente:
+```http
+Cliente → API Gateway → Servicio de Productos → Base de Datos
+```
+El cliente solo conoce la URL del gateway y no sabe si hay intermediarios o cuántas capas existen detrás.
+
+<p align="center">
+  <img src="images/image-19.png" alt="Sistema en capas"/>
+</p>
+
+---
+
+> 📝 **Resumen:**  
+> Las restricciones REST (interfaz uniforme, stateless, cache, cliente-servidor y sistema en capas) son la base para construir APIs web modernas, eficientes y escalables.
