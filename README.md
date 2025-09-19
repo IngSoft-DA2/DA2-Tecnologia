@@ -1,3 +1,5 @@
+[🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
+
 # 💉 Inyección de Dependencias en .NET Core
 
 ¡Bienvenido! En este documento encontrarás una guía práctica y conceptual sobre el patrón **Inyección de Dependencias** (DI) usando .NET Core y la librería oficial [`Microsoft.Extensions.DependencyInjection`](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
@@ -6,15 +8,13 @@
 
 ## 📖 Índice
 
-- [¿Qué es una dependencia?](#qué-es-una-dependencia)
-- [Problemas que resuelve el patrón DI](#problemas-que-resuelve-el-patrón-di)
-- [Ejemplo de código: Sin DI](#ejemplo-de-código-sin-di)
-- [¿Cómo el patrón DI resuelve el problema?](#cómo-el-patrón-di-resuelve-el-problema)
-- [Ejemplo de código: Con DI](#ejemplo-de-código-con-di)
-- [Configuración de DI en .NET Core](#configuración-de-di-en-net-core)
-  - [Registro de servicios y ciclos de vida](#registro-de-servicios-y-ciclos-de-vida)
-  - [Ejemplos de servicios por ciclo de vida](#ejemplos-de-servicios-por-ciclo-de-vida)
-- [Referencias](#referencias)
+- [¿Qué es una dependencia?](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#-qu%C3%A9-es-una-dependencia)
+- [Problemas que resuelve el patrón DI](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#-problemas-que-resuelve-el-patr%C3%B3n-di)
+- [Ejemplo de código: Sin DI](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#%EF%B8%8F-ejemplo-de-c%C3%B3digo-sin-di)
+- [¿Cómo el patrón DI resuelve el problema?](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#-c%C3%B3mo-el-patr%C3%B3n-di-resuelve-el-problema)
+- [Ejemplo de código: Con DI](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#%EF%B8%8F-ejemplo-de-c%C3%B3digo-con-di)
+- [Configuración de DI en .NET Core](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#%EF%B8%8F-configuraci%C3%B3n-de-di-en-net-core)
+- [Referencias](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/dependency-injection?tab=readme-ov-file#%EF%B8%8F-configuraci%C3%B3n-de-di-en-net-core)
 
 ---
 
