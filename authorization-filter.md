@@ -1,39 +1,69 @@
-# Filtro de autorización
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/filters?tab=readme-ov-file#indice) -> [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#-temas-y-ejemplos-de-c%C3%B3digo)
 
-Son el tipo de filtros que son ejecutados primero, definen el control de acceso a la request a procesar y tienen un único método.
+# 🛡️ Filtros de Autorización en ASP.NET Core
 
-Al ser los primeros filtros que son ejecutados, las excepciones que son arrojadas no serán manejadas por nadie, estos tendrán que definir un manejo de excepciones de forma interna. Esto quiere decir, que si se tiene un filtro de excepciones, este no tendrá alcance a las excepciones que seran lanzadas en el filtro de autorización.
+Los **filtros de autorización** son los primeros en ejecutarse dentro de la pipeline de filtros de ASP.NET Core y su función principal es controlar el acceso a las solicitudes (requests) antes de que cualquier otra lógica sea procesada.
 
-Para implementar un filtro custom de este tipo es necesario implementar la interfaz: `IAuthorizationFilter`.
+---
 
-```C#
+## 🚦 ¿Cómo funcionan?
+
+- **Prioridad máxima:** Se ejecutan antes que cualquier otro filtro o middleware relacionado al controlador.
+- **Control de acceso:** Deciden si una solicitud puede continuar en la pipeline o debe ser bloqueada.
+- **Manejo de excepciones:** Si ocurre una excepción en este filtro, **no será manejada automáticamente** por otros filtros, por lo que debes implementar el manejo de errores dentro del filtro.
+
+---
+
+## 🧑‍💻 Implementación de un filtro de autorización personalizado
+
+Para crear un filtro custom de autorización, implementa la interfaz `IAuthorizationFilter` y el método `OnAuthorization`.
+
+```csharp
 public sealed class AuthorizationFilterAttribute : Attribute, IAuthorizationFilter
 {
-  public void OnAuthorization(AuthorizationFilterContext context)
-  {
-    // some code
-  }
+    public void OnAuthorization(AuthorizationFilterContext context)
+    {
+        // Tu lógica de autorización aquí
+        // Ejemplo: verificar credenciales, roles, claims, etc.
+    }
 }
 ```
 
-El siguiente código mustra como usarlo a nivel de clase o a nivel de método.
+---
 
-```C#
+## 📌 Cómo aplicar el filtro en Controllers y Actions
+
+Puedes utilizar el filtro tanto a nivel de clase (controller) como a nivel de método (action):
+
+```csharp
 [ApiController]
-[Route('endpoints')]
-[AuthorizationFilter]
+[Route("endpoints")]
+[AuthorizationFilter] // Aplica el filtro al controlador completo
 public sealed class CustomController : ControllerBase
 {
-  [HttpGet]
-  [AuthorizationFilter]
-  public void MyAction()
-  {
-    // some code
-  }
+    [HttpGet]
+    [AuthorizationFilter] // Aplica el filtro solo a esta acción
+    public void MyAction()
+    {
+        // Acción protegida por el filtro de autorización
+    }
 }
 ```
 
-## Material de lectura
+---
 
-[Authorization](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction?view=aspnetcore-8.0)
+## 🧐 Buenas prácticas
 
+- **Maneja las excepciones dentro del filtro:** Usa `try-catch` en tu lógica para evitar errores no controlados que puedan terminar la request abruptamente.
+- **Haz la lógica clara:** Asegúrate de que las reglas de autorización sean fáciles de entender y mantener.
+- **Combina con roles y claims:** Puedes aprovechar los mecanismos de roles y claims que ASP.NET Core provee para hacer tu filtro más flexible y seguro.
+
+---
+
+## 📚 Material de lectura
+
+- [Authorization en ASP.NET Core (Documentación Oficial)](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/introduction?view=aspnetcore-8.0)
+
+---
+
+> Los filtros de autorización son tu primera línea de defensa para proteger los endpoints de tu aplicación. ¡Úsalos sabiamente! 🛡️🚀
