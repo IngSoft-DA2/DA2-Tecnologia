@@ -17,6 +17,7 @@ namespace Vidly.WebApi.Filters
         {
             var authorizationHeader = context.HttpContext.Request.Headers[HeaderNames.Authorization];
 
+            // 1. Validar que venga un valor en el header Authorization
             if (string.IsNullOrEmpty(authorizationHeader))
             {
                 context.Result = new ObjectResult(new
@@ -30,6 +31,9 @@ namespace Vidly.WebApi.Filters
                 return;
             }
 
+            // 2. Validar que el valor en el header Authorization tenga formato correcto.
+            // Por ejemplo, si generamos tokens como GUID, debemos validar que el valor sea un GUID
+            // valido y no cualquier otro valor
             var isAuthorizationFormatNotValid = !IsAuthorizationFormatValid(authorizationHeader);
             if (isAuthorizationFormatNotValid)
             {
@@ -45,6 +49,7 @@ namespace Vidly.WebApi.Filters
                 return;
             }
 
+            // 3. Validar que el token no sea uno expirado/deprecado, sea uno vigente
             var isAuthorizationExpired = IsAuthorizationExpired(authorizationHeader);
             if (isAuthorizationExpired)
             {
