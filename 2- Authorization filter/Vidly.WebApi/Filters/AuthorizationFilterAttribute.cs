@@ -12,7 +12,8 @@ namespace Vidly.WebApi.Filters
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            if (context.Result != null)
+            var isResponseSetToClient = context.Result != null; 
+            if (isResponseSetToClient)
             {
                 return;
             }
@@ -37,7 +38,6 @@ namespace Vidly.WebApi.Filters
             var permission = BuildPermission(context);
 
             var hasNotPermission = !userLoggedMapped.HasPermission(permission);
-
             if (hasNotPermission)
             {
                 context.Result = new ObjectResult(new
