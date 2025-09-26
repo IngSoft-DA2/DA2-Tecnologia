@@ -94,9 +94,10 @@ El siguiente ejemplo ilustra el orden en el cual son ejecutados los métodos de 
 | 1         | Global             | OnActionExecuting |
 | 2         | Controller         | OnActionExecuting |
 | 3         | Método             | OnActionExecuting |
-| 4         | Método             | OnActionExecuted  |
-| 5         | Controller         | OnActionExecuted  |
-| 6         | Global             | OnActionExecuted  |
+| 4         | Código             |         -         |
+| 5         | Método             | OnActionExecuted  |
+| 6         | Controller         | OnActionExecuted  |
+| 7         | Global             | OnActionExecuted  |
 
 ## Sobrescribir el orden de ejecución
 
