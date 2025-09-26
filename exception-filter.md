@@ -156,7 +156,7 @@ public class ErrorController : ControllerBase
         var exception = exceptionFeature?.Error;
 
         // En producción, evita mostrar detalles del error
-        var details = HttpContext.RequestServices.GetService<IWebHostEnvironment>()?.IsDevelopment() == true
+        var details = HttpContext.RequestServices.GetService<IWebHostEnvironment>()?.IsDevelopment()
             ? exception?.Message
             : "Ha ocurrido un error inesperado.";
 
@@ -168,6 +168,76 @@ public class ErrorController : ControllerBase
     }
 }
 ```
+
+---
+
+# ❓ ProblemDetails y Results.Problem en ASP.NET Core
+
+## ¿Qué es ProblemDetails?
+
+**ProblemDetails** es una clase estándar en ASP.NET Core que define el formato recomendado para las respuestas de error en APIs REST, siguiendo el estándar [RFC 7807](https://tools.ietf.org/html/rfc7807).
+
+Cuando tu API retorna errores usando este formato, los clientes pueden interpretar, mostrar y manejar los problemas de manera uniforme y predecible.
+
+### Ejemplo de respuesta ProblemDetails (JSON)
+
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc7231#section-6.6.1",
+  "title": "An error occurred while processing your request.",
+  "status": 500,
+  "detail": "Información adicional del error",
+  "instance": "/error"
+}
+```
+
+- **type**: URL con más información sobre el tipo de error.
+- **title**: Breve descripción del error.
+- **status**: Código HTTP.
+- **detail**: Mensaje adicional o detalles del error.
+- **instance**: Endpoint donde ocurrió el error.
+
+---
+
+## ¿Qué es Results.Problem?
+
+`Results.Problem` es un método en ASP.NET Core (Minimal APIs y Controllers) que te permite devolver respuestas usando el formato **ProblemDetails** de manera sencilla y estandarizada.
+
+### Ejemplo en un Controller
+
+```csharp
+public IActionResult HandleError()
+{
+    return Problem(
+        detail: "Ocurrió un error inesperado.",
+        statusCode: 500,
+        title: "Error en el servidor"
+    );
+}
+```
+
+### Ejemplo en Minimal API
+
+```csharp
+app.Map("/error", (HttpContext context) =>
+{
+    var ex = context.Features.Get<IExceptionHandlerFeature>()?.Error;
+    return Results.Problem(
+        statusCode: 500,
+        title: "Error en el servidor"
+        detail: ex?.Message ?? "Error desconocido",
+    );
+});
+```
+
+---
+
+## 🚦 ¿Por qué usar ProblemDetails y Results.Problem?
+
+- **Estandarización:** Las respuestas de error tienen un formato uniforme.
+- **Facilidad de parsing:** Los clientes pueden interpretar errores fácilmente.
+- **Documentación:** El cliente sabe cómo entender y mostrar los errores.
+- **Extensibilidad:** Puedes agregar campos personalizados si lo necesitas.
 
 ---
 
@@ -183,6 +253,9 @@ public class ErrorController : ControllerBase
 
 - [Filtros de excepción en ASP.NET Core (Documentación Oficial)](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-8.0#exception-filters)
 - [UseExceptionHandler Middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-8.0#the-useexceptionhandler-exception-handling-middleware)
+- [RFC 7807 - Problem Details for HTTP APIs](https://tools.ietf.org/html/rfc7807)
+- [Documentación oficial ProblemDetails](https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.problemdetails)
+- [Use Results.Problem en Minimal APIs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis?view=aspnetcore-8.0#problem-details-responses)
 
 ---
 
