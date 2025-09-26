@@ -53,7 +53,7 @@ namespace Vidly.WebApi.Filters
 
         private string BuildPermission(AuthorizationFilterContext context)
         {
-            return permission ?? $"{context.RouteData.Values["action"].ToString().ToLower()}-{context.RouteData.Values["controller"].ToString().ToLower()}";
+            return permission ?? $"{context.RouteData.Values["action"]}-{context.RouteData.Values["controller"]}";
         }
     }
 }
