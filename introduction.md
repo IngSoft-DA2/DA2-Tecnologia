@@ -81,6 +81,7 @@ A continuación se muestra como sería la ejecución en orden de los filtros
 El código de antes en un filtro global
   El código de antes de un filtro de controller
     El código de antes de un filtro de método
+      Código a invocar
     El código de después de un filtro de método
   El código de después de un filtro de controller
 El código de después de un filtro global
