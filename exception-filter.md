@@ -1,3 +1,5 @@
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/filters?tab=readme-ov-file#indice) -> [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#-temas-y-ejemplos-de-c%C3%B3digo)
+
 # 💥 Filtros de Excepciones en ASP.NET Core
 
 Los **filtros de excepciones** permiten manejar de manera global las excepciones no controladas que ocurren en tu aplicación ASP.NET Core. Son ideales para definir políticas personalizadas para el tratamiento de errores, como el registro de logs, la transformación de mensajes de error o la respuesta uniforme al cliente.
