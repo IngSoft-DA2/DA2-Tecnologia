@@ -131,33 +131,37 @@ Permite obtener una instancia del filtro desde el contenedor de servicios (*Depe
 **Definición del filtro:**
 
 ```csharp
-public class CustomFilterService(IMyDependency dependency) : IResultFilter
+public class CustomFilterService(IMyDependency dependency) : IActionFilter
 {
-    public void OnResultExecuting(ResultExecutingContext context)
+    public void OnActionExecuting(ResultExecutingContext context)
     {
       dependency.Action();
     }
-    public void OnResultExecuted(ResultExecutedContext context)
+    public void OnActionExecuted(ResultExecutedContext context)
     {
       dependency.Action();
     }
 }
 ```
 
-**Registro y uso:**
+**Registro en Program.cs**
 
 ```csharp
-builder.Services.AddSingleton<IMyDependency, MyDependency>();
-builder.Services.AddScoped<CustomFilterService>();
+builder
+.Services
+.AddScoped<CustomFilterService>()
+.AddScoped<IMyDependency, MyDependency>();
+```
 
+**Uso en metodo de controller**
+
+```csharp
 [ServiceFilter<CustomFilterService>]
 public void MyActionOnController()
 {
   // ...
 }
 ```
-
-> ⚠️ No usar con servicios que tengan ciclo de vida diferente a `Singleton`.
 
 ---
 
@@ -168,23 +172,35 @@ Similar al anterior, pero el tipo del filtro no es resuelto por el contenedor DI
 **Definición del filtro:**
 
 ```csharp
-public class CustomFilterService(IMyDependency dependency, string parameter1, string parameter2) : IResultFilter
+public class CustomFilterService(
+IMyDependency dependency,
+string parameter1,
+string parameter2)
+: IActionFilter
 {
     // ...
 }
 ```
 
-**Uso:**
+**Registro en Program.cs**
 
 ```csharp
-[TypeFilter(typeof(CustomFilter), Arguments = new object[]{'custom','arguments'})]
+builder
+.Services
+.AddScoped<IMyDependency, MyDependency>();
+```
+
+**Uso en metodo de controller:**
+
+```csharp
+[TypeFilter(typeof(CustomFilter), Arguments = ['custom','arguments'])]
 public void MyActionOnController()
 {
   // ...
 }
 ```
 
-> ⚠️ Misma restricción de ciclo de vida que `ServiceFilter`.
+
 
 ---
 
