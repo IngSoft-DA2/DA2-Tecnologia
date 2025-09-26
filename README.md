@@ -2,7 +2,7 @@
 
 # Indice
 
-- [Web API RESTfull](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api.md)
+- [Web API RESTful](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api.md)
 
 - [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
 
