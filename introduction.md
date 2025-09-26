@@ -156,7 +156,7 @@ builder
 **Uso en metodo de controller**
 
 ```csharp
-[ServiceFilter<CustomFilterService>]
+[ServiceFilter<CustomFilterService>(IsReusable = false)]
 public void MyActionOnController()
 {
   // ...
@@ -193,14 +193,14 @@ builder
 **Uso en metodo de controller:**
 
 ```csharp
-[TypeFilter(typeof(CustomFilter), Arguments = ['custom','arguments'])]
+[TypeFilter(typeof(CustomFilter), Arguments = ['custom','arguments'], IsReusable = false)]
 public void MyActionOnController()
 {
   // ...
 }
 ```
 
-
+> Apesar de que el tipo del servicio (el filtro en si: CustomFilter en este caso) en TypeFilterAttribute no necesita ser declarado en el contenedor de servicios, sus dependencias si van a ser resueltas usando este y opcionalmente aceptar otros argumentos en el constructor resueltos por TypeFilterAttribute
 
 ---
 
