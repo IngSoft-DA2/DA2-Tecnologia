@@ -1,127 +1,187 @@
-# Filtro de excepciones
+# 💥 Filtros de Excepciones en ASP.NET Core
 
-Este filtro define una forma de manejar las excepciones no catcheadas en el sistema de forma global. Puede ser utilizado para manejar políticas custom sobre las excepciones.
+Los **filtros de excepciones** permiten manejar de manera global las excepciones no controladas que ocurren en tu aplicación ASP.NET Core. Son ideales para definir políticas personalizadas para el tratamiento de errores, como el registro de logs, la transformación de mensajes de error o la respuesta uniforme al cliente.
 
-Para implementar un filtro de excepciones, se debe implementar la interfaz `IExceptionFilter`.
+---
 
-El siguiente código muestra como implementar este filtro con la interfaz `IExceptionFilter`:
+## ⚡ ¿Cómo funcionan?
 
-```C#
-public sealed class CustomExceptionFilterAttribute : Attribute, IExceptionFiler
+- Se ejecutan cuando una excepción no ha sido capturada (_uncaught_) durante la ejecución de un controlador o acción.
+- Permiten interceptar errores y definir una respuesta personalizada antes de que la excepción llegue al cliente.
+- Son especialmente útiles como **último recurso**, pero no ofrecen la flexibilidad total de los middlewares para el manejo de errores.
+
+---
+
+## 🧑‍💻 Implementación básica
+
+Para crear un filtro de excepción personalizado, implementa la interfaz `IExceptionFilter` y su método `OnException`:
+
+```csharp
+public sealed class CustomExceptionFilterAttribute : Attribute, IExceptionFilter
 {
-  public void OnException(ExceptionContext context)
-  {
-    //some code to handle exception
-  }
+    public void OnException(ExceptionContext context)
+    {
+        // Tu lógica para manejar la excepción
+        // Ejemplo: Registrar el error y enviar una respuesta amigable
+        context.ExceptionHandled = true;
+        context.Result = new ObjectResult("Ha ocurrido un error inesperado 😱")
+        {
+            StatusCode = 500
+        };
+    }
 }
 ```
 
-El siguiente código muestra como usar el filtro de excepcion a nivel de clase:
+---
 
-```C#
+## 📌 Uso: Aplicar el filtro en controllers
+
+Puedes usar el filtro a nivel de clase para que todas las acciones del controlador estén protegidas:
+
+```csharp
 [ApiController]
 [Route("endpoints")]
-[CustomExceptionFilter]
+[CustomExceptionFilter] // El filtro maneja todas las excepciones del controlador
 public sealed class CustomController : ControllerBase
 {
-  [HttpGet]
-  public void Action()
-  {
-    //some code
-  }
+    [HttpGet]
+    public void Action()
+    {
+        // Código que podría lanzar una excepción
+    }
 }
 ```
 
-Este filtro de excepciones custom, manejará todas las excepciones no manejadas que ocurran dentro de esta clase.
+---
 
-Una vez que llega la excepción al filtro, este deberá de setear a la property `ExceptionHandled` en `true`, o asignar un valor a la property `Result` para responder el error al cliente. Este filtro no puede convertir la respuesta de error en una de éxito, solo el filtro de `Action` puede hacer eso.
+## 🏗️ Estrategias de Implementación
 
-Estos filtros son buenos como último recurso para aquellas excepciones no manejadas dentro del sistema pero tienen la desventaja que no son tan flexibles como un middleware para manejar los errores.
+### 1️⃣ Filtros por controlador
 
-## Caminos de implementación
+Puedes crear un filtro de excepción independiente para cada controlador, manejando únicamente las excepciones que ocurren en ese contexto:
 
-### Camino 1
-
-Se puede tener tantos exception filter como uno quiera, eso da a lugar que se podría tener un exception filter por cada controller donde cada exception filter solo controla las excepciones que se lancen dentro de los métodos de ese controller.
-
-Eso quiere decir que si tenemos los controllers: `Controller1` y el `Controller2`, podríamos crear un filtro de excepción independiente para cada controller.
-
-Teniendo lo siguiente:
-
-```C#
+```csharp
 public sealed class Controller1ExceptionFilterAttribute : Attribute, IExceptionFilter
 {
-  // code to handle unhandle exceptions of Controller1
+    // Maneja errores específicos de Controller1
 }
-```
 
-<p align="center">
-[Filtro de excepción para `Controller1`]
-</p>
-
-```C#
 public sealed class Controller2ExceptionFilterAttribute : Attribute, IExceptionFilter
 {
-  // code to handle unhandle exceptions of Controller2
+    // Maneja errores específicos de Controller2
 }
 ```
 
-<p align="center">
-[Filtro de excepción para `Controller2`]
-</p>
+Y aplicarlos así:
 
-Los cuales se usarían de la siguiente manera:
-
-```C#
+```csharp
 [ApiController]
 [Route("controller1")]
 [Controller1ExceptionFilter]
 public sealed class Controller1Controller : ControllerBase
 {
-  // code to handle unhandle exceptions of Controller1
+    // Acciones protegidas por el filtro de Controller1
 }
-```
 
-<p align="center">
-[Controller1 con su filtro de excepciones]
-</p>
-
-```C#
 [ApiController]
 [Route("controller2")]
 [Controller2ExceptionFilter]
 public sealed class Controller2Controller : ControllerBase
 {
-  // code to handle unhandle exceptions of Controller1
+    // Acciones protegidas por el filtro de Controller2
 }
 ```
 
-<p align="center">
-[Controller2 con su filtro de excepciones]
-</p>
+> Esta estrategia facilita el mantenimiento y permite reglas personalizadas por controlador.
 
-Esto llevaría a tener varios filtros de excepción con un tamaño adecuado para mantener.
+---
 
-Este camino no tiene en cuenta aquellas excepciones que no son especificas del controller, las cuales deben ser manejadas de forma global.
+### 2️⃣ Filtro global de excepciones
 
-### Camino 2
+Puedes definir un solo filtro de excepción para toda la aplicación y registrarlo globalmente en `Program.cs`:
 
-Tener un solo filtro de excepciones el cual tiene el control de cualquier excepción no manejada y este debe ser declarado de forma global.
-
-La implementación del filtro no varía, lo que varía es la forma de utilizarlo, ya que no se especificará en ninguna clase o método.
-
-Para registrar un filtro de excepciones de forma global, es necesario modificar la clase `Program.cs`
-
-```C#
+```csharp
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add<CustomExceptionFilter>();
 });
 ```
 
-Este camino tiene la ventaja de no tener que crear varios filtros de excepciones pequeños y evita el setearlo en cada clase. Tiene la desventaja de que impacta en el mantenimiento del mismo ya que controla todas las excepciones del sistema.
+> Así, cualquier excepción no controlada será interceptada por este filtro, sin necesidad de aplicarlo en cada controlador.
 
-## Material de lectura
+---
 
-[Excepcion](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-8.0#exception-filters)
+## 📝 Detalles importantes
 
+- Para que el filtro gestione la excepción correctamente, asigna `context.ExceptionHandled = true` o establece un valor en `context.Result`.
+- Los filtros de excepción **no capturan errores lanzados fuera del contexto MVC** (por ejemplo, en middlewares).
+- Considera complementar los filtros de excepción con middlewares para un manejo más flexible y global de errores.
+
+---
+
+## 🛠️ Alternativa: Middleware de manejo de errores (`UseExceptionHandler`)
+
+Una alternativa poderosa y recomendada en .NET 8 para el manejo global de errores es el uso del middleware `UseExceptionHandler`. Este middleware captura **todas** las excepciones no controladas en la pipeline, incluso las que ocurren fuera del MVC (por ejemplo, en middlewares, endpoints minimalistas, etc).
+
+### 🚦 ¿Cómo configurarlo?
+
+En `Program.cs`:
+
+```csharp
+app.UseExceptionHandler("/error");
+
+// O para desarrollo (muestra detalles de la excepción)
+app.UseDeveloperExceptionPage();
+```
+
+Esto redirige cualquier excepción no manejada al endpoint `/error`.
+
+---
+
+### 🏁 ¿Cómo debe ser el endpoint `/error`?
+
+Debes definir el endpoint `/error` en tu API para manejar la excepción y devolver una respuesta amigable al cliente. Un ejemplo típico:
+
+```csharp
+[ApiController]
+[Route("error")]
+public class ErrorController : ControllerBase
+{
+    [HttpGet]
+    public IActionResult HandleError()
+    {
+        var exceptionFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+        var exception = exceptionFeature?.Error;
+
+        // En producción, evita mostrar detalles del error
+        var details = HttpContext.RequestServices.GetService<IWebHostEnvironment>()?.IsDevelopment() == true
+            ? exception?.Message
+            : "Ha ocurrido un error inesperado.";
+
+        return Problem(
+            statusCode: 500,
+            title: "Error en el servidor"
+            detail: details,
+        );
+    }
+}
+```
+
+---
+
+### 🛡️ ¿Qué pasa en modo Release?
+
+- En **modo Release** (`ASPNETCORE_ENVIRONMENT=Production`), el middleware oculta los detalles internos de la excepción por seguridad.
+- El endpoint `/error` debe evitar enviar información sensible en la respuesta.
+- El método `Results.Problem` (o `ProblemDetails`) ayuda a estandarizar el formato de los errores y evitar exponer datos confidenciales.
+
+---
+
+## 📚 Material de lectura
+
+- [Filtros de excepción en ASP.NET Core (Documentación Oficial)](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-8.0#exception-filters)
+- [UseExceptionHandler Middleware](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-8.0#the-useexceptionhandler-exception-handling-middleware)
+
+---
+
+> Los filtros de excepción y los middlewares de manejo de errores pueden usarse juntos para crear una estrategia sólida y flexible, protegiendo tu API en todos los escenarios. ¡Elige el enfoque que mejor se adapte a tus necesidades! 🚀🛡️
