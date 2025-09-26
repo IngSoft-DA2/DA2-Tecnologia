@@ -131,7 +131,7 @@ Permite obtener una instancia del filtro desde el contenedor de servicios (*Depe
 **Definición del filtro:**
 
 ```csharp
-public class CustomFilterService(IMyDependency dependency) : IActionFilter
+public sealed class CustomFilter(IMyDependency dependency) : IActionFilter
 {
     public void OnActionExecuting(ResultExecutingContext context)
     {
@@ -149,19 +149,29 @@ public class CustomFilterService(IMyDependency dependency) : IActionFilter
 ```csharp
 builder
 .Services
-.AddScoped<CustomFilterService>()
+.AddScoped<CustomFilter>()
 .AddScoped<IMyDependency, MyDependency>();
 ```
 
 **Uso en metodo de controller**
 
 ```csharp
-[ServiceFilter<CustomFilterService>(IsReusable = false)]
+[ServiceFilter<CustomFilter>]
 public void MyActionOnController()
 {
   // ...
 }
 ```
+
+> ⚠️ **Advertencia sobre `ServiceFilterAttribute`:**
+>
+> El argumento **IsReusable** le indica al framework si puede almacenar en caché y reutilizar la instancia del filtro en futuras requests, incluso en contextos diferentes. Si se establece en `true`, el framework podría mantener y reutilizar la misma instancia; si es `false`, siempre se creará una nueva instancia cuando sea necesario.
+>
+> Es importante entender que **IsReusable** es solo una sugerencia para el framework, y no garantiza que se utilice una sola instancia ni que el filtro siempre se resuelva desde el contenedor de servicios en cada request. 
+>
+> Esto puede generar problemas si el filtro depende de servicios con ciclo de vida **scoped** o **transient** y **IsReusable** está en `true`, ya que dichos servicios podrían quedar **disposed** (eliminados) fuera del contexto original en el que fueron creados.
+>
+> El valor por defecto de **IsReusable** es `false`.
 
 ---
 
@@ -172,7 +182,7 @@ Similar al anterior, pero el tipo del filtro no es resuelto por el contenedor DI
 **Definición del filtro:**
 
 ```csharp
-public class CustomFilterService(
+public sealed class CustomFilter(
 IMyDependency dependency,
 string parameter1,
 string parameter2)
@@ -193,14 +203,23 @@ builder
 **Uso en metodo de controller:**
 
 ```csharp
-[TypeFilter(typeof(CustomFilter), Arguments = ['custom','arguments'], IsReusable = false)]
+[TypeFilter(typeof(CustomFilter), Arguments = ['custom','arguments'])]
 public void MyActionOnController()
 {
   // ...
 }
 ```
+> ⚠️ **Advertencia sobre `TypeFilterAttribute`:**
+>
+> El argumento **IsReusable** le indica al framework si puede almacenar en caché y reutilizar la instancia del filtro en futuras requests, incluso en contextos diferentes. Si se establece en `true`, el framework podría mantener y reutilizar la misma instancia; si es `false`, siempre se creará una nueva instancia cuando sea necesario.
+>
+> Es importante entender que **IsReusable** es solo una sugerencia para el framework, y no garantiza que se utilice una sola instancia ni que el filtro siempre se resuelva desde el contenedor de servicios en cada request. 
+>
+> Esto puede generar problemas si el filtro depende de servicios con ciclo de vida **scoped** o **transient** y **IsReusable** está en `true`, ya que dichos servicios podrían quedar **disposed** (eliminados) fuera del contexto original en el que fueron creados.
+>
+> El valor por defecto de **IsReusable** es `false`.
 
-> Apesar de que el tipo del servicio (el filtro en si: CustomFilter en este caso) en TypeFilterAttribute no necesita ser declarado en el contenedor de servicios, sus dependencias si van a ser resueltas usando este y opcionalmente aceptar otros argumentos en el constructor resueltos por TypeFilterAttribute
+> Apesar de que el tipo del servicio (el filtro en si: **CustomFilter** en este caso) en TypeFilterAttribute no necesita ser declarado en el contenedor de servicios, sus dependencias si van a ser resueltas usando este y opcionalmente aceptar otros argumentos en el constructor resueltos por TypeFilterAttribute
 
 ---
 
