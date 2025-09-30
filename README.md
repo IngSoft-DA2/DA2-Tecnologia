@@ -110,13 +110,27 @@ Vertical Slice Architecture propone organizar el código por funcionalidades o "
 Descubrirás una alternativa moderna a la organización tradicional por capas, enfocada en separar la lógica de negocio por caso de uso o funcionalidad. Esto facilita la mantenibilidad, la escalabilidad y la entrega incremental de funcionalidades, especialmente útil para equipos ágiles y proyectos que requieren adaptación constante.
 
 **Lecturas:**
+- [Vertical Slice Architecture](https://www.youtube.com/watch?v=dQdXHRkePr8)
 - [The problem with Clean Architecture: Vertical Slices](https://medium.com/design-microservices-architecture-with-patterns/the-problem-with-clean-architecture-vertical-slices-111537c0ffcb#:~:text=In%20a%20Vertical%20Slice%20architecture,are%20delivered%20over%20the%20web.)
-- [Vertical Slice Architecture (YouTube: KqWNtCpjUi8)](https://www.youtube.com/watch?v=KqWNtCpjUi8&t=19)
-- [Presentación, Dominio y Capa de Datos - Martin Fowler](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
 </details>
 
 <details>
 <summary><strong>Lecturas adicionales y recursos generales</strong></summary>
+
+<details>
+<summary><strong>Event Driven Design:</strong></summary>
+
+**Resumen:**
+Event Driven Design Architecture propone una arquitectura donde los componentes del sistema interactúan reaccionando a eventos que indican la ocurrencia de acciones relevantes.
+
+**Utilidad:**
+Es útil para crear sistemas flexibles y escalables, permitiendo que los componentes se comuniquen de forma desacoplada y reaccionen eficientemente a eventos relevantes en tiempo real.
+
+**Lecturas:**
+-[Cómo usarlo](https://www.youtube.com/watch?v=BimfDeDV4yU)
+-[Diferencia de tipos de eventos](https://www.youtube.com/watch?v=K806a-rWE2g)
+</details>
+
 
 **Resumen:**  
 Estos recursos complementan los estilos arquitectónicos principales, presentando guías y reflexiones de expertos sobre patrones, buenas prácticas y decisiones de diseño que afectan a la arquitectura de aplicaciones modernas.
@@ -127,6 +141,7 @@ Complementan los conceptos, presentan discusiones críticas sobre los patrones y
 **Lecturas:**
 - [Guía de arquitecturas comunes de aplicaciones web en Azure (.NET)](https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures)
 - [Principios de Layering (Martin Fowler)](https://martinfowler.com/bliki/LayeringPrinciples.html)
+- [Presentación, Dominio y Capa de Datos - Martin Fowler](https://martinfowler.com/bliki/PresentationDomainDataLayering.html)
 </details>
 
 ---
