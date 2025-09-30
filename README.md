@@ -4,12 +4,14 @@
 
 - [Web API RESTful](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api.md)
 
-- Buenas practicas
+- Implementación Buenas practicas
   - [Health check](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/health-check.md)
-    - [Implementación automática](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/health-check-automatic.md)   
+    - [Implementación automática](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/health-check-automatic.md)
+  - [Api versión](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/api-version-imp.md)
+  - [Respuesta parcial](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/partial-response-imp.md)
   - [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/dtos.md)
 
-- [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
+- [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-projec.md)
 
 - Elementos en un proyecto Web API .NET
 
