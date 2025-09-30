@@ -4,14 +4,21 @@
 
 - [Web API RESTful](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/web-api.md)
 
+- Buenas practicas
+  - [Health check](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/health-check.md)
+    - [Implementación automática](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/health-check-automatic.md)   
+  - [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/dtos.md)
+
 - [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
 
-- [Program.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/program.md)
+- Elementos en un proyecto Web API .NET
 
-- [appsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/appsettings.md)
+  - [Program.cs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/program.md)
 
-- [launchsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/launchsettings.md)
+  - [appsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/appsettings.md)
 
-- [Controllers](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
+  - [launchsettings.json](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/launchsettings.md)
 
-- [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/dtos.md)
+  - [Controllers](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/controller.md)
+
+
