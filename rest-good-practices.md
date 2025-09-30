@@ -168,7 +168,7 @@ Es esencial manejar el versionado con cuidado para evitar problemas como la frag
 ### 🔢 Formas de versionar:
 - En la URI: `/v1/products`
 - En query params: `/products?version=1`
-- En headers: `Accept: application/vnd.example.v1+json`
+- En headers: `X-API-Version: 1`
 
 ### 💡 Ejemplo:
 ```http
