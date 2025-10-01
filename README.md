@@ -26,6 +26,13 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 
 ---
 
+## 📺 Canales recomendados
+
+- [Amantin Band](https://www.youtube.com/@amantinband)
+- [Milan Jovanovic - resultados de búsqueda](https://www.youtube.com/results?search_query=milan+jovanovic)
+
+---
+
 ## 📖 Material Teórico
 
 Se recopila una serie de lecturas y recursos recomendados para profundizar en los principales estilos de arquitectura de software aplicados en el mundo .NET y en el desarrollo de aplicaciones empresariales modernas. Los materiales cubren Domain Driven Design (DDD), Clean Architecture, Onion Architecture, Layered Architecture, así como recursos adicionales para entender cómo aplicar estos patrones y sus ventajas. Estas lecturas son útiles tanto para desarrolladores que buscan buenas prácticas como para arquitectos de software que desean tomar decisiones informadas sobre la estructura de sus aplicaciones.
