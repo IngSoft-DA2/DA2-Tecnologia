@@ -29,7 +29,7 @@ Antes de comenzar, sigue cada una de estas guías para asegurarte de tener un en
 ## 📺 Canales recomendados
 
 - [Amantin Band](https://www.youtube.com/@amantinband)
-- [Milan Jovanovic - resultados de búsqueda](https://www.youtube.com/results?search_query=milan+jovanovic)
+- [Milan Jovanovic](https://www.youtube.com/@MilanJovanovicTech)
 
 ---
 
