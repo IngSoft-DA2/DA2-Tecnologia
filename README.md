@@ -74,16 +74,16 @@ En resumen, a pesar de las desventajas, reflection sigue siendo una **herramient
 ### 🔍 1. Reflection Autoanálisis
 Aprende los fundamentos de reflection explorando y analizando objetos en tiempo de ejecución. 
 
-- 🔗 [Ejemplo 1]((./1-%20Reflection%20autoanalisis/))
+- 🔗 [Ejemplo 1](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/reflection/1-%20Reflection%20autoanalisis)
 
 ### 📦 2. Reflection Cargar Assembly
 Descubre cómo cargar y utilizar assemblies externos dinámicamente.
 
-- 🔗 [Ejemplo 2](./2-%20Reflection%20cargar%20assembly/)
+- 🔗 [Ejemplo 2](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/reflection/2-%20Reflection%20cargar%20assembly)
 
 ### 🎯 3. Reflection Práctico
 Implementa algoritmos de ordenamiento cargados dinámicamente usando reflection.
 
-- 🔗 [Ejemplo 3](./3-%20Reflection%20practico/)
+- 🔗 [Ejemplo 3](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/reflection/3-%20Reflection%20practico)
 
 
