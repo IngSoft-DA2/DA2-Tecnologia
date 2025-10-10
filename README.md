@@ -65,7 +65,7 @@ El uso de assemblies por reflection propone una vulnerabilidad ya que estos asse
 En resumen, a pesar de las desventajas, reflection sigue siendo una **herramienta poderosa** 💪, particularmente en escenarios donde la flexibilidad que trae en tiempo de ejecución y el dinamismo sobre comportamientos es esencial. Sin embargo, es importante usar reflection de forma **cautelosa** ⚠️ y considerar caminos alternativos para mitigar posibles problemas.
 
 ## 💡 Ejemplo Práctico
-- 🔗 [Ejemplo de reflection real](https://github.com/CodeQuality-Uyu/unit-of-work/blob/main/CQ.UnitOfWork.Abstractions/Extensions/ExceptionExtensions.cs)
+<img width="950" height="389" alt="image" src="https://github.com/user-attachments/assets/042341cb-a67b-4f2e-ac49-58830fa3b8d7" />
 
 ---
 
