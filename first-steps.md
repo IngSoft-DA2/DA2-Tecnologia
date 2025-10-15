@@ -1,75 +1,79 @@
-[Volver - EFCore](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core#indice)
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/ef-core#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
-# Primeros pasos
+# 🌱 Primeros pasos con EF Core
 
-Para iniciar con EF Core en nuestra aplicacion, es necesario instalar el paquete `Microsoft.EntityFrameworkCore`.
+---
 
-- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-visual-studio.md)
+## 📦 Instalación de EF Core
 
-- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-dotnet-cli.md)
+Para comenzar a utilizar EF Core en tu aplicación, primero debes instalar el paquete principal:
 
-## Crear contexto concreto
+- `Microsoft.EntityFrameworkCore`
 
-Una vez instalado EF Core en el proyecto con la responsabilidad de interactuar con la base de datos. Debemos de crear una clase concreta, especifica para nuestro negocio que configure la conexion a la base de datos. Esta clase se identifica por ser un `contexto concreto`.
+Puedes hacerlo de dos maneras:
+- [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-visual-studio.md) 🚀
+- [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-ef-core-dotnet-cli.md) 💻
 
-```C#
+---
+
+## 🏗️ Creación del contexto concreto
+
+El contexto concreto representa tu acceso directo a la base de datos. Su clase debe ser específica para tu negocio y facilitar la configuración de la conexión.
+
+```csharp
 public sealed class VidlyDbContext : DbContext
 {
-  // some code
+  // Código aquí
 }
 ```
 
-El nombre del `contexto concreto` debe de dar informacion sobre de que negocio es el contexto, asi se puede identificar rapidamente con que base de datos opera y que tablas podemos encontrar en ella.
+> 📝 El nombre del contexto debe reflejar claramente a qué negocio pertenece, permitiendo identificar rápidamente qué base de datos y qué tablas se manejarán.
 
-Tambien se podria dar informacion sobre que ORM utiliza, quedando el nombre asi:
+Si tienes varios contextos y distintos ORMs, puedes ser más explícito con el nombre:
 
-```C#
+```csharp
 public sealed class VidlyEfCoreDbContext : DbContext
 {
-  // some code
+  // Código aquí
 }
 ```
 
-Esta notacion es util cuando se tienen varios `contextos concretos` y se utilizan ORM diferentes, algunos relacionales y otros no relacionales.
+Esta nomenclatura es útil para distinguir entre contextos que emplean diferentes tecnologías, sean relacionales o no.
 
-## Crear tablas
+---
 
-Dentro del `contexto concreto` deberemos de configurar el set de tablas con las que el contexto puede trabajar.
+## 🗃️ Configuración de tablas
 
-```C#
+Dentro del contexto concreto, deberás definir los sets de tablas (`DbSet`) con los que trabajará tu aplicación:
+
+```csharp
 public sealed class VidlyDbContext : DbContext
 {
   public DbSet<Movie> Movies { get; set; }
-
   public DbSet<User> Users { get; set; }
 }
 ```
 
-Las properties de tipo `DbSet` son las que indicaran que tablas se tendran que crear en la base de datos y el nombre es tomado por el nombre de la property. Esto implica que con el ejemplo se van a crear dos tablas, una `Users` y otra `Movies`.
+Las propiedades de tipo `DbSet` indican qué tablas se crearán en la base de datos. El nombre de la propiedad define el nombre de la tabla resultante.
 
-## Conexion a la base de datos
+---
 
-A la hora de indicar que nuestro contexto se deba de conectar a a la base de datos, debemos de ser lo mas flexible posibles ya que, nuestra base puede variar segun el ambiente en el cual queramos correr la aplicacion. Esto quiere decir, que podemos tener diferentes base de datos, una por cada ambiente en la cual ejecutemos nuestra aplicacion.
+## 🔗 Configuración de la conexión a la base de datos
 
-Podemos tener los siguientes ambientes:
+La forma de conectar tu contexto a la base de datos debe ser flexible, ya que puede variar según el entorno. Por ejemplo:
 
-- Produccion: la base de datos guardara informacion real de nuestra aplicacion de usuarios finales.
+- **Producción**: datos reales de usuarios finales.
+- **Desarrollo**: datos similares a producción para pruebas.
+- **QA**: ambiente de pruebas libre.
+- **Local**: datos personales de cada desarrollador.
 
-- Desarrollo: la base de datos guardara informacion muy parecida a la real en produccion, sirve para trabajar con un buen set de datos.
+El constructor del contexto debe permitir recibir la configuración adecuada según el entorno:
 
-- QA: la base de datos aca es para probar libremente, sin miedo a dejar inconsistencias o probar cosas.
-
-- Local: la base de datos es personal para cada desarrollador, sus datos no son compartidos.
-
-Como nuestra aplicacion puede ser ejecutada en alguno de estos ambientes u otros, la forma de setear a que base de datos se debe de conectar el contexto, debe ser lo mas flexible posible. No solamente estamos siendo flexibles a que base de datos se esta conectando sino que tambien a que motor de base de datos se esta conectando. Para eso definiremos el siguiente constructor:
-
-```C#
+```csharp
 public sealed class VidlyDbContext : DbContext
 {
   public DbSet<Movie> Movies { get; set; }
-
   public DbSet<User> Users { get; set; }
-
   public VidlyDbContext(DbContextOptions options)
     : base(options)
     {
@@ -77,15 +81,13 @@ public sealed class VidlyDbContext : DbContext
 }
 ```
 
-En caso de que nuestra aplicacion maneje mas de un contexto concreto, se debera de especificar de la siguiente manera:
+Si tienes múltiples contextos concretos, especifica el tipo en las opciones:
 
-```C#
+```csharp
 public sealed class VidlyDbContext : DbContext
 {
   public DbSet<Movie> Movies { get; set; }
-
   public DbSet<User> Users { get; set; }
-
   public VidlyDbContext(DbContextOptions<VidlyDbContext> options)
     : base(options)
     {
@@ -93,41 +95,35 @@ public sealed class VidlyDbContext : DbContext
 }
 ```
 
-Con el contexto hasta ahora es suficiente para crear las migraciones y utilizarlo para ejecutar consultas a nuestra base de datos. Toda la interaccion contra la base debe ser a traves de un contexto concreto, ya que es la clase que configura la conexion.
+> ⚡ ¡Toda interacción con la base debe hacerse a través de un contexto concreto!
 
-## Configuracion del motor de base de datos
+---
 
-Previamente a utilizar el contexto concreto en nuestra aplicacion, debemos de configurarlo para que utilice la base de datos del ambiente que se este ejecutando.
+## 🛠️ Configuración del motor de base de datos
 
-La configuracion tomara lugar en el inicio de nuestra aplicacion, bajo el contexto de una web api en .NET 8 es en la clase `Program.cs`.
+Antes de usar el contexto, debes configurarlo para utilizar el proveedor de base de datos adecuado en tu ambiente.  
+Por ejemplo, en una Web API en .NET 8, esto se hace en `Program.cs`.
 
-Como se dijo anteriormente, EF Core es un framework que soporta multiples proveedores de base de datos, alguno de ellos son: SQL Server, SQLite, MySQL, PostgreSQL. Para hacer uso cualquiera de ellos, es necesario instalar el paquete correspondiente en nuestra solucion.
+EF Core soporta varios proveedores, como:
+- SQL Server
+- SQLite
+- MySQL
+- PostgreSQL
 
-Los paquetes para esos proveedores son los siguients:
-
-- [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer)
-- [Microsoft.EntityFrameworkCore.Sqlite](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Sqlite)
-- [Microsoft.EntityFrameworkCore.MySql](https://www.nuget.org/packages/Pomelo.EntityFrameworkCore.MySql)
-- [Microsoft.EntityFrameworkCore.PostgreSQL](https://www.nuget.org/packages/Npgsql.EntityFrameworkCore.PostgreSQL)
-
-Pueden encontrar mas sobre los diferentes proveedores de base de datos que soporta EF Core [aca](https://learn.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli)
-
-A continuacion se detallara como instalar el proveedor `Microsoft.EntityFrameworkCore.SqlServer`, para operar con dicho motor de base de datos con EF Core.
-
+Instala el paquete del proveedor que necesites. Ejemplo para SQL Server:
 - [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-visual-studio.md)
 - [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-sql-server-dotnet-cli.md)
 
-```C#
+Código de ejemplo para configurar el contexto:
+
+```csharp
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-
 builder.Services.AddControllers();
 
 var services = builder.Services;
 var configuration = builder.Configuration;
 
-var vidlyConnectionString = configureation.GetConnectionString("Vidly");
+var vidlyConnectionString = configuration.GetConnectionString("Vidly");
 if(string.IsNullOrEmpty(vidlyConnectionString))
 {
   throw new Exception("Missing Vidly connection string");
@@ -136,136 +132,158 @@ if(string.IsNullOrEmpty(vidlyConnectionString))
 services.AddDbContext<DbContext, VidlyDbContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
-// Configure the HTTP request pipeline.
-
 app.MapControllers();
-
 app.Run();
 ```
 
-<p align="center">
-[Configuracion de ef core para usar sql server]
-</p>
+> 📄 El connection string debe estar definido en tu archivo de configuración según el ambiente.
 
-En esta configuracion leemos el `connection-string` segun el ambiente en el cual se ejecute la web api. En caso de que no se encuentre un valor configurado, se lanza una excepcion causando la interrupcion de la web api. Para evitar conflictos los archivos de configuracion deben encontrarse de la siguiente manera:
+Ejemplo en `appsettings.json` (no debe estar ignorado por GitHub):
 
-```JSON
+```json
 {
-  "ConnectionStrings":{
+  "ConnectionStrings": {
     "Vidly": ""
   }
 }
 ```
 
-<p align="center">
-[appsettings.json, no debe estar ignorado por GitHub]
-</p>
+Ejemplo en `appsettings.Development.json` (debe estar ignorado por GitHub):
 
-```JSON
+```json
 {
-  "ConnectionStrings":{
+  "ConnectionStrings": {
     "Vidly": "test"
   }
 }
 ```
 
-<p align="center">
-[appsettings.Development.json, debe de ser ignorado por GitHub]
-</p>
+---
 
-Posteriormente se configura la inyeccion de `VidlyDbContext` con el uso de SQL Server y usando el `connection-string` provisto.
+## 🐳 SQL Server con Docker: ¡Guía rápida y accesible!
 
-## Primera migracion
+> 🐋 ¿Quieres usar SQL Server en tu entorno de desarrollo local sin instalarlo directamente?  
+> ¡Usar Docker es una excelente opción!  
+> Accede directamente a la guía detallada aquí ➡️ [Guía: Usar SQL Server con Docker](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md)
 
-Para realizar migracines es necesario instalar el paquete:
+Esta guía te explica cómo levantar un contenedor con SQL Server, configurar contraseñas, puertos, y conectar tu aplicación.  
+Es especialmente útil para desarrolladores en MacOS, Linux o quienes prefieren entornos aislados.
 
-- **Microsoft.EntityFrameworkCore.Design**: sirve para que EF Core logre interpretar las entidades y pueda realizar un modelado de tablas
+Al crear el connection string para MacOS/Docker, reemplaza los valores según tu configuración:
 
-<!-- - **Microsoft.EntityFrameworkCore.Tools**: permite crear y aplicar migraciones y generar codigo a partir de una base de datos existente. -->
+```json
+{
+  "ConnectionStrings":{
+    "Vidly": "Server=localhost, <puerto>; Database=Vidly; User ID=<usuario>; Password=<password>; TrustServerCertificate=true;"
+  }
+}
+```
 
-Instalacion en:
+Sustituye:
+- `<usuario>`: el usuario creado en el contenedor
+- `<password>`: la contraseña de ese usuario
+- `<puerto>`: el puerto expuesto por el contenedor Docker
 
+---
+
+## 🧩 Migraciones: tu primer migración
+
+Para crear migraciones instala:
+
+- **Microsoft.EntityFrameworkCore.Design**: para que EF Core interprete las entidades y modele las tablas.
+
+Instalación:
 - [Visual Studio](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-visual-studio.md)
-
 - [Por comandos](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/install-migrations-dotnet-cli.md)
 
-La creacion de las migraciones y ejecucion de las mismas, ocurren por consola:
+Pasos para crear y ejecutar la migración:
 
-### 1. Chequear que estoy en la raiz de la solucion
+### 1. Ubícate en la raíz de la solución
 
-```
+```shell
 ls
 ```
 
 Comandos:
+- `ls`: lista elementos en un directorio.
 
-- `ls`: lista eleemntos en un directorio
+---
 
-### 2. Instalar tools
+### 2. Instala las herramientas EF Core
 
-```
+```shell
 dotnet tool install --global dotnet-ef
 ```
 
-### 3. Pararse en el proyecto donde se encuentra el contexto
+Comandos:
+- `dotnet`: ejecuta comandos de .NET.
+- `tool`: parámetro para trabajar con herramientas.
+- `install`: instala una herramienta.
+- `--global`: instala la herramienta de forma global en el sistema.
+- `dotnet-ef`: herramienta de Entity Framework Core para crear y aplicar migraciones.
 
-```
+---
+
+### 3. Ingresa al proyecto donde está el contexto
+
+```shell
 cd Vidly.WebApi
 ```
 
 Comandos:
+- `cd`: ingresar a un directorio.
+- `Vidly.WebApi`: nombre del directorio al que acceder.
 
-- `cd`: entrar a un directorio
-- `Vidly.WebApi`: directorio al cual quiero acceder
+---
 
-### 4. Chequeo que estoy dentro de `Vidly.WebApi`
+### 4. Verifica que estás en el directorio correcto
 
-```
+```shell
 ls
 ```
 
-### 5. Crear primera migracion
+Comandos:
+- `ls`: lista elementos en el directorio actual.
 
-Para las migraciones no es necesario tener un valor valido para el `connection-string`, pero si es necesario que tenga un valor.
+---
 
-```
+### 5. Crea la primer migración
+
+No es necesario un connection string válido para crear la migración, pero debe tener algún valor.
+
+```shell
 dotnet ef migrations add InitialCreation --verbose
 ```
 
 Comandos:
-
-- `dotnet`: programa para ejecutar comandos de dotnet
-
-- `ef`: parametro para operar con base de datos
-
-- `migrations`: parametro para operar con migraciones
-
-- `add`: parametro para indicar la creacion de una migracion
-
-- `InitialCreation`: nombre de la migracion
-
-- `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
+- `dotnet`: ejecuta comandos de .NET.
+- `ef`: parámetro para operar con Entity Framework Core.
+- `migrations`: parámetro para trabajar con migraciones.
+- `add`: indica la creación de una migración.
+- `InitialCreation`: nombre de la migración.
+- `--verbose`: imprime en detalle lo que se está ejecutando y los errores.
 
 #### 5.1 Contexto en otro proyecto
 
-En caso de que el contexto se encuentre en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comando a ejecutar situado en el proyecto del contexto es el siguiente:
+Si el contexto está en otro proyecto distinto al de la configuración, ejecuta el comando desde el proyecto del contexto y especifica el startup project:
 
-```
-dotnet ef migrations add InitialCreation --verbose --startup-project ../<<directorio del proyecto de web api>>
+```shell
+dotnet ef migrations add InitialCreation --verbose --startup-project ../<directorio del proyecto de web api>
 ```
 
 Comando extra:
+- `--startup-project`: indica el proyecto donde está la configuración del contexto para usar en tiempo de diseño.
 
-- `--startup-project`: indicacion del proyecto donde se encuentra la configuracion del contexto para usar en tiempo de diseño.
+---
 
-### 6. Chequear que se creo la migracion
+### 6. Chequear que se creó la migración
 
 <p align="center">
 <img src="./images/image-23.png"/>
 </p>
 
 <p align="center">
-[Resultado de creacion exitoso]
+[Resultado de creación exitoso]
 </p>
 
 <p align="center">
@@ -276,17 +294,18 @@ Comando extra:
 [Carpeta de migraciones con las clases]
 </p>
 
-Se debio de crear una carpeta `Migrations` en el directorio donde se ejecuto el comando de migracion.
+- Se crea una carpeta `Migrations` con las clases generadas.
+- Más info: [resultado de migración](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/migration-result.md).
 
-Pueden encontrar mas informacion sobre las clases que se crearon [aca](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/migration-result.md).
+---
 
-### 7. Ejecutar migracion
+### 7. Ejecuta la migración
 
-Para este paso es necesario que el `connection-string` dentro del archivo de configuracion del ambiente `appsettings.Development.json` tenga un valor valido para entablar una conexion con SQL Server.
+Tu connection string en `appsettings.Development.json` debe ser válido para SQL Server.
 
-Para windows:
+Ejemplo para Windows:
 
-```JSON
+```json
 {
   "ConnectionStrings":{
     "Vidly": "Server=localhost;Database=Vidly; Integrated Security=True;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True"
@@ -294,25 +313,26 @@ Para windows:
 }
 ```
 
-Pueden descargar SQL Server en Windows [aca](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+Descarga SQL Server para Windows [aquí](https://www.microsoft.com/en-us/sql-server/sql-server-downloads).
 
-Para MacOS:
+Ejemplo para MacOS (opciones):
 
-```JSON
+```json
 {
   "ConnectionStrings":{
-    "Vidly": "Server=localhost, <<su puerto>>; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; Integrated Security=True; Trusted_Connection=True;"
+    "Vidly": "Server=localhost, <puerto>; Database=Vidly; User ID=<usuario>; Password=<password>; Integrated Security=True; Trusted_Connection=True;"
   }
 }
 ```
+
 <p align="center">
   [Opcion 1]
 </p>
   
-```JSON
+```json
 {
   "ConnectionStrings":{
-    "Vidly": "Server=localhost, <<su puerto>>; Database=Vidly; User ID=<<su usuario>>; Password=<<su password>>; TrustServerCertificate=true;"
+    "Vidly": "Server=localhost, <puerto>; Database=Vidly; User ID=<usuario>; Password=<password>; TrustServerCertificate=true;"
   }
 }
 ```
@@ -320,47 +340,47 @@ Para MacOS:
   [Opcion 2]
 </p>
 
-Pueden seguir la siguiente [guia](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md) para tener SQL Server con Docker. Esta forma de trabajar con SQL Server es un requerimiento para MacOS y opcional para Windows.
+> 🔗 **¡No olvides que si quieres usar Docker para SQL Server, la guía está disponible aquí:**  
+> [Guía: Usar SQL Server con Docker](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/ef-core/sql-with-docker.md)
 
-Sustituir:
+Sustituye:
+- `<usuario>`: por el usuario creado en SQL Server.
+- `<password>`: por la contraseña de ese usuario.
+- `<puerto>`: por el puerto indicado en la creación del contenedor.
 
-- `<<su usuario>>`: por el usuario que crearon ustedes en SQL Server
+Para aplicar la migración y actualizar la base de datos:
 
-- `<<su password>>`: por la contraseña de ese usuairo en SQL Server
-
-- `<<su puerto>>`: por el puerto indicado en la creacion del container
-
-Ejecucion:
-
-```
+```shell
 dotnet ef database update --verbose
 ```
 
 Comandos:
+- `database`: parámetro para operar con la base de datos.
+- `update`: parámetro para actualizar la base.
+- `--verbose`: imprime en detalle lo que se está ejecutando y los errores.
 
-- `database`: parametro para operar con la base
+Si la migración está en otro proyecto distinto al de la configuración:
 
-- `update`: parametro par actualizar la base
-
-- `verbose`: para que se imprima a detalle lo que se esta ejecutando y los errores
-
-En caso de que las migraciones se encuentren en otro proyecto distinto al proyecto donde se configura el contexto, en este caso en `Vidly.WebApi`, el comadno a ejecutar es el siguiente:
-
+```shell
+dotnet ef database update --verbose --startup-project ../<directorio del proyecto de web api>
 ```
-dotnet ef database update --verbose --startup-project ../<<directorio del proyecto de web api>>
-```
+
+Comando extra:
+- `--startup-project`: indica el proyecto donde está la configuración del contexto para usar en tiempo de diseño.
 
 <p align="center">
 <img src="./images/image-25.png">
 </p>
 
 <p align="center">
-[Resultado en consola de ejecutar la migracion]
+[Resultado en consola de ejecutar la migración]
 </p>
 
-### 8. Chequear la creacion de la base de datos
+---
 
-Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) o [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio?tabs=win-install%2Cwin-user-install%2Credhat-install%2Cwindows-uninstall%2Credhat-uninstall)) que interactua con SQL Server, y refrezcar para ver la nueva base de datos.
+### 8. Chequear la creación de la base de datos
+
+Utiliza el cliente de tu elección ([SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16) o [Azure Data Studio](https://learn.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16)) para visualizar la base creada.
 
 <p align="center">
 <img src="./images/image-26.png">
@@ -370,14 +390,16 @@ Utilizar el cliente a eleccion ([SQL Server Management Studio (SSMS)](https://le
 [Base de datos en Management Studio]
 </p>
 
-## Material de lectura
+---
 
-[Iniciar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+## 📚 Material de lectura recomendado
 
-[Aplicar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli)
+- [Iniciar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
+- [Aplicar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying?tabs=dotnet-core-cli)
+- [Gestionar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli)
+- [Configuración de contexto para migraciones](https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli)
+- [Herramientas EF Core](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
 
-[Gestionar migraciones](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/managing?tabs=dotnet-core-cli)
+---
 
-[Como indicar la configuracion del contexto para la migracion](https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli)
-
-[Entity Framework Core tools](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+¡Sigue estos pasos, experimenta y aprende! 😃
