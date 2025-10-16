@@ -113,7 +113,7 @@ Te permite crear, desarrollar, probar y mantener aplicaciones Angular de manera 
 Con Node.js y npm listos, instala [Angular CLI](https://v17.angular.io/cli) para crear y gestionar tus proyectos Angular desde la terminal.
 
 ```CMD
-npm install -g @angular/cli
+npm install -g @angular/cli@19
 ```
 
 Verifica la instalación con:
@@ -127,7 +127,7 @@ ng version
 </p>
 <p align="center"><em>📋 Versión de Angular CLI instalada</em></p>
 
-La versión recomendada para este entorno es **Angular CLI `18.0.1`**.
+La versión recomendada para este entorno es **Angular CLI `19`**.
 
 ---
 
