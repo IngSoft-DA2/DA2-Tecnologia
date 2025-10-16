@@ -1,46 +1,63 @@
-# Inicios en paginas web
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/angular?tab=readme-ov-file#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
-Antes de hablar sobre que es angular y las SPAs, es necesario hablar sobre que opcion existia antes que estos para entenderlas un poco mejor como operan.
+# 🌐 Inicios en Páginas Web
 
-Dicha opcion era conocida como MPAs (Multi-Page Applications), y esta define que la composicion de la aplicacion es un conjunto de archivos separados HTML. Cuando un usuario interactua con la aplicacion, el navegador envia la request http al servidor para que la procese y este genere el HTML necesario para enviarselo al navegador del cliente. Esto establece que la comunicacion entre cliente-servidor es un envio constante de archivos HTML, js y css. Esto hace que la pagina web entera se refrezque con todo el contenido nuevo.
+Antes de sumergirnos en Angular y las SPAs (Single Page Applications), es fundamental entender cómo funcionaban las aplicaciones web antes de su aparición. Así podrás comprender mejor la evolución y ventajas de los enfoques modernos.
 
-<p align="center">
-<img src="./images/image.png">
-</p>
-<p align="center">
-[Comunicacion entre cliente-servidor]
-</p>
+La principal alternativa previa eran las **MPAs** (Multi-Page Applications) 🗂️, donde la estructura de la aplicación se componía de múltiples archivos HTML independientes. Cada vez que el usuario interactuaba con la aplicación, el navegador debía solicitar una nueva página al servidor, recargando el contenido por completo.
 
-Esta opcion para la epoca era la esperada y acorde, pero la misma tenia sus desventajas. Imaginemos que estamos navegando por una tienda online construida como MPA. Cuando navegamos de la pagina de inicio a la pagina de un producto especifico, el navegador solicita la nueva pagina al server. El server reune toda la informacion necesaria, como los detalles del producto e imagenes, los reune en el HTML de la pagina del producto, y la envia al navegador del cliente. El navegador descarta la pagina actual en la que se encontraba y carga la pagina nueva que el servidor le envia. Este proceso se repita para cada interaccion que requiere nueva data o una nueva vista.
+---
 
 <p align="center">
-<img src="./images/image-1.png">
+  <img src="./images/image.png">
 </p>
+<p align="center"><em>🔄 Comunicación entre cliente y servidor</em></p>
+
+---
+
+En su momento, este método era el estándar y funcionaba acorde a las necesidades de la época. Sin embargo, tenía varias desventajas. Imagina que navegas por una tienda online construida como una MPA: cada vez que cambias de página (por ejemplo, de "inicio" a "productos"), el navegador descarga y renderiza una página nueva, generando un proceso de recarga constante.
+
+---
+
 <p align="center">
-[Navegacion en una pagina MPA]
+  <img src="./images/image-1.png">
 </p>
+<p align="center"><em>🌍 Navegación en una página MPA</em></p>
 
-En las MPAs, la mayoria de la logica de la aplicacion y el procesamiento de la data ocurre del lado del servidor. Cuando un usuario solicita una pagina, el servidor corre scripts para buscar la data desde la base de datos, popular los templates con la data y le envia un archivo HTML completo al cliente. Este metodo asegura que el contenido es generado dinamicamente.
+---
 
-Sin embargo, esta opcion de construccion paginas web, significa la reconstruccion de la pagina entera para cada interaccion con el usuario sin importar la magnitud del mismo, desde un click a un link hasta submitear un formulario. Esto puede hacer la experiencia de usuario (UX) un poco lenta y desajustada porque el contenido de la pagina entera es recargada, incluso si una pequeña parte de la misma es la que cambia. Los usuarios experimentan un delay notable y un flash visual mientras que la pagina nueva se renderiza.
+## ⚙️ ¿Cómo funcionan las MPAs?
 
-Para mejorar la experiencia de usuario, los desarrolladores empezaron a utilizar tecnicas como AJAX (Asynchronous JavaScript and XML) para actualizar partes de la pagina de forma asincrona sin la necesidad de actualizar toda la pagina. Esto permitio una interaccion mas fluida con las MPAs y la creacion de elementos mas dinamicos como actualizar un carrito de compra sin la necesidad de recargar la pagina completa. Sin embargo, estas actualizaciones con AJAX eran un suplemento al motor de la arquitectura MPA, donde la recarga de las paginas completas era la norma en la mayoria de las interacciones.
+En las MPAs, la mayor parte de la lógica y el procesamiento de datos ocurre **del lado del servidor** 🖥️. Cuando el usuario solicita una página, el servidor ejecuta scripts para buscar datos, procesa los templates y arma el HTML que luego envía al navegador.
 
-Por mucho tiempo la creacion de las paginas web haciendo uso esta arquitectura fue efectiva, pero eventualmente decallo con la aparicion de las SPAs (Single Page Application) la cual ofrece una experiencia mas fluida y un comportamiento mas como una aplicacion al cargar un unico archivo HTML y dinamicamente actualizarle el contenido a traves de JavaScript sin la necesidad de recargar la pagina completamente.
+Cada interacción, sin importar qué tan pequeña (un simple click en un enlace, por ejemplo), provoca la reconstrucción y recarga total de la página. Esto puede resultar en una experiencia fragmentada y menos fluida para el usuario 😕.
 
-## Caracteristicas
+---
 
-- Recarga de paginas completas: tradicionalmente las aplicaciones web requerian que la pagina entera se refrezcara para cada nueva request o evento ocurrido. Esto resultaba que cada interaccion entre la pagina y el usuario resultaba en una request HTTP al servidor solicitando la pagina con los cambios pertinentes.
+## 🚀 Mejoras y transición
 
-- Renderizacion del lado del servidor (SSR): el armado del contenido ocurria del lado del servidor, el servidor era capaz de generar el HTML dinamicamente al procesar templates e integrar la data desde la logica interna del servidor con la base de datos.
+Para mejorar la experiencia, los desarrolladores comenzaron a implementar técnicas como **AJAX** (Asynchronous JavaScript and XML) ⚡, que permite actualizar secciones de la página de manera asincrónica, evitando el recargo completo.
 
-- Comunicacion sincronica: las interacciones con el usuario que requerian data del servidor, el navegador tenia que esperar a que el servidor respondiera antes de continuar.
+Aunque la arquitectura MPA fue efectiva durante mucho tiempo, eventualmente perdió popularidad con la llegada de las **SPAs** (Single Page Applications), que ofrecen una experiencia mucho más dinámica y fluida 💫.
 
-- Experiencia fragmentada: dado la naturaleza del refrezco completo de las paginas, la experiencia de usuario se veia afectada por un delay notable y unos efectos visuales de refrezco de toda la pagina
+---
 
-## Tecnolgoias usadas
+## 📝 Características principales de las MPAs
 
-- HTML/CSS
-- JavaScript
-- Lenguajes del lado del servidor: PHP, ASP.NET, Java, Python y Ruby eran muy populares para generar contenido dinamico en el servidor
-- Base de datos: relacionales como MySQL, PostgreSQL y SQL Server eran los mas comunes para almacenar y gestionar la data
+- 🔄 **Recarga completa de páginas:** Cada interacción que requiera nuevo contenido implica un refresco total del sitio web.
+- 🖥️ **Renderización del lado del servidor (SSR):** El servidor genera el HTML dinámicamente antes de enviarlo al navegador, integrando los datos en los templates.
+- ⏳ **Comunicación sincrónica:** El navegador debe esperar la respuesta del servidor antes de continuar con la interacción.
+- 🚧 **Experiencia fragmentada:** Los recargos completos generan tiempos de espera visibles y efectos visuales que pueden resultar molestos para el usuario.
+
+---
+
+## 🛠️ Tecnologías utilizadas en las MPAs
+
+- 📄 **HTML/CSS:** Estructura y estilos de las páginas web.
+- 💻 **JavaScript:** Para interactividad básica y mejoras progresivas.
+- 🧑‍💻 **Lenguajes del lado del servidor:** PHP, ASP.NET, Java, Python, Ruby (muy populares para generar contenido dinámico).
+- 🗄️ **Bases de datos relacionales:** MySQL, PostgreSQL, SQL Server (almacenamiento y gestión de datos).
+
+---
+
+> Las MPAs sentaron las bases de la web moderna, pero la evolución hacia SPAs permitió crear aplicaciones más rápidas, interactivas y agradables para los usuarios 👨‍💻🚀.
