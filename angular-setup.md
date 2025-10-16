@@ -6,6 +6,13 @@
 
 ---
 
+## 💻 ¿Por qué necesito Node.js para Angular?
+
+Angular depende de **Node.js** para ejecutar herramientas de desarrollo, scripts y gestionar dependencias. Si quieres saber más sobre Node.js, su rol en frontend, ventajas y comparativas, consulta la guía completa en  
+👉 [Node.js: Fundamentos, Comparativas, Instalación y su Rol en Proyectos Frontend](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/node-js.md).
+
+---
+
 ## 💻 Verifica tu versión de Node.js
 
 Angular requiere una **versión LTS de Node.js**. Para comprobar la versión instalada, abre tu terminal y ejecuta:
@@ -13,7 +20,7 @@ Angular requiere una **versión LTS de Node.js**. Para comprobar la versión ins
 ```CMD
 node --version
 ```
-La versión recomendada es **`20.13.1`**.  
+La versión recomendada es **`20.19.5`**.  
 ¿No tienes esta versión? ¡No te preocupes! Aquí te mostramos cómo instalarla o actualizarla 👇.
 
 ---
@@ -50,8 +57,8 @@ Antes de instalar **nvm (Node Version Manager)**, desinstala cualquier versión 
 
 ```CMD
 nvm
-nvm install 20.13.1
-nvm use 20.13.1
+nvm install 20.19.5
+nvm use 20.19.5
 ```
 
 Para ver todas las versiones instaladas por nvm:
@@ -77,10 +84,9 @@ Después de instalar Node.js:
 
 ```CMD
 node --version
-# Esperado: 20.13.1
+# Esperado: 20.19.5
 
 npm --version
-# Esperado: 10.5.2
 ```
 
 ¡Asegúrate de tener las versiones correctas antes de continuar! ✔️
@@ -166,6 +172,7 @@ Estos plugins mejorarán tu experiencia y productividad.
 ## 📚 Lecturas recomendadas
 
 - [👩‍💻 Tu primera aplicación en Angular](https://v17.angular.io/tutorial/first-app)
+- [🟩 Node.js: Fundamentos, Comparativas, Instalación y su Rol en Proyectos Frontend](https://github.com/IngSoft-DA2/DA2-Tecnologia/blob/main/node-js.md)
 
 ---
 
