@@ -1,126 +1,172 @@
-# Descargar Angular
+[🔙 Indice](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/angular?tab=readme-ov-file#indice) → [🏠 Main](https://github.com/IngSoft-DA2/DA2-Tecnologia/tree/main?tab=readme-ov-file#da2-tecnologia--dise%C3%B1o-de-aplicaciones-2)
 
-Angular requiere una version LTS de Node. Para confirmar la version de `node.js` debemos ejectuar el siguiente comando en una terminal:
+# 🛠️ Guía de Instalación de Angular
+
+¿Listo para dar tus primeros pasos con Angular? 🚀 Antes de comenzar a crear aplicaciones modernas, necesitas preparar tu entorno. ¡Sigue estos pasos para instalar Angular de forma rápida y sencilla!
+
+---
+
+## 💻 Verifica tu versión de Node.js
+
+Angular requiere una **versión LTS de Node.js**. Para comprobar la versión instalada, abre tu terminal y ejecuta:
 
 ```CMD
 node --version
 ```
+La versión recomendada es **`20.13.1`**.  
+¿No tienes esta versión? ¡No te preocupes! Aquí te mostramos cómo instalarla o actualizarla 👇.
 
-La version a utilizar debe ser la `20.13.1`, en caso de no tener esta version, seguir los siguientes pasos para actualizarla o instalarla en caso de no tener ninguna version instalada.
+---
 
-## Descargar Node.js
+## 📥 Descarga e instala Node.js
 
-### Con nvm en windows
+### 🤔 ¿Qué es NVM y por qué usarlo?
 
-Antes de realizar la instalacion de nvm, es necesario desinstalar cualquier version de node que este instalada en la maquina para evitar posibles problemas.
+**NVM** (*Node Version Manager*) es una herramienta que te permite instalar, gestionar y cambiar fácilmente entre diferentes versiones de Node.js en tu computadora.
 
-Con nvm (node version manager) podremos tener mas de una version de Node en la maquina. Para ello tenemos que ir a [nvm](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file) y descargamos el [nvm-setup.zip](https://github.com/coreybutler/nvm-windows/releases) de la ultima version. Lo instalamos y ya podremos usar los comandos:
+#### 🚀 Ventajas de NVM
+
+- **Gestión de múltiples versiones:** Alterna entre varias versiones de Node.js según lo requiera cada proyecto, evitando conflictos.
+- **Facilidad de actualización:** Actualizar Node.js es tan simple como ejecutar un comando, sin desinstalaciones manuales.
+- **Entornos limpios:** Cada proyecto puede funcionar con la versión de Node.js que necesita, evitando incompatibilidades.
+- **Ahorro de tiempo y simplicidad:** Instalar, eliminar o cambiar versiones lleva segundos.
+- **Ideal para equipos y CI/CD:** Facilita la configuración homogénea en equipos y servidores.
+
+#### ⚡ ¿Por qué es mejor que instalar una sola versión de Node.js?
+
+Con NVM tienes **flexibilidad** y **compatibilidad**: si instalas solo una versión, si otro proyecto requiere una diferente, tendrás que desinstalar y reinstalar manualmente, lo que genera errores y pérdida de tiempo. NVM te permite satisfacer todos los requisitos de tus proyectos, manteniendo tu entorno actualizado y sin romper nada.
+
+> **En resumen:**  
+**NVM** te da control total sobre las versiones de Node.js, haciendo tu flujo de trabajo más flexible, eficiente y sin dolores de cabeza. ¡Es la mejor práctica recomendada para cualquier desarrollador de Node.js! 💯
+
+---
+
+### 🔄 Usando nvm en Windows
+
+Antes de instalar **nvm (Node Version Manager)**, desinstala cualquier versión previa de Node.js para evitar conflictos.
+
+1. Descarga nvm desde [nvm-windows](https://github.com/coreybutler/nvm-windows?tab=readme-ov-file).
+2. Instala nvm y abre la terminal:
 
 ```CMD
 nvm
-nvm install <<version de node a instalar>>
-nvm use <<version de node instalada>>
+nvm install 20.13.1
+nvm use 20.13.1
 ```
 
-Para listar todas las versiones de node gestionadas por nvm, ejectuar:
+Para ver todas las versiones instaladas por nvm:
 
 ```CMD
 nvm list
 ```
 
-### Con fnm en windows o nvm en macOS
+### 🍏 Usando fnm en Windows/MacOS o nvm en MacOS
 
-Tambien podemos seguir los pasos de [Node.js](https://nodejs.org/en/download/package-manager) y seleccionamos la version anteriormente dicha y la procedemos a descargar con `fnm` en caso de estar trabajando con Windows o con `nvm` en caso de estar con macOS.
+- Sigue la guía oficial en [Node.js - Package Manager](https://nodejs.org/en/download/package-manager).
+- Descarga la versión recomendada usando **fnm** o **nvm** según tu sistema operativo.
 
-### Un instalador de una version especifica
+### 📦 Instalador específico
 
-Tambien podemos descargar una version de Node.js desde un [installer](https://nodejs.org/en/download/prebuilt-installer).
+- Descarga el instalador de la versión deseada desde [Node.js Installer](https://nodejs.org/en/download/prebuilt-installer).
 
-### Verificar version de Node.js y npm
+---
 
-Una vez terminada la instalacion ejectuar:
+## ✅ Verifica Node.js y npm
+
+Después de instalar Node.js:
 
 ```CMD
 node --version
-```
+# Esperado: 20.13.1
 
-La salida esperada debe ser: `20.13.1`
-
-y luego
-
-```CMD
 npm --version
+# Esperado: 10.5.2
 ```
 
-La salida esperada debe ser: `10.5.2`
+¡Asegúrate de tener las versiones correctas antes de continuar! ✔️
 
-Para corroborar la version instalada y que se esta usando.
+---
 
-## Instalar Angular CLI
+## ⚡ Instala Angular CLI
 
-Con `node.js` y `npm` instalado, el siguiente paso es instalar [Angular CLI](https://v17.angular.io/cli), la cual es una herramienta de interfaz de comandos para inicializar, desarrollar y mantener aplicaciones de Angular directamente desde una terminal.
+### ¿Qué es CLI y para qué sirve Angular CLI? 🅰️🖥️
 
-Desde una terminal ejectuar el siguiente comando:
+**CLI** significa **Command Line Interface** (Interfaz de Línea de Comandos). Es una herramienta que permite interactuar con un software directamente desde la terminal mediante comandos.
+
+**Angular CLI** es la interfaz de línea de comandos oficial para Angular.  
+Te permite crear, desarrollar, probar y mantener aplicaciones Angular de manera rápida y sencilla usando comandos como `ng new`, `ng serve`, `ng generate`, entre otros.
+
+#### Ventajas de Angular CLI:
+- Automatiza tareas comunes, como la creación de componentes, servicios y módulos.
+- Facilita la inicialización y configuración de proyectos Angular.
+- Permite ejecutar servidores de desarrollo, compilar el código y generar builds de producción.
+- Mejora la productividad y homogeneidad de los proyectos.
+
+---
+
+Con Node.js y npm listos, instala [Angular CLI](https://v17.angular.io/cli) para crear y gestionar tus proyectos Angular desde la terminal.
 
 ```CMD
 npm install -g @angular/cli
 ```
 
-Para chequear si quedo instalado ejectuar:
+Verifica la instalación con:
 
 ```CMD
 ng version
 ```
 
-Teniendo como resultado:
-
 <p align="center">
 <img src="./images/image-13.png"/>
 </p>
-<p align="center">
-[Version de Angular CLI]
-</p>
+<p align="center"><em>📋 Versión de Angular CLI instalada</em></p>
 
-Es importante que la version de `Angular CLI` sea la `18.0.1` para la version de `node` `20.13.1` y `npm` `10.5.2`.
+La versión recomendada para este entorno es **Angular CLI `18.0.1`**.
 
-En caso de que tengamos esa version de node pero una version de angular-cli mas vieja, ejectuar lo siguiente:
+---
 
-Podemos ejecutar una de las siguientes opciones:
+### 🆕 ¿Actualizar Angular CLI?
 
-### Instalar ultima version
+Si tienes una versión antigua, puedes:
 
-```CMD
-npm install -g @angular/cli@latest
+- Instalar la última versión:
+
+  ```CMD
+  npm install -g @angular/cli@latest
+  ```
+
+- O desinstalar y volver a instalar:
+
+  ```CMD
+  npm uninstall -g @angular/cli
+  npm install -g @angular/cli
+  ```
+
+¿Problemas de actualización? Elimina los archivos `ng` en:
+
 ```
-
-Eso nos deberia de sobreescribir la version que se tiene instalada.
-
-### Desinstalar y volver a instalar
-
-```CMD
-npm uninstall -g @angular/cli
-```
-
-Y volver a instalar nuevamente Angular CLI.
-
-Si la version no sufrio alguna variacion, dirijirse al directorio donde tienen instalado npm:
-
-```CMD
 C://Users/<<nombre de usuario>>/AppData/Roaming/npm
 ```
+Y reinstala Angular CLI.
 
-Ahi encontraran 3 archivos con el nombre `ng`, eliminarlos.
+---
 
-Volver a instalar nuevamente Angular CLI.
+## 🖥️ Instala tu IDE
 
-## Descargar un IDE
+Puedes usar cualquier editor, pero te recomendamos [Visual Studio Code](https://code.visualstudio.com/), ¡el favorito de la comunidad! ✨
 
-Se puede utilizar cualquier editor de texto preferido, sin embargo, es altamente recomendado que se descarge [Visual Studio Code](https://code.visualstudio.com/).
-
-Para mejorar la experiencia de desarrollo es recomendado instalar los siguientes plugins en Visual Studio Code:
+### 🔌 Plugins recomendados para VSCode
 
 - [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
 
-## Lecturas recomendadas
+Estos plugins mejorarán tu experiencia y productividad.
 
-- [Primera aplicacion en Angular](https://v17.angular.io/tutorial/first-app)
+---
+
+## 📚 Lecturas recomendadas
+
+- [👩‍💻 Tu primera aplicación en Angular](https://v17.angular.io/tutorial/first-app)
+
+---
+
+> ¡Ya tienes todo listo para comenzar a crear aplicaciones increíbles con Angular! 🅰️✨
