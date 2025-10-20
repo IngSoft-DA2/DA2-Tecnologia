@@ -43,6 +43,15 @@ Se recopila una serie de lecturas y recursos recomendados para profundizar en lo
 - **Casos Prácticos:** Incluyen artículos y ejemplos aplicados en .NET y ASP.NET Core.
 - **Visión Crítica:** Algunos materiales discuten ventajas y desventajas, ayudando a elegir el enfoque correcto para cada caso.
 
+### Biblografia
+- **Design Patterns: Elements of Reusable Object-Oriented Software**
+- **Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin Series)**
+- **Learning UML 2.0: A Pragmatic Introduction to UML**
+- **Domain-Driven Design: Tackling Complexity in the Heart of Software**
+- **Software Architecture in Practice (SEI Series in Software Engineering)**
+- **Unit Testing Principles, Practices, and Patterns**
+- **Clean Code: A Handbook of Agile Software Craftsmanship**
+
 <details>
 <summary><strong>Domain Driven Design (DDD)</strong></summary>
 
