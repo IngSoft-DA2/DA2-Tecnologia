@@ -4,19 +4,6 @@ Guía práctica para levantar una instancia de SQL Server (Azure SQL Edge) usand
 
 ---
 
-## Índice
-- 1. Requisitos
-- 2. Limpieza de recursos no utilizados 🧹
-- 3. Crear una red de desarrollo (opcional) 🌐
-- 4. Descargar la imagen de SQL Server 📥
-- 5. Crear y ejecutar el contenedor ▶️
-- 6. Conectarse desde un cliente (SSMS / Azure Data Studio) 🔌
-- 7. Docker Compose (ejemplo) 🧩
-- 8. Consejos y solución de problemas 🛠️
-- 9. Ventajas de Docker Compose y explicación de volúmenes (¿son opcionales?) ✅
-
----
-
 ## 1. Requisitos ✅
 
 - Tener Docker instalado y en ejecución.  
