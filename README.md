@@ -181,10 +181,12 @@ Complementan los conceptos, presentan discusiones críticas sobre los patrones y
 - [Entity Framework Core](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/ef-core)
 - [Filters](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/filters)
 - [Reflection](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/reflection)
+- [Deploy BE](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/deploy-be.md)
 
 ### Segunda Parte: SPAs y Angular
 
 - [Angular](https://github.com/daniel18acevedo/DA2-Tecnologia/tree/angular)
+- [Deploy FE](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/main/deploy-fe.md)
 
 ---
 
