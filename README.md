@@ -11,7 +11,7 @@
   - [Respuesta parcial](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/partial-response-imp.md)
   - [DTOs](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/dtos.md)
 
-- [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-projec.md)
+- [Creación de un proyecto web api](https://github.com/daniel18acevedo/DA2-Tecnologia/blob/web-api/create-web-api-project.md)
 
 - Elementos en un proyecto Web API .NET
 
