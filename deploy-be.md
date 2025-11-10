@@ -179,7 +179,7 @@ Luego de instalar, probá abriendo [http://localhost](http://localhost): deberí
 ## 2. Preparar IIS para aplicaciones .NET modernas 🧩
 
 ### 2.1. Instalar el **.NET Hosting Bundle** ⬇️
-Descargá e instalá el **ASP.NET Core Hosting Bundle** desde la página oficial de descargas de .NET correspondiente a tu versión (por ejemplo, .NET 8).  
+Descargá e instalá el [**ASP.NET Core Hosting Bundle**](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-8.0.21-windows-hosting-bundle-installer) desde la página oficial de descargas de .NET correspondiente a tu versión (por ejemplo, .NET 8).  
 Este paquete:
 
 - instala el runtime de ASP.NET Core,  
