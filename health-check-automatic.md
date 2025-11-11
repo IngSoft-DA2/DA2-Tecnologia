@@ -103,3 +103,9 @@ app.MapHealthChecks("/health", new HealthCheckOptions
 ---
 
 **¡Así tu API será robusta y confiable! 🚀**
+
+---
+
+## Referencias
+- [Detalles](https://www.youtube.com/watch?v=4abSfjdzqms)
+- [Blog](https://khalidabuhakmeh.com/health-checks-for-aspnet-core-and-entity-framework-core)
