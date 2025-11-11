@@ -5,7 +5,6 @@
 1. **Agregar NuGet Packages**  
    Asegúrate de tener los siguientes paquetes instalados:
    ```bash
-   dotnet add package Microsoft.AspNetCore.Diagnostics.HealthChecks
    dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks
    dotnet add package Microsoft.EntityFrameworkCore.SqlServer # O el proveedor de tu base de datos
    dotnet add package AspNetCore.HealthChecks.EntityFrameworkCore
