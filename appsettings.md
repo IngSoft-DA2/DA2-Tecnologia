@@ -82,7 +82,7 @@ Las **User Secrets** son una funcionalidad de ASP.NET Core para almacenar inform
 ### 🚀 ¿Cómo se configuran?
 
 1. **Inicializa User Secrets en tu proyecto:**
-   En la terminal, ubícate en la carpeta del proyecto y ejecuta:
+   En la terminal, ubícate en la carpeta del proyecto web api y ejecuta:
    ```bash
    dotnet user-secrets init
    ```
