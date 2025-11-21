@@ -64,8 +64,16 @@ El uso de assemblies por reflection propone una vulnerabilidad ya que estos asse
 
 En resumen, a pesar de las desventajas, reflection sigue siendo una **herramienta poderosa** 💪, particularmente en escenarios donde la flexibilidad que trae en tiempo de ejecución y el dinamismo sobre comportamientos es esencial. Sin embargo, es importante usar reflection de forma **cautelosa** ⚠️ y considerar caminos alternativos para mitigar posibles problemas.
 
-## 💡 Ejemplo Práctico
+## 💡 Ejemplos Práctico
 <img width="950" height="389" alt="image" src="https://github.com/user-attachments/assets/042341cb-a67b-4f2e-ac49-58830fa3b8d7" />
+<p align="center">
+[Setear inner exception a una excepcion que no tiene]
+</p>
+
+<img width="850" height="99" alt="image" src="https://github.com/user-attachments/assets/f093d6f5-5e64-4dfa-8101-36dad44ad9e3" />
+<p align="center">
+  [Corroborar valor del estado interno sin accesibilidad desde afuera]
+</p>
 
 ---
 
